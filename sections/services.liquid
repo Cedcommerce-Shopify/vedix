@@ -1,0 +1,55 @@
+<div class="bg-[#B9DABD] py-4 px-6 border-y border-solid border-[#333333]">
+  <div class="container mx-auto">
+    <ul class="flex items-center justify-center gap-4 overflow-x-auto snap-x touch-auto">
+      {%- for block in section.blocks -%}
+        <li class="snap-start flex-[0_0_auto]">
+          <div class="flex items-center justify-center gap-2">
+            {% if block.settings.col_image != blank %}
+              <span class="flex items-center justify-center w-[40px] h-[40px]">
+                <img
+                  src="{{ block.settings.col_image | img_url: '30px' }}"
+                  class="h-full w-auto"
+                  loading="lazy"
+                  width="30"
+                  height="30"
+                  alt="{{ block.settings.alt }}" />
+              </span>
+            {% endif %}
+            <p class="text-[#333333] font-AnekLatin-Medium text-[15px]/[20px]">{{ block.settings.title }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Services Vedix",
+    "class": "section",
+    "tag": "section",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Block",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "col_image",
+            "label": "Image"
+          }, {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "Add column heading here"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Services Vedix"
+      }
+    ]
+  }
+{% endschema %}

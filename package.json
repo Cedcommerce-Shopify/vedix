@@ -1,0 +1,20 @@
+{
+  "name": "vedix-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-2": "npx tailwindcss build css/tailwind.css -o assets/tailwind.css.liquid && theme deploy --allow-live",
+    "build": "npx tailwindcss build css/tailwind.css -o assets/tailwind.css.liquid"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "css": "^3.0.0",
+    "postcss": "^8.4.32",
+    "tailwind": "^4.0.0"
+  }
+}

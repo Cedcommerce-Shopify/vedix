@@ -1,0 +1,70 @@
+<div class="bg-[#FFFFFF] py-8">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-[28px]/[32px] text-[#131818] text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
+    <ul class="grid grid-cols-2 md:grid-cols-3 gap-5">
+      {%- for block in section.blocks -%}
+        <li class="flex flex-col gap-8">
+          <div class="flex flex-col items-center justify-center gap-3">
+            {% if block.settings.col_image != blank %}
+              <span class="border border-solid border-[#131818] rounded-md overflow-hidden">
+                <img
+                  src="{{ block.settings.col_image | img_url: 'master' }}"
+                  loading="lazy"
+                  width="{{ block.settings.col_image.width }}"
+                  height="{{ block.settings.col_image.height }}"
+                  alt="{{ block.settings.col_image.alt }}" />
+              </span>
+            {% endif %}
+            <div class="flex flex-col gap-1">
+              <h4 class="text-[#000000] text-[16px]/[18px] capitalize font-AnekLatin-Bold tracking-tight">{{ block.settings.col_heading }}</h4>
+              <p class="text-[#000000] text-[16px]/[18px] capitalize tracking-tight">{{ block.settings.title }}</p>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Awards & Accolades",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "info": "Add section heading here"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Block",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "col_image",
+            "label": "Image"
+          }, {
+            "type": "text",
+            "id": "col_heading",
+            "label": "Heading",
+            "info": "Add column title here"
+          }, {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "Add column info here"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Awards & Accolades"
+      }
+    ]
+  }
+{% endschema %}
