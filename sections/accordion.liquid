@@ -1,9 +1,9 @@
 <div class="bg-white py-8 bg-no-repeat bg-cover bg-center" style="background-image: url('{{ section.settings.section_image |  img_url: 'master' }}')">
   <div class="container mx-auto px-4 text-center">
     <h2 class="text-[28px]/[32px] text-woodsmoke text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
-    <ul class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-5" role="grid">
       {%- for block in section.blocks -%}
-        <li class="flex flex-col gap-8 text-left">
+        <li class="flex flex-col gap-8 text-left" role="gridcell">
           <div class="flex flex-col border border-solid border-woodsmoke">
             {% if block.settings.col_image != blank %}
               <span class="bg-linen overflow-hidden">
@@ -27,7 +27,10 @@
       {% endfor %}
     </ul>
     {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white">{{ section.settings.button_text }}
+      <a
+        href="{{ section.settings.button_link }}"
+        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white"
+        role="button">{{ section.settings.button_text }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="11.796"

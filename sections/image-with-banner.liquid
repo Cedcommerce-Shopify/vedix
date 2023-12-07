@@ -12,7 +12,10 @@
     <h1 class="text-woodsmoke font-bold text-[34px]/[36px] mb-3 font-AnekLatin-SemiBold">{{ section.settings.heading }}</h1>
     <div class="text-woodsmoke">{{ section.settings.paragraph }}</div>
     {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white absolute bottom-0 left-1/2 -translate-x-1/2 md:relative md:left-0 md:-translate-x-0 w-max">{{ section.settings.button_text }}
+      <a
+        href="{{ section.settings.button_link }}"
+        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white absolute bottom-0 left-1/2 -translate-x-1/2 md:relative md:left-0 md:-translate-x-0 w-max"
+        role="button">{{ section.settings.button_text }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="11.796"
