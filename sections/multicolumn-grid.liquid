@@ -1,10 +1,10 @@
-<div class="bg-[#F9F7F0] py-8">
+<div class="bg-ecru-white py-8">
   <div class="container mx-auto px-4 text-center">
-    <h2 class="text-[28px]/[32px] text-[#131818] text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
+    <h2 class="text-[28px]/[32px] text-woodsmoke text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
     <ul class="grid grid-cols-3 gap-3">
       {%- for block in section.blocks -%}
         <li class="flex flex-col gap-8">
-          <div class="bg-[#FBF1E7] rounded-lg p-4 text-left">{{ block.settings.paragraph }}</div>
+          <div class="bg-linen rounded-lg p-4 text-left">{{ block.settings.paragraph }}</div>
           <div class="flex flex-col items-center justify-center gap-3">
             {% if block.settings.col_image != blank %}
               <span class="rounded-full overflow-hidden">
@@ -16,13 +16,13 @@
                   alt="{{ block.settings.alt }}" />
               </span>
             {% endif %}
-            <p class="text-[#000000] text-[16px]/[18px] uppercase font-AnekLatin-Bold tracking-tight">{{ block.settings.title }}</p>
+            <p class="text-black text-[16px]/[18px] uppercase font-AnekLatin-Bold tracking-tight">{{ block.settings.title }}</p>
           </div>
         </li>
       {%- endfor -%}
     </ul>
     {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-[#131818] bg-[#DE5844] px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white">{{ section.settings.button_text }}
+      <a href="{{ section.settings.button_link }}" class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white">{{ section.settings.button_text }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="11.796"

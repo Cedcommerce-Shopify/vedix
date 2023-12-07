@@ -1,12 +1,12 @@
-<div class="bg-[#FFFFFF] py-8">
+<div class="bg-white py-8">
   <div class="container mx-auto px-4 text-center">
-    <h2 class="text-[28px]/[32px] text-[#131818] text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
+    <h2 class="text-[28px]/[32px] text-woodsmoke text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
     <ul class="grid grid-cols-2 md:grid-cols-3 gap-5">
       {%- for block in section.blocks -%}
         <li class="flex flex-col gap-8">
           <div class="flex flex-col items-center justify-center gap-3">
             {% if block.settings.col_image != blank %}
-              <span class="border border-solid border-[#131818] rounded-md overflow-hidden">
+              <span class="border border-solid border-woodsmoke rounded-md overflow-hidden">
                 <img
                   src="{{ block.settings.col_image | img_url: 'master' }}"
                   loading="lazy"
@@ -16,8 +16,8 @@
               </span>
             {% endif %}
             <div class="flex flex-col gap-1">
-              <h4 class="text-[#000000] text-[16px]/[18px] capitalize font-AnekLatin-Bold tracking-tight">{{ block.settings.col_heading }}</h4>
-              <p class="text-[#000000] text-[16px]/[18px] capitalize tracking-tight">{{ block.settings.title }}</p>
+              <h4 class="text-black text-[16px]/[18px] capitalize font-AnekLatin-Bold tracking-tight">{{ block.settings.col_heading }}</h4>
+              <p class="text-black text-[16px]/[18px] capitalize tracking-tight">{{ block.settings.title }}</p>
             </div>
           </div>
         </li>

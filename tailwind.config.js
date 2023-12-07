@@ -7,6 +7,33 @@ module.exports = {
 
   theme: {
     extend: {
+      colors: {
+        givry: "#F8E4C3",
+        "ecru-white": "#F9F7F0",
+        woodsmoke: "#131818",
+        linen: "#FBF1E7",
+        "cape-palliser": "#9E6D44",
+        "quarter-spanish-white": "#F7EEDF",
+        "bridal-heath": "#FFF8F1",
+        "de-york": "#8BC292",
+        "white-lilac": "#E7E3F4",
+        merino: "#FAF7F1",
+        almond: "#F0E2CC",
+        supernova: "#FFC80B",
+        alto: "#D9D9D9",
+        "supernova-2": "#FFC808",
+        "grain-brown": "#DFC6AC",
+        surf: "#B9DABD",
+        "mine-shaft": "#333333",
+        "bull-shot": "#884D1C",
+        cameo: "#D5B89F",
+        "flame-pea": "#DE5844",
+        "fruit-salad": "#53A35D",
+        "blue-marguerite": "#8573C6",
+        tuna: "#313133",
+        soapstone: "#FFFBF8",
+        "silver-chalice": "#A0A0A0",
+      },
       fontFamily: {
         "AnekLatin-Regular": ["AnekLatin-Regular", "sans-serif"],
         "AnekLatin-Medium": ["AnekLatin-Medium", "sans-serif"],
