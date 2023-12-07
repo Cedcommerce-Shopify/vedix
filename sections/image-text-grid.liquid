@@ -1,7 +1,7 @@
 <div class="bg-white py-8">
   <div class="container px-4 mx-auto text-center">
     <h2 class="text-[28px]/[32px] text-woodsmoke text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.title }}</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5" role="grid">
       {%- for block in section.blocks -%}
         <div class="border border-solid border-woodsmoke">
           <div class="bg-bridal-heath block">
@@ -13,9 +13,9 @@
           <div class="text-left bg-white border-t border-solid border-woodsmoke py-6 px-3">
             <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke mb-2">{{ block.settings.heading }}</h3>
             <h4 class="font-AnekLatin-Medium text-[14px]/[22px] text-woodsmoke mb-4">{{ block.settings.subheading }}</h4>
-            <ul class="list-none flex flex-col gap-3">
+            <ul class="list-none flex flex-col gap-3" role="list">
               {% if block.settings.paragraph1 != blank %}
-                <li class="flex items-start">
+                <li class="flex items-start" role="listitem">
                   <span class="flex flex-none w-[24] h-[24]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@
                 </li>
               {% endif %}
               {% if block.settings.paragraph2 != blank %}
-                <li class="flex items-start">
+                <li class="flex items-start" role="listitem">
                   <span class="flex flex-none w-[24] h-[24]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@
                 </li>
               {% endif %}
               {% if block.settings.paragraph3 != blank %}
-                <li class="flex items-start">
+                <li class="flex items-start" role="listitem">
                   <span class="flex flex-none w-[24] h-[24]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,10 @@
       {%- endfor -%}
     </div>
     {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white">
+      <a
+        href="{{ section.settings.button_link }}"
+        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white"
+        role="button">
         {{ section.settings.button_text }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
