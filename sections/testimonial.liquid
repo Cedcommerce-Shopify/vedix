@@ -1,12 +1,12 @@
-<div class="bg-[#9E6D44] py-6">
+<div class="bg-cape-palliser py-6">
   <div class="container mx-auto px-4 text-center">
     <h2 class="font-AnekLatin-SemiBold mb-6 text-left text-[28px]/[32px] text-white">{{ section.settings.heading }}</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
       {%- for block in section.blocks -%}
-        <div class="h-full bg-[#F0E2CC] p-5">
+        <div class="h-full bg-almond p-5">
           <div class="flex justify-between pb-3">
-            <p class="font-AnekLatin-SemiBold text-[16px]/[22px] text-[#131818]">4.5</p>
-            <p class="text-[12px]/[22px] text-[#131818]">30 Jun 2022</p>
+            <p class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">4.5</p>
+            <p class="text-[12px]/[22px] text-woodsmoke">30 Jun 2022</p>
           </div>
           <div class="block mb-4">
             {% if block.settings.client_image != blank %}
@@ -21,13 +21,13 @@
             {% endif %}
           </div>
           <div class="flex flex-col gap-2 text-left">
-            <h2 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-[#131818]">{{ block.settings.title }}</h2>
-            <p class="text-[14px]/[22px] text-[#131818]">{{ block.settings.client_feedback }}</p>
+            <h2 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">{{ block.settings.title }}</h2>
+            <p class="text-[14px]/[22px] text-woodsmoke">{{ block.settings.client_feedback }}</p>
           </div>
           <div class="flex items-baseline justify-between text-left">
             <div class="flex flex-col gap-1">
-              <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-[#131818]">{{ block.settings.client_name }}</h3>
-              <p class="text-[12px]/[22px] text-[#131818]">{{ block.settings.client_address }}</p>
+              <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">{{ block.settings.client_name }}</h3>
+              <p class="text-[12px]/[22px] text-woodsmoke">{{ block.settings.client_address }}</p>
             </div>
             {% if block.settings.client_status != blank %}
               <div class="flex items-center gap-2.5">
@@ -54,7 +54,7 @@
                       fill="#000000" />
                   </g>
                 </svg>
-                <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-[#131818]">{{ block.settings.client_status }}</h3>
+                <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">{{ block.settings.client_status }}</h3>
               </div>
             {% endif %}
           </div>
@@ -62,7 +62,7 @@
       {%- endfor -%}
     </div>
     {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-[#131818] bg-[#DE5844] px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white">{{ section.settings.button_text }}
+      <a href="{{ section.settings.button_link }}" class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white">{{ section.settings.button_text }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="11.796"

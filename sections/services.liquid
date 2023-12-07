@@ -1,4 +1,4 @@
-<div class="bg-[#B9DABD] py-4 px-6 border-y border-solid border-[#333333]">
+<div class="bg-surf py-4 px-6 border-y border-solid border-mine-shaft">
   <div class="container mx-auto">
     <ul class="flex items-center justify-center gap-4 overflow-x-auto snap-x touch-auto">
       {%- for block in section.blocks -%}
@@ -15,7 +15,7 @@
                   alt="{{ block.settings.alt }}" />
               </span>
             {% endif %}
-            <p class="text-[#333333] font-AnekLatin-Medium text-[15px]/[20px]">{{ block.settings.title }}</p>
+            <p class="text-mine-shaft font-AnekLatin-Medium text-[15px]/[20px]">{{ block.settings.title }}</p>
           </div>
         </li>
       {% endfor %}
