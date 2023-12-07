@@ -1,11 +1,11 @@
 <div class="container mx-auto py-4 px-6">
-  <h2 class="text-[28px]/[32px] text-[#131818] text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
+  <h2 class="text-[28px]/[32px] text-woodsmoke text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
   <div class="text-center">
     <ul class="my-4 flex gap-3 overflow-x-auto space-x-0 snap-x touch-auto">
       {%- for block in section.blocks -%}
         <li class="snap-start">
           <div class="flex w-[100px] flex-col items-center justify-center gap-3 text-center">
-            <span class="flex h-[100px] w-[100px] items-center justify-center rounded bg-[#E7E3F4]">
+            <span class="flex h-[100px] w-[100px] items-center justify-center rounded bg-white-lilac">
               {{ block.settings.card_image }}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -29,13 +29,13 @@
                 </g>
               </svg>
             </span>
-            <h4 class="text-[14px]/[18px] text-[#131818]">{{ block.settings.title }}</h4>
+            <h4 class="text-[14px]/[18px] text-woodsmoke">{{ block.settings.title }}</h4>
           </div>
         </li>
       {% endfor %}
     </ul>
     {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-[#131818] bg-[#DE5844] px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white">{{ section.settings.button_text }}
+      <a href="{{ section.settings.button_link }}" class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white">{{ section.settings.button_text }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="11.796"
