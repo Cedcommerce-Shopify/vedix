@@ -1,25 +1,35 @@
-<div class="bg-white py-8 bg-no-repeat bg-cover bg-center" style="background-image: url('{{ section.settings.section_image |  img_url: 'master' }}')">
+<div
+  class="bg-white bg-cover bg-center bg-no-repeat py-8"
+  style="{% if section.settings.section_image != blank %} background-image: url('{{ section.settings.section_image |  img_url: 'master' }}') {% endif %}"
+>
   <div class="container mx-auto px-4 text-center">
-    <h2 class="text-[28px]/[32px] text-woodsmoke text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
-    <ul class="grid grid-cols-1 md:grid-cols-3 gap-5" role="grid">
+    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke">
+      {{ section.settings.heading }}
+    </h2>
+    <ul class="grid grid-cols-1 gap-5 md:grid-cols-3" role="grid">
       {%- for block in section.blocks -%}
         <li class="flex flex-col gap-8 text-left" role="gridcell">
           <div class="flex flex-col border border-solid border-woodsmoke">
             {% if block.settings.col_image != blank %}
-              <span class="bg-linen overflow-hidden">
+              <span class="overflow-hidden bg-linen">
                 <img
                   src="{{ block.settings.col_image | img_url: 'master' }}"
                   loading="lazy"
                   width="{{ block.settings.col_image.width }}"
                   height="{{ block.settings.col_image.height }}"
-                  alt="{{ block.settings.col_image.alt }}" />
+                  alt="{{ block.settings.col_image.alt }}"
+                >
               </span>
             {% endif %}
-            <div class="flex items-start gap-3 py-6 px-3 bg-white border-t border-solid border-woodsmoke">
-              <span class="rounded-full flex flex-none items-center justify-center border border-solid border-woodsmoke w-[24px] h-[24px]">{{ forloop.index }}</span>
+            <div class="flex items-start gap-3 border-t border-solid border-woodsmoke bg-white px-3 py-6">
+              <span class="flex h-[24px] w-[24px] flex-none items-center justify-center rounded-full border border-solid border-woodsmoke">
+                {{- forloop.index -}}
+              </span>
               <div class="flex flex-col gap-2">
-                <h4 class="text-woodsmoke text-[18px]/[22px] font-AnekLatin-SemiBold">{{ block.settings.col_heading }}</h4>
-                <div class="text-woodsmoke text-[14px]/[22px]">{{ block.settings.title }}</div>
+                <h4 class="font-AnekLatin-SemiBold text-[18px]/[22px] text-woodsmoke">
+                  {{ block.settings.col_heading }}
+                </h4>
+                <div class="text-[14px]/[22px] text-woodsmoke">{{ block.settings.title }}</div>
               </div>
             </div>
           </div>
@@ -29,13 +39,16 @@
     {% if section.settings.button_text != blank %}
       <a
         href="{{ section.settings.button_link }}"
-        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white"
-        role="button">{{ section.settings.button_text }}
+        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white"
+        role="button"
+      >
+        <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="11.796"
           height="10.315"
-          viewBox="0 0 11.796 10.315">
+          viewBox="0 0 11.796 10.315"
+        >
           <g
             id="Group_8849"
             data-name="Group 8849"
@@ -59,57 +72,62 @@
   </div>
 </div>
 {% schema %}
-  {
-    "name": "Accordion Vedix",
-    "class": "section",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "section_image",
-        "label": "Image"
-      }, {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "info": "Add section heading here"
-      }, {
-        "type": "text",
-        "id": "button_text",
-        "label": "Button text"
-      }, {
-        "type": "url",
-        "id": "button_link",
-        "label": "Button link"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "column",
-        "name": "Block",
-        "limit": 3,
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "col_image",
-            "label": "Image"
-          }, {
-            "type": "text",
-            "id": "col_heading",
-            "label": "Heading",
-            "info": "Add column title here"
-          }, {
-            "type": "richtext",
-            "id": "title",
-            "label": "Add column info here"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Accordion Vedix"
-      }
-    ]
-  }
+{
+  "name": "Accordion",
+  "class": "section-accordion",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Add section heading here"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Block",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "col_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "col_heading",
+          "label": "Heading",
+          "info": "Add column title here"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Add column info here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordion"
+    }
+  ]
+}
 {% endschema %}
