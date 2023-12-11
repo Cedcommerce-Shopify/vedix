@@ -1,14 +1,14 @@
 <div class="bg-cape-palliser py-6">
   <div class="container mx-auto px-4 text-center">
-    <h2 class="font-AnekLatin-SemiBold mb-6 text-left text-[28px]/[32px] text-white">{{ section.settings.heading }}</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3" role="grid">
+    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-white">{{ section.settings.heading }}</h2>
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3" role="grid">
       {%- for block in section.blocks -%}
         <div class="h-full bg-almond p-5" role="gridcell">
           <div class="flex justify-between pb-3">
             <p class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">4.5</p>
             <p class="text-[12px]/[22px] text-woodsmoke">30 Jun 2022</p>
           </div>
-          <div class="block mb-4">
+          <div class="mb-4 block">
             {% if block.settings.client_image != blank %}
               <span class="block overflow-hidden rounded-[14px]">
                 <img
@@ -16,17 +16,20 @@
                   loading="lazy"
                   width="{{ block.settings.client_image.width }}"
                   height="{{ block.settings.client_image.height }}"
-                  alt="{{ block.settings.client_image.alt }}" />
+                  alt="{{ block.settings.client_image.alt }}"
+                >
               </span>
             {% endif %}
           </div>
-          <div class="flex flex-col gap-2 text-left">
+          <div class="flex flex-col gap-1 text-left">
             <h2 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">{{ block.settings.title }}</h2>
             <p class="text-[14px]/[22px] text-woodsmoke">{{ block.settings.client_feedback }}</p>
           </div>
-          <div class="flex items-baseline justify-between text-left">
-            <div class="flex flex-col gap-1">
-              <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">{{ block.settings.client_name }}</h3>
+          <div class="mt-7 flex items-baseline justify-between text-left">
+            <div class="flex flex-col">
+              <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
+                {{ block.settings.client_name }}
+              </h3>
               <p class="text-[12px]/[22px] text-woodsmoke">{{ block.settings.client_address }}</p>
             </div>
             {% if block.settings.client_status != blank %}
@@ -35,7 +38,8 @@
                   xmlns="http://www.w3.org/2000/svg"
                   width="11.796"
                   height="10.315"
-                  viewBox="0 0 11.796 10.315">
+                  viewBox="0 0 11.796 10.315"
+                >
                   <g
                     id="Group_8849"
                     data-name="Group 8849"
@@ -54,7 +58,9 @@
                       fill="#000000" />
                   </g>
                 </svg>
-                <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">{{ block.settings.client_status }}</h3>
+                <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
+                  {{ block.settings.client_status }}
+                </h3>
               </div>
             {% endif %}
           </div>
@@ -64,13 +70,16 @@
     {% if section.settings.button_text != blank %}
       <a
         href="{{ section.settings.button_link }}"
-        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white"
-        role="button">{{ section.settings.button_text }}
+        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white"
+        role="button"
+      >
+        <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="11.796"
           height="10.315"
-          viewBox="0 0 11.796 10.315">
+          viewBox="0 0 11.796 10.315"
+        >
           <g
             id="Group_8849"
             data-name="Group 8849"
@@ -94,68 +103,72 @@
   </div>
 </div>
 {% schema %}
-  {
-    "name": "Testimonial Vedix",
-    "class": "section",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "info": "Add section heading here"
-      }, {
-        "type": "text",
-        "id": "button_text",
-        "label": "Button text"
-      }, {
-        "type": "url",
-        "id": "button_link",
-        "label": "Button link"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "column",
-        "name": "Block",
-        "limit": 3,
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "client_image",
-            "label": "Image"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "title",
-            "label": "Add image title here"
-          },
-          {
-            "type": "richtext",
-            "id": "client_feedback",
-            "label": "Paragraph",
-            "info": "Add info here"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "client_name",
-            "label": "Client Name"
-          }, {
-            "type": "inline_richtext",
-            "id": "client_address",
-            "label": "Client Address"
-          }, {
-            "type": "inline_richtext",
-            "id": "client_status",
-            "label": "Client Status"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Testimonial Vedix"
-      }
-    ]
-  }
+{
+  "name": "Testimonial",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Add section heading here"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Block",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "client_image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "client_feedback",
+          "label": "Paragraph",
+          "info": "Add info here"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "client_name",
+          "label": "Client Name"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "client_address",
+          "label": "Client Address"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "client_status",
+          "label": "Client Status"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial"
+    }
+  ]
+}
 {% endschema %}
