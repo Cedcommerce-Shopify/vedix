@@ -1,26 +1,44 @@
-<div class="flex flex-row bg-givry relative before:content-[''] before:block before:pb-[100%] md:before:pb-[38%] py-4">
-  <div class="image-with-text__image flex flex-row absolute top-0 right-0 bottom-0 left-0 w-full h-full before:content-[''] before:block before:pb-[100%] md:before:pb-[38%]">
+<div class="relative flex flex-row bg-givry py-4 before:block before:pb-[100%] before:content-[''] md:before:pb-[38%]">
+  <div class="image-with-text__image absolute bottom-0 left-0 right-0 top-0 flex h-full w-full flex-row before:block before:pb-[100%] before:content-[''] md:before:pb-[38%]">
+    {% if section.settings.desktop_image != blank %}
     <img
-      class="absolute top-0 left-0 bottom-0 right-0 w-full h-full object-cover object-center"
-      src="{{ section.settings.image |  img_url: 'master' }}')"
+      class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center hidden md:block lg:block"
+      src="{{ section.settings.desktop_image |  img_url: 'master' }}')"
       loading="lazy"
-      width="{{ section.settings.image.width }}"
-      height="{{ section.settings.image.height }}"
-      alt="{{ section.settings.image.alt }}" />
+      width="{{ section.settings.desktop_image.width }}"
+      height="{{ section.settings.desktop_image.height }}"
+      alt="{{ section.settings.desktop_image.alt }}"
+    >
+    {% endif %}
+    {% if section.settings.mobile_image != blank %}
+    <img
+      class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-contain object-bottom md:hidden lg:hidden"
+      src="{{ section.settings.mobile_image |  img_url: 'master' }}')"
+      loading="lazy"
+      width="{{ section.settings.mobile_image.width }}"
+      height="{{ section.settings.mobile_image.height }}"
+      alt="{{ section.settings.mobile_image.alt }}"
+    >
+    {% endif %}
   </div>
-  <div class="image-with-text__content container mx-auto px-4 flex flex-col w-full justify-start md:justify-center relative">
-    <h1 class="text-woodsmoke font-bold text-[34px]/[36px] mb-3 font-AnekLatin-SemiBold">{{ section.settings.heading }}</h1>
+  <div class="image-with-text__content container relative mx-auto flex w-full flex-col justify-start px-4 md:justify-center">
+    <h1 class="mb-3 font-AnekLatin-SemiBold text-[34px]/[36px] font-bold text-woodsmoke">
+      {{ section.settings.heading }}
+    </h1>
     <div class="text-woodsmoke">{{ section.settings.paragraph }}</div>
     {% if section.settings.button_text != blank %}
       <a
         href="{{ section.settings.button_link }}"
-        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 text-[16px]/[16px] font-AnekDevanagari-SemiBold leading-normal tracking-normal text-white absolute bottom-0 left-1/2 -translate-x-1/2 md:relative md:left-0 md:-translate-x-0 w-max"
-        role="button">{{ section.settings.button_text }}
+        class="absolute bottom-0 left-1/2 mb-0 md:my-6 inline-flex w-max -translate-x-1/2 items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white md:relative md:left-0 md:-translate-x-0"
+        role="button"
+      >
+        <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="11.796"
           height="10.315"
-          viewBox="0 0 11.796 10.315">
+          viewBox="0 0 11.796 10.315"
+        >
           <g
             id="Group_8849"
             data-name="Group 8849"
@@ -44,42 +62,49 @@
   </div>
 </div>
 {% schema %}
-  {
-    "name": "Image Banner Vedix",
-    "class": "section-image-banner",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Image",
-        "info": "Add image here"
-      },
-      {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading"
-      },
-      {
-        "type": "richtext",
-        "id": "paragraph",
-        "label": "Paragraph",
-        "info": "Add section info here"
-      },
-      {
-        "type": "text",
-        "id": "button_text",
-        "label": "Button text"
-      }, {
-        "type": "url",
-        "id": "button_link",
-        "label": "Button link"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Image Banner Vedix"
-      }
-    ]
-  }
+{
+  "name": "Image with banner",
+  "class": "section-image-banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image",
+      "info": "Add image here"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image",
+      "info": "Add image here"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "info": "Add section info here"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with banner"
+    }
+  ]
+}
 {% endschema %}
