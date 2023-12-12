@@ -1,113 +1,173 @@
-<div class="bg-cape-palliser py-6">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-white">{{ section.settings.heading }}</h2>
-    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3" role="grid">
-      {%- for block in section.blocks -%}
-        <div class="h-full bg-almond p-5" role="gridcell">
-          <div class="flex justify-between pb-3">
-            <p class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">4.5</p>
-            <p class="text-[12px]/[22px] text-woodsmoke">30 Jun 2022</p>
-          </div>
-          <div class="mb-4 block">
-            {% if block.settings.client_image != blank %}
-              <span class="block overflow-hidden rounded-[14px]">
-                <img
-                  src="{{ block.settings.client_image |  img_url: 'master' }}')"
-                  loading="lazy"
-                  width="{{ block.settings.client_image.width }}"
-                  height="{{ block.settings.client_image.height }}"
-                  alt="{{ block.settings.client_image.alt }}"
-                >
-              </span>
-            {% endif %}
-          </div>
-          <div class="flex flex-col gap-1 text-left">
-            <h2 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">{{ block.settings.title }}</h2>
-            <p class="text-[14px]/[22px] text-woodsmoke">{{ block.settings.client_feedback }}</p>
-          </div>
-          <div class="mt-7 flex items-baseline justify-between text-left">
-            <div class="flex flex-col">
-              <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
-                {{ block.settings.client_name }}
-              </h3>
-              <p class="text-[12px]/[22px] text-woodsmoke">{{ block.settings.client_address }}</p>
-            </div>
-            {% if block.settings.client_status != blank %}
-              <div class="flex items-center gap-2.5">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="11.796"
-                  height="10.315"
-                  viewBox="0 0 11.796 10.315"
-                >
-                  <g
-                    id="Group_8849"
-                    data-name="Group 8849"
-                    transform="translate(-215.754 -537.843)">
-                    <path
-                      id="Icon_ionic-ios-arrow-forward"
-                      data-name="Icon ionic-ios-arrow-forward"
-                      d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-                      transform="translate(204.508 531.646)"
-                      fill="#000000" />
-                    <path
-                      id="Icon_ionic-ios-arrow-forward-2"
-                      data-name="Icon ionic-ios-arrow-forward"
-                      d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-                      transform="translate(210.406 531.646)"
-                      fill="#000000" />
-                  </g>
-                </svg>
-                <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
-                  {{ block.settings.client_status }}
-                </h3>
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign products_to_display = 10
+  if section.settings.swipe_on_mobile
+    assign show_mobile_slider = true
+  endif
+  assign show_desktop_slider = false
+  if section.settings.enable_desktop_slider
+    assign show_desktop_slider = true
+  endif
+-%}
+
+<slider-component class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div
+    id="Slider-{{ section.id }}"
+    class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ section.settings.columns_desktop }}-col-desktop{% if section.settings.collection == blank %} grid--2-col-tablet-down{% else %} grid--{{ section.settings.columns_mobile }}-col-tablet-down{% endif %}{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}"
+    role="list"
+    aria-label="{{ 'general.slider.name' | t }}"
+  >
+    <div class="bg-cape-palliser py-6">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-white">{{ section.settings.heading }}</h2>
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3" role="grid">
+          {%- for block in section.blocks -%}
+            <div class="grid__item h-full bg-almond p-5 {% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" role="gridcell" id="Slide-{{ section.id }}-{{ forloop.index }}">
+              <div class="flex justify-between pb-3">
+                <p class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">4.5</p>
+                <p class="text-[12px]/[22px] text-woodsmoke">30 Jun 2022</p>
               </div>
-            {% endif %}
-          </div>
+              <div class="mb-4 block">
+                {% if block.settings.client_image != blank %}
+                  <span class="block overflow-hidden rounded-[14px]">
+                    <img
+                      src="{{ block.settings.client_image |  img_url: 'master' }}')"
+                      loading="lazy"
+                      width="{{ block.settings.client_image.width }}"
+                      height="{{ block.settings.client_image.height }}"
+                      alt="{{ block.settings.client_image.alt }}"
+                    >
+                  </span>
+                {% endif %}
+              </div>
+              <div class="flex flex-col gap-1 text-left">
+                <h2 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">{{ block.settings.title }}</h2>
+                <p class="text-[14px]/[22px] text-woodsmoke">{{ block.settings.client_feedback }}</p>
+              </div>
+              <div class="mt-7 flex items-baseline justify-between text-left">
+                <div class="flex flex-col">
+                  <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
+                    {{ block.settings.client_name }}
+                  </h3>
+                  <p class="text-[12px]/[22px] text-woodsmoke">{{ block.settings.client_address }}</p>
+                </div>
+                {% if block.settings.client_status != blank %}
+                  <div class="flex items-center gap-2.5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="11.796"
+                      height="10.315"
+                      viewBox="0 0 11.796 10.315"
+                    >
+                      <g
+                        id="Group_8849"
+                        data-name="Group 8849"
+                        transform="translate(-215.754 -537.843)">
+                        <path
+                          id="Icon_ionic-ios-arrow-forward"
+                          data-name="Icon ionic-ios-arrow-forward"
+                          d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                          transform="translate(204.508 531.646)"
+                          fill="#000000" />
+                        <path
+                          id="Icon_ionic-ios-arrow-forward-2"
+                          data-name="Icon ionic-ios-arrow-forward"
+                          d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                          transform="translate(210.406 531.646)"
+                          fill="#000000" />
+                      </g>
+                    </svg>
+                    <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
+                      {{ block.settings.client_status }}
+                    </h3>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {%- endfor -%}
         </div>
-      {%- endfor -%}
+        {% if section.settings.button_text != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white"
+            role="button"
+          >
+            <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11.796"
+              height="10.315"
+              viewBox="0 0 11.796 10.315"
+            >
+              <g
+                id="Group_8849"
+                data-name="Group 8849"
+                transform="translate(-215.754 -537.843)">
+                <path
+                  id="Icon_ionic-ios-arrow-forward"
+                  data-name="Icon ionic-ios-arrow-forward"
+                  d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                  transform="translate(204.508 531.646)"
+                  fill="#ffffff"></path>
+                <path
+                  id="Icon_ionic-ios-arrow-forward-2"
+                  data-name="Icon ionic-ios-arrow-forward"
+                  d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                  transform="translate(210.406 531.646)"
+                  fill="#ffffff"></path>
+              </g>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
     </div>
-    {% if section.settings.button_text != blank %}
-      <a
-        href="{{ section.settings.button_link }}"
-        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white"
-        role="button"
-      >
-        <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.796"
-          height="10.315"
-          viewBox="0 0 11.796 10.315"
-        >
-          <g
-            id="Group_8849"
-            data-name="Group 8849"
-            transform="translate(-215.754 -537.843)">
-            <path
-              id="Icon_ionic-ios-arrow-forward"
-              data-name="Icon ionic-ios-arrow-forward"
-              d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-              transform="translate(204.508 531.646)"
-              fill="#ffffff"></path>
-            <path
-              id="Icon_ionic-ios-arrow-forward-2"
-              data-name="Icon ionic-ios-arrow-forward"
-              d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-              transform="translate(210.406 531.646)"
-              fill="#ffffff"></path>
-          </g>
-        </svg>
-      </a>
-    {% endif %}
   </div>
-</div>
+  <div class="slider-buttons no-js-hidden">
+    <button
+      type="button"
+      class="slider-button slider-button--prev"
+      name="previous"
+      aria-label="{{ 'general.slider.previous_slide' | t }}"
+      aria-controls="Slider-{{ section.id }}"
+    >
+      {% render 'icon-caret' %}
+    </button>
+    <div class="slider-counter caption">
+      <span class="slider-counter--current">1</span>
+      <span aria-hidden="true"> / </span>
+      <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+      <span class="slider-counter--total">{{ products_to_display }}</span>
+    </div>
+    <button
+      type="button"
+      class="slider-button slider-button--next"
+      name="next"
+      aria-label="{{ 'general.slider.next_slide' | t }}"
+      aria-controls="Slider-{{ section.id }}"
+    >
+      {% render 'icon-caret' %}
+    </button>
+  </div>
+</slider-component>
+                          
 {% schema %}
 {
   "name": "Testimonial",
   "class": "section",
   "tag": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_desktop_slider",
+      "label": "t:sections.featured-collection.settings.enable_desktop_slider.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "swipe_on_mobile",
+      "default": true,
+      "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -129,7 +189,7 @@
     {
       "type": "column",
       "name": "Block",
-      "limit": 3,
+      "limit": 6,
       "settings": [
         {
           "type": "image_picker",

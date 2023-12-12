@@ -1,46 +1,8 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "inverse",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured products",
         "heading_size": "h2",
@@ -66,10 +28,129 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "ab9ea550-505e-4b57-bc2d-33c77a8939fc": {
+      "type": "featured-product",
+      "settings": {
+        "heading": "Lorem Ipsum is simply dummy text",
+        "product_offer": "FREE GIFTS WORTH Rs.299\/-",
+        "product_offer_desc": "<p>Moisturizes the hair strands and the scalp, and penetrates deep into the hair follicle to start working<\/p><p>Moisturizes the hair strands and the scalp, and penetrates deep into the hair follicle to start working<\/p>",
+        "product_image": "shopify:\/\/shop_images\/product-lg.png",
+        "product_name": "Saha Bhringraj Booster Oil",
+        "product_info": "<p>What The Bhringraj Booster Oil Will Do For Your Hair:<\/p>",
+        "link_text": "Read more",
+        "link_url": "",
+        "button_text": "Know Your Hair",
+        "button_link": "",
+        "bottom_text": "<p>Get your limited edition booster oil today!<\/p>"
+      }
+    },
+    "f6bb7cda-71bc-42a0-9d33-1db5b25a6561": {
+      "type": "accordion",
+      "blocks": {
+        "33ec68bc-3dbe-46e5-b591-2779835b0a7a": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/bg-pattern-lg.png",
+            "col_heading": "Get a detailed hair analysis with",
+            "title": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem<\/p>"
+          }
+        },
+        "58047d50-c41f-4b42-ba90-0511b569bc5b": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/bg-pattern-lg.png",
+            "col_heading": "Lorem Ipsum is simply dummy text",
+            "title": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem<\/p>"
+          }
+        },
+        "8dbb708a-60bd-42c7-a766-99044b8a2a81": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/bg-pattern-lg.png",
+            "col_heading": "Lorem Ipsum is simply dummy text",
+            "title": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "33ec68bc-3dbe-46e5-b591-2779835b0a7a",
+        "58047d50-c41f-4b42-ba90-0511b569bc5b",
+        "8dbb708a-60bd-42c7-a766-99044b8a2a81"
+      ],
+      "settings": {
+        "heading": "Lorem Ipsum dummy Text",
+        "button_text": "",
+        "button_link": ""
+      }
+    },
+    "1a74f0f9-49c5-4266-b831-0e5b38c446ad": {
+      "type": "testimonial",
+      "blocks": {
+        "4b80b198-9c82-4061-888b-40466b75741e": {
+          "type": "column",
+          "settings": {
+            "client_image": "shopify:\/\/shop_images\/client-pic-lg.jpg",
+            "title": "Everyone is talking about vedix",
+            "client_feedback": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<\/p>",
+            "client_name": "",
+            "client_address": "",
+            "client_status": ""
+          }
+        },
+        "a6ff9999-ff96-4957-9583-3fdb5f89d98f": {
+          "type": "column",
+          "settings": {
+            "client_image": "shopify:\/\/shop_images\/client-pic-lg.jpg",
+            "title": "Everyone is talking about vedix",
+            "client_feedback": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<\/p>",
+            "client_name": "",
+            "client_address": "",
+            "client_status": ""
+          }
+        },
+        "a84ec76e-b64f-4685-81f9-1db334a61b19": {
+          "type": "column",
+          "settings": {
+            "client_image": "shopify:\/\/shop_images\/client-pic-lg.jpg",
+            "title": "Everyone is talking about vedix",
+            "client_feedback": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<\/p>",
+            "client_name": "",
+            "client_address": "",
+            "client_status": ""
+          }
+        },
+        "25df88ed-770b-4a63-8712-da1397dceb91": {
+          "type": "column",
+          "settings": {
+            "client_image": "shopify:\/\/shop_images\/client-pic-lg.jpg",
+            "title": "Everyone is talking about vedix",
+            "client_feedback": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<\/p>",
+            "client_name": "",
+            "client_address": "",
+            "client_status": ""
+          }
+        }
+      },
+      "block_order": [
+        "4b80b198-9c82-4061-888b-40466b75741e",
+        "a6ff9999-ff96-4957-9583-3fdb5f89d98f",
+        "a84ec76e-b64f-4685-81f9-1db334a61b19",
+        "25df88ed-770b-4a63-8712-da1397dceb91"
+      ],
+      "settings": {
+        "enable_desktop_slider": true,
+        "swipe_on_mobile": true,
+        "heading": "",
+        "button_text": "",
+        "button_link": ""
+      }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "ab9ea550-505e-4b57-bc2d-33c77a8939fc",
+    "f6bb7cda-71bc-42a0-9d33-1db5b25a6561",
+    "1a74f0f9-49c5-4266-b831-0e5b38c446ad"
   ]
 }

@@ -1,3 +1,26 @@
+<style>
+  .accordion-title {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f1f1f1;
+    text-align: left;
+  }
+
+  .accordion-content {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+  }
+
+  .content-hide{
+    display: none!important;
+  }
+  
+  .content-show{
+    display: block!important;
+  }
+</style>
+
 <div
   class="bg-white bg-cover bg-center bg-no-repeat py-8"
   style="{% if section.settings.section_image != blank %} background-image: url('{{ section.settings.section_image |  img_url: 'master' }}') {% endif %}"
@@ -11,7 +34,7 @@
         <li class="flex flex-col gap-8 text-left" role="gridcell">
           <div class="flex flex-col border border-solid border-woodsmoke">
             {% if block.settings.col_image != blank %}
-              <span class="overflow-hidden bg-linen">
+              <span class="accordion-content overflow-hidden bg-linen {% if forloop.index == 1 %}content-show{% else %}content-hide{% endif %}">
                 <img
                   src="{{ block.settings.col_image | img_url: 'master' }}"
                   loading="lazy"
@@ -21,7 +44,7 @@
                 >
               </span>
             {% endif %}
-            <div class="flex items-start gap-3 border-t border-solid border-woodsmoke bg-white px-3 py-6">
+            <div class="accordion-title flex items-start gap-3 border-t border-solid border-woodsmoke bg-white px-3 py-6">
               <span class="flex h-[24px] w-[24px] flex-none items-center justify-center rounded-full border border-solid border-woodsmoke">
                 {{- forloop.index -}}
               </span>
@@ -71,6 +94,35 @@
     {% endif %}
   </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const accordionTitles = document.querySelectorAll('.accordion-title');
+        const screenWidth = screen.width;
+      console.log(screenWidth, 'screenWidth');
+        accordionTitles.forEach(title => {
+            title.addEventListener('click', function () {
+                const content = this.previousElementSibling;
+              if(content.classList.contains("content-hide")){
+                content.classList.remove("content-hide");
+                content.classList.add("content-show");
+              }
+              else if(content.classList.contains("content-show")){
+                content.classList.remove("content-show");
+                content.classList.add("content-hide");
+              }
+              // else {
+              //   content.classList.toggle("content-hide");
+              // }
+              //   if (content.style.display === 'block') {
+              //       content.style.display = 'none';
+              //   } else {
+              //       content.style.display = 'block';
+              //   }
+            });
+        });
+    });
+</script>
 {% schema %}
 {
   "name": "Accordion",

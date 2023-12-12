@@ -620,9 +620,10 @@ class SliderComponent extends HTMLElement {
     this.pageTotalElement = this.querySelector('.slider-counter--total');
     this.prevButton = this.querySelector('button[name="previous"]');
     this.nextButton = this.querySelector('button[name="next"]');
-
+    
     if (!this.slider || !this.nextButton) return;
-
+    console.log(!this.slider || !this.nextButton, this.slider, this.nextButton, this.sliderItems, this.pageTotalElement);
+  
     this.initPages();
     const resizeObserver = new ResizeObserver((entries) => this.initPages());
     resizeObserver.observe(this.slider);
