@@ -1,12 +1,26 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
 <div
-  class="bg-white bg-cover bg-center bg-no-repeat py-8"
+  class="bg-white bg-cover bg-center bg-no-repeat section-{{ section.id }}-padding"
   style="{% if section.settings.section_image != blank %} background-image: url('{{ section.settings.section_image |  img_url: 'master' }}') {% endif %}"
 >
   <div class="container mx-auto px-4 text-center">
-    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke">
+    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:font-AnekLatin-Bold md:text-[42px]/[58px]">
       {{ section.settings.heading }}
     </h2>
-    <ul class="grid grid-cols-1 gap-5 md:grid-cols-3" role="grid">
+    <ul class="mb-12 grid grid-cols-1 gap-x-8 md:grid-cols-3" role="grid">
       {%- for block in section.blocks -%}
         <li class="flex flex-col gap-8 text-left" role="gridcell">
           <div class="flex flex-col border border-solid border-woodsmoke">
@@ -26,7 +40,7 @@
                 {{- forloop.index -}}
               </span>
               <div class="flex flex-col gap-2">
-                <h4 class="font-AnekLatin-SemiBold text-[18px]/[22px] text-woodsmoke">
+                <h4 class="font-AnekLatin-SemiBold text-[18px]/[22px] text-woodsmoke md:text-[24px]/[28px]">
                   {{ block.settings.col_heading }}
                 </h4>
                 <div class="text-[14px]/[22px] text-woodsmoke">{{ block.settings.title }}</div>
@@ -39,7 +53,7 @@
     {% if section.settings.button_text != blank %}
       <a
         href="{{ section.settings.button_link }}"
-        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white"
+        class="btn"
         role="button"
       >
         <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
@@ -97,6 +111,30 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
     }
   ],
   "blocks": [

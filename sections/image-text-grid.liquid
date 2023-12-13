@@ -1,9 +1,23 @@
-<div class="bg-white py-8">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="bg-white section-{{ section.id }}-padding">
   <div class="container mx-auto px-4 text-center">
-    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke">
-      {{ section.settings.title }}
+    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:font-AnekLatin-Bold md:text-[42px]/[58px]">
+      {{ section.settings.heading }}
     </h2>
-    <div class="grid grid-cols-1 gap-5 md:grid-cols-3" role="grid">
+    <div class="mb-8 grid grid-cols-1 gap-x-8 md:mb-12 md:grid-cols-3" role="grid">
       {%- for block in section.blocks -%}
         <div class="border border-solid border-woodsmoke">
           <div class="block bg-bridal-heath">
@@ -19,8 +33,10 @@
             {% endif %}
           </div>
           <div class="border-t border-solid border-woodsmoke bg-white px-3 py-6 text-left">
-            <h3 class="mb-2 font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">{{ block.settings.heading }}</h3>
-            <h4 class="mb-4 font-AnekLatin-Medium text-[14px]/[22px] text-woodsmoke">
+            <h3 class="mb-2 font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke md:text-[24px]/[28px]">
+              {{ block.settings.title }}
+            </h3>
+            <h4 class="mb-4 font-AnekLatin-Medium text-[14px]/[22px] text-woodsmoke md:font-AnekLatin-SemiBold md:text-[16px]/[22px]">
               {{ block.settings.subheading }}
             </h4>
             <ul class="flex list-none flex-col gap-3" role="list">
@@ -45,7 +61,9 @@
                         stroke-width="1.875" />
                     </svg>
                   </span>
-                  <span class="text-[14px]/[18px] text-woodsmoke">{{ block.settings.paragraph1 }}</span>
+                  <span class="text-[14px]/[18px] text-woodsmoke md:text-[16px]/[22px]">
+                    {{- block.settings.paragraph1 -}}
+                  </span>
                 </li>
               {% endif %}
               {% if block.settings.paragraph2 != blank %}
@@ -69,7 +87,9 @@
                         stroke-width="1.875" />
                     </svg>
                   </span>
-                  <span class="text-[14px]/[18px] text-woodsmoke">{{ block.settings.paragraph2 }}</span>
+                  <span class="text-[14px]/[18px] text-woodsmoke md:text-[16px]/[22px]">
+                    {{- block.settings.paragraph2 -}}
+                  </span>
                 </li>
               {% endif %}
               {% if block.settings.paragraph3 != blank %}
@@ -93,7 +113,9 @@
                         stroke-width="1.875" />
                     </svg>
                   </span>
-                  <span class="text-[14px]/[18px] text-woodsmoke">{{ block.settings.paragraph3 }}</span>
+                  <span class="text-[14px]/[18px] text-woodsmoke md:text-[16px]/[22px]">
+                    {{- block.settings.paragraph3 -}}
+                  </span>
                 </li>
               {% endif %}
             </ul>
@@ -104,7 +126,7 @@
     {% if section.settings.button_text != blank %}
       <a
         href="{{ section.settings.button_link }}"
-        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white"
+        class="btn"
         role="button"
       >
         <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
@@ -144,7 +166,7 @@
   "settings": [
     {
       "type": "text",
-      "id": "title",
+      "id": "heading",
       "label": "Heading"
     },
     {
@@ -156,6 +178,30 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
     }
   ],
   "blocks": [
@@ -170,7 +216,7 @@
         },
         {
           "type": "text",
-          "id": "heading",
+          "id": "title",
           "label": "Product Title"
         },
         {
