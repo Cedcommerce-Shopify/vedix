@@ -1,61 +1,78 @@
-<div class="bg-merino py-6">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="bg-merino section-{{ section.id }}-padding">
   <div class="container mx-auto px-4">
-    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke">
+    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:hidden md:text-[42px]/[50px] lg:hidden">
       {{ section.settings.heading }}
     </h2>
-    <div class="text-center">
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
-        {% if section.settings.col_image != blank %}
-          <div class="flex-auto border border-solid border-woodsmoke">
-            <img
-              src="{{ section.settings.col_image | img_url: 'master' }}"
-              loading="lazy"
-              width="{{ section.settings.col_image.width }}"
-              height="{{ section.settings.col_image.height }}"
-              alt="{{ section.settings.col_image.alt }}"
-            >
-          </div>
-        {% endif %}
+    <div class="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+      {% if section.settings.col_image != blank %}
+        <div class="flex-auto border border-solid border-woodsmoke md:order-2">
+          <img
+            src="{{ section.settings.col_image | img_url: 'master' }}"
+            loading="lazy"
+            width="{{ section.settings.col_image.width }}"
+            height="{{ section.settings.col_image.height }}"
+            alt="{{ section.settings.col_image.alt }}"
+          >
+        </div>
+      {% endif %}
+      <div class="text-center md:order-1 md:text-left lg:text-left">
+        <h2 class="mb-6 hidden text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:block md:text-[42px]/[50px] lg:block">
+          {{ section.settings.heading }}
+        </h2>
         <div
           id="v_icon_check"
-          class="flex flex-col flex-wrap justify-center gap-2 text-left text-[16px]/[20px] text-woodsmoke"
+          class="mb-8 flex flex-col flex-wrap justify-center gap-2 text-left text-[16px]/[20px] text-woodsmoke"
         >
           {{ section.settings.paragraph }}
         </div>
-      </div>
-      {% if section.settings.button_text != blank %}
-        <a
-          href="{{ section.settings.button_link }}"
-          class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white"
-          role="button"
-        >
-          <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="11.796"
-            height="10.315"
-            viewBox="0 0 11.796 10.315"
+        {% if section.settings.button_text != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="btn md:ml-6"
+            role="button"
           >
-            <g
-              id="Group_8849"
-              data-name="Group 8849"
-              transform="translate(-215.754 -537.843)">
-              <path
-                id="Icon_ionic-ios-arrow-forward"
-                data-name="Icon ionic-ios-arrow-forward"
-                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-                transform="translate(204.508 531.646)"
-                fill="#fff"></path>
-              <path
-                id="Icon_ionic-ios-arrow-forward-2"
-                data-name="Icon ionic-ios-arrow-forward"
-                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-                transform="translate(210.406 531.646)"
-                fill="#fff"></path>
-            </g>
-          </svg>
-        </a>
-      {% endif %}
+            <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11.796"
+              height="10.315"
+              viewBox="0 0 11.796 10.315"
+            >
+              <g
+                id="Group_8849"
+                data-name="Group 8849"
+                transform="translate(-215.754 -537.843)">
+                <path
+                  id="Icon_ionic-ios-arrow-forward"
+                  data-name="Icon ionic-ios-arrow-forward"
+                  d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                  transform="translate(204.508 531.646)"
+                  fill="#fff"></path>
+                <path
+                  id="Icon_ionic-ios-arrow-forward-2"
+                  data-name="Icon ionic-ios-arrow-forward"
+                  d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                  transform="translate(210.406 531.646)"
+                  fill="#fff"></path>
+              </g>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
@@ -90,6 +107,30 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
     }
   ],
   "presets": [

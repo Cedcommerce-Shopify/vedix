@@ -1,7 +1,7 @@
 <div class="border-y border-solid border-mine-shaft bg-surf px-6 py-4">
   <div class="container mx-auto">
     <ul
-      class="flex touch-auto flex-nowrap items-center justify-start gap-4 overflow-x-scroll md:justify-center"
+      class="flex-no-wrap flex touch-auto items-center justify-start gap-4 overflow-x-auto lg:justify-center"
       role="list"
     >
       {%- for block in section.blocks -%}
@@ -36,7 +36,7 @@
     {
       "type": "column",
       "name": "Block",
-      "limit": 4,
+      "limit": 5,
       "settings": [
         {
           "type": "image_picker",

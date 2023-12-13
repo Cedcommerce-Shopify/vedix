@@ -1,7 +1,23 @@
-<div class="bg-cape-palliser py-6">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="bg-cape-palliser section-{{ section.id }}-padding">
   <div class="container mx-auto px-4 text-center">
-    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-white">{{ section.settings.heading }}</h2>
-    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3" role="grid">
+    <h2 class="mb-6 max-w-[705px] text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-white md:font-AnekLatin-Bold md:text-[42px]/[50px]">
+      {{ section.settings.heading }}
+    </h2>
+    <div class="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3" role="grid">
       {%- for block in section.blocks -%}
         <div class="h-full bg-almond p-5" role="gridcell">
           <div class="flex justify-between pb-3">
@@ -70,7 +86,7 @@
     {% if section.settings.button_text != blank %}
       <a
         href="{{ section.settings.button_link }}"
-        class="my-6 inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white"
+        class="btn"
         role="button"
       >
         <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
@@ -123,6 +139,30 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
     }
   ],
   "blocks": [
