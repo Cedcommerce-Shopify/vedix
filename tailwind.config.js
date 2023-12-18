@@ -12,6 +12,8 @@ module.exports = {
         "ecru-white": "#F9F7F0",
         woodsmoke: "#131818",
         linen: "#FBF1E7",
+        "linen-dark": "#F9E1DE",
+        "burnt-sienna": "#EB7462",
         "cape-palliser": "#9E6D44",
         "quarter-spanish-white": "#F7EEDF",
         "bridal-heath": "#FFF8F1",
@@ -33,6 +35,8 @@ module.exports = {
         tuna: "#313133",
         soapstone: "#FFFBF8",
         "silver-chalice": "#A0A0A0",
+        "dove-gray": "#6E6E6E",
+        mercury: "#E9E9E9",
       },
       fontFamily: {
         "AnekLatin-Regular": ["AnekLatin-Regular", "sans-serif"],
