@@ -1,0 +1,310 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="min-h-screen section-{{ section.id }}-padding relative"
+  style="background: transparent linear-gradient(180deg, #F9E1DECC 0%, #E5BB9500 100%) 0% 0% no-repeat padding-box; opacity: 1;"
+>
+  <div class="container m-auto px-4">
+    <div class="flex items-center justify-center gap-x-2">
+      <div class="w-[15%]">
+        <div class="mb-[5px] text-[14px] text-mine-shaft">01</div>
+        <div class="h-[7px] w-full border border-solid border-flame-pea">
+          <div class="bg-flborder-flame-pea h-[6px] w-full"></div>
+        </div>
+      </div>
+      <div class="w-[55%]">
+        <div class="mb-[5px] text-[14px] text-mine-shaft">02- Ayurvedic Dosha Profile</div>
+        <div class="h-[7px] w-full border border-solid border-flame-pea">
+          <div class="bg-flborder-flame-pea h-[6px] w-[32px]"></div>
+        </div>
+      </div>
+      <div class="w-[15%]">
+        <div class="mb-[5px] text-[14px] text-mine-shaft">03</div>
+        <div class="h-[7px] w-full border border-solid border-flame-pea">
+          <div class="h-[7px]"></div>
+        </div>
+      </div>
+      <div class="w-[15%]">
+        <div class="mb-[5px] text-[14px] text-mine-shaft">04</div>
+        <div class="h-[7px] w-full border border-solid border-flame-pea">
+          <div class="h-[7px]"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="ageType" class="mx-auto max-w-[700px] px-4 py-10">
+    <div id="first-steps-content" class="flex flex-col gap-2">
+      <div class="text-[16px]/[16px] capitalize text-woodsmoke md:font-AnekLatin-Medium">
+        {{ section.settings.age_sub_title }}
+      </div>
+      <h2 class="mb-6 font-AnekDevanagari-Medium text-[24px]/[29px] capitalize text-mine-shaft md:font-AnekLatin-SemiBold">
+        {{ section.settings.age_title }}
+      </h2>
+    </div>
+    <ul class="grid grid-cols-2 gap-x-[10px] gap-y-[20px] md:gap-x-8 md:gap-y-3">
+      {%- for block in section.blocks -%}
+        {% if block.type == 'age' %}
+          <li>
+            <div class="border border-solid border-grain-brown bg-white px-4 py-6 text-center font-AnekLatin-Medium text-[18px]/[20px] text-mine-shaft">
+              {{ block.settings.title }}
+            </div>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div id="gender" class="mx-auto max-w-[700px] px-4 py-10">
+    <h2 class="mb-6 font-AnekDevanagari-Medium text-[24px]/[29px] capitalize text-mine-shaft md:font-AnekLatin-SemiBold">
+      {{ section.settings.gender_title }}
+    </h2>
+    <ul class="grid grid-cols-1 gap-x-[10px] gap-y-[20px] md:grid-cols-2 md:gap-x-8 md:gap-y-3">
+      {%- for block in section.blocks -%}
+        {% if block.type == 'gender' %}
+          <li class="w-full">
+            <div class="border border-solid border-grain-brown bg-white px-4 py-6 text-center font-AnekLatin-Medium text-[18px]/[20px] text-mine-shaft">
+              {{ block.settings.title }}
+            </div>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div id="hairType" class="mx-auto max-w-[700px] px-4 py-10">
+    {% if section.settings.hair_title != blank %}
+      <h2 class="mb-6 font-AnekDevanagari-Medium text-[24px]/[29px] capitalize text-mine-shaft md:font-AnekLatin-SemiBold">
+        {{ section.settings.hair_title }}
+      </h2>
+    {% endif %}
+    <ul class="grid grid-cols-2 gap-x-[10px] gap-y-[20px] md:grid-cols-3 md:gap-x-8 md:gap-y-3">
+      {%- for block in section.blocks -%}
+        {% if block.type == 'hair-type' %}
+          <li class="flex min-w-[164px] flex-col items-center justify-center border border-solid border-grain-brown bg-merino">
+            {% if block.settings.image != blank %}
+              <div class="flex w-full items-center justify-center px-4 py-6">
+                <img
+                  src="{{ block.settings.image | img_url:'master' }}"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                  alt="{{ block.settings.title }}"
+                >
+              </div>
+            {% endif %}
+            <div class="flex w-full flex-col gap-1 border-t border-solid border-grain-brown p-4 text-center md:bg-white md:text-left">
+              {% if block.settings.title != blank %}
+                <h3 class="font-AnekLatin-Medium text-[18px]/[20px] text-mine-shaft">{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="font-AnekLatin-Medium text-[12px]/[13px] text-mine-shaft">{{ block.settings.text }}</div>
+              {% endif %}
+            </div>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="mt-9 text-center md:mt-20">
+    {% if section.settings.button_text != blank %}
+      <a
+        href="{{ section.settings.button_link }}"
+        class="btn"
+        role="button"
+      >
+        <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="11.796"
+          height="10.315"
+          viewBox="0 0 11.796 10.315"
+        >
+          <g
+            id="Group_8849"
+            data-name="Group 8849"
+            transform="translate(-215.754 -537.843)">
+            <path
+              id="Icon_ionic-ios-arrow-forward"
+              data-name="Icon ionic-ios-arrow-forward"
+              d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+              transform="translate(204.508 531.646)"
+              fill="#fff"></path>
+            <path
+              id="Icon_ionic-ios-arrow-forward-2"
+              data-name="Icon ionic-ios-arrow-forward"
+              d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+              transform="translate(210.406 531.646)"
+              fill="#fff"></path>
+          </g>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="absolute bottom-[5%] left-0 right-0 mx-auto flex max-w-[343px] flex-col items-center justify-center px-4 text-center">
+    {% if section.settings.title != blank %}
+      <h2 class="font-AnekLatin-Medium text-[16px]/[17px] text-cape-palliser">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <div class="text-[12px]/[16px] capitalize text-woodsmoke">
+        {{ section.settings.description }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hair Quiz",
+  "class": "section-hair-type",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Select Your Age"
+    },
+    {
+      "type": "richtext",
+      "id": "age_sub_title",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "age_title",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "Select Your Gender"
+    },
+    {
+      "type": "text",
+      "id": "gender_title",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "What’s Your Hair Type"
+    },
+    {
+      "type": "text",
+      "id": "hair_title",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Footer detail"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "age",
+      "name": "Age Group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Age Group"
+        }
+      ]
+    },
+    {
+      "type": "gender",
+      "name": "Gender",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Gender"
+        }
+      ]
+    },
+    {
+      "type": "hair-type",
+      "name": "Hair type",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hair Quiz"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,135 @@
+<div class="flex min-h-screen flex-col bg-quarter-spanish-white md:flex-row md:items-center md:bg-soapstone">
+  <div
+    class="relative bg-cover bg-center bg-no-repeat pb-[78%] md:max-w-[40%] md:flex-auto md:pb-[100vh]"
+    {% if section.settings.image != blank %}
+      style="background-image: url({{ section.settings.image | img_url:'master' }})"
+    {% endif %}
+  >
+    <div id="overlay" class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="absolute left-2/4 top-2/4 z-10 flex w-full max-w-[372px] -translate-x-2/4 -translate-y-2/4 flex-col items-center justify-center gap-2">
+      {% if section.settings.cust_count != blank %}
+        <h2 class="font-AnekLatin-Bold text-[40px]/[44px] text-white md:text-[74px]/[82px]">
+          {{ section.settings.cust_count }}
+        </h2>
+      {% endif %}
+      {% if section.settings.cust_desc != blank %}
+        <p class="text-center font-AnekLatin-Medium text-[16px]/[22px] text-white md:text-[24px]/[28px]">
+          {{ section.settings.cust_desc }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="px-4 md:max-w-[60%] md:flex-auto">
+    <div class="relative mx-auto -mt-8 box-content max-w-[343px] bg-soapstone px-5 py-8 text-center md:ml-0 md:max-w-[544px] md:bg-transparent md:pl-20 md:text-left">
+      {% if section.settings.heading != blank %}
+        <h3 class="mb-3 font-AnekLatin-Medium text-[24px]/[27px] text-mine-shaft md:font-AnekLatin-SemiBold md:text-[42px]/[58px] md:text-woodsmoke">
+          {{ section.settings.heading }}
+        </h3>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="text-[14px]/[20px] capitalize text-mine-shaft md:font-AnekLatin-Medium md:text-[18px]/[22px] md:text-woodsmoke md:opacity-60">
+          {{ section.settings.description }}
+        </p>
+      {% endif %}
+      <form class="my-7 md:max-w-[352px]">
+        <h3 class="hidden font-AnekLatin-SemiBold text-[24px]/[58px] text-woodsmoke md:block">
+          {{ section.settings.form_heading }}
+        </h3>
+        <div class="flex w-full flex-col gap-2 md:gap-12">
+          <input
+            type="text"
+            class="w-full border border-solid border-grain-brown bg-white px-4 py-3 text-center focus:outline-none active:outline-none md:border-x-0 md:border-t-0 md:bg-transparent md:pl-0 md:text-left"
+            placeholder="Enter your name"
+          >
+          <button type="submit" class="btn w-full min-w-fit opacity-50">
+            <span class="mb-[-2px] mt-[2px]">Begin Quiz</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="11.796" height="10.315" viewBox="0 0 11.796 10.315">
+              <g id="Group_8849" data-name="Group 8849" transform="translate(-215.754 -537.843)">
+                  <path
+                      id="Icon_ionic-ios-arrow-forward"
+                      data-name="Icon ionic-ios-arrow-forward"
+                      d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                      transform="translate(204.508 531.646)"
+                      fill="#fff"
+                  ></path>
+                  <path
+                      id="Icon_ionic-ios-arrow-forward-2"
+                      data-name="Icon ionic-ios-arrow-forward"
+                      d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                      transform="translate(210.406 531.646)"
+                      fill="#fff"
+                  ></path>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </form>
+      {% if section.settings.alredy_user_link %}
+        <a
+          href="{{ section.settings.alredy_user_link }}"
+          class="border-b border-solid border-grain-brown px-1 font-AnekLatin-Bold text-[14px]/[16px] text-mine-shaft"
+        >
+          {{- section.settings.alredy_user -}}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Login",
+  "class": "section-login",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "cust_count",
+      "label": "Customer count"
+    },
+    {
+      "type": "textarea",
+      "id": "cust_desc",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Quiz login"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form heading"
+    },
+    {
+      "type": "text",
+      "id": "alredy_user",
+      "label": "Footer text"
+    },
+    {
+      "type": "url",
+      "id": "alredy_user_link",
+      "label": "Footer link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Login"
+    }
+  ]
+}
+{% endschema %}

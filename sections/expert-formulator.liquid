@@ -1,0 +1,147 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="bg-white bg-cover bg-center bg-no-repeat section-{{ section.id }}-padding"
+  {% if section.settings.image_bg != blank %}
+    style="background-image:url({{ section.settings.image_bg | img_url:'master' }});"
+  {% endif %}
+>
+  <div class="container mx-auto px-4">
+    <h2 class="mb-6 font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-[42px]/[58px]">
+      {{ section.settings.title }}
+    </h2>
+    <div class="mx-auto my-8 max-w-[350px] border border-solid border-woodsmoke bg-white">
+      <div class="flex border-b border-solid border-woodsmoke">
+        <div class="h-full w-2/5 border-r border-solid border-woodsmoke">
+          <img
+            src="{{ section.settings.user_image | img_url: 'master' }}"
+            loading="lazy"
+            width="{{ section.settings.user_image.width }}"
+            height="{{ section.settings.user_image.height }}"
+            alt="{{ section.settings.user_image.alt }}"
+          >
+        </div>
+        <div class="flex h-full w-3/5 flex-col justify-between p-4">
+          <div class="mb-3 flex items-center gap-x-[10px]">
+            {% if section.settings.expertise_icon != blank %}
+              <span class="flex h-[22px] w-[22px] items-center justify-center">
+                <img
+                  src="{{ section.settings.expertise_icon | img_url: 'master' }}"
+                  loading="lazy"
+                  width="{{ section.settings.expertise_icon.width }}"
+                  height="{{ section.settings.expertise_icon.height }}"
+                  alt="{{ section.settings.expertise_icon.alt }}"
+                >
+              </span>
+            {% endif %}
+            <p class="text-[12px]/[16px] text-woodsmoke">{{ section.settings.user_expertise }}</p>
+          </div>
+          <h2 class="mb-[10px] font-AnekLatin-SemiBold text-[18px]/[26px] text-woodsmoke">
+            {{ section.settings.user_name }}
+          </h2>
+          <h3 class="font-AnekLatin-Medium text-[13px]/[20px] text-woodsmoke">
+            {{ section.settings.user_designation }}
+          </h3>
+        </div>
+      </div>
+      {% if section.settings.description != blank %}
+        <div class="p-4 text-[14px]/[20px] text-woodsmoke">{{ section.settings.description }}</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Expert Formulator",
+  "class": "section-ayurvedic-profile",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_bg",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "Expert detail"
+    },
+    {
+      "type": "image_picker",
+      "id": "user_image",
+      "label": "User image"
+    },
+    {
+      "type": "text",
+      "id": "user_expertise",
+      "label": "Expert text",
+      "default": "Expert formulator"
+    },
+    {
+      "type": "image_picker",
+      "id": "expertise_icon",
+      "label": "Image",
+      "info": "Upload expert icon"
+    },
+    {
+      "type": "text",
+      "id": "user_name",
+      "label": "User name"
+    },
+    {
+      "type": "text",
+      "id": "user_designation",
+      "label": "Designation"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Expert Formulator"
+    }
+  ]
+}
+{% endschema %}
