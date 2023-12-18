@@ -6,100 +6,100 @@
 /* Global Font Family */
 @layer base {
   @font-face {
-    font-family: "AnekLatin-Regular";
+    font-family: 'AnekLatin-Regular';
     src:
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Regular.woff2?v=1701244379.woff2")
-        format("woff2"),
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Regular.woff?v=1701244378.woff")
-        format("woff");
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Regular.woff2?v=1701244379.woff2')
+        format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Regular.woff?v=1701244378.woff')
+        format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: "AnekLatin-Medium";
+    font-family: 'AnekLatin-Medium';
     src:
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Medium.woff2?v=1701244378.woff2")
-        format("woff2"),
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Medium.woff?v=1701244379.woff")
-        format("woff");
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Medium.woff2?v=1701244378.woff2')
+        format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Medium.woff?v=1701244379.woff')
+        format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: "AnekLatin-SemiBold";
+    font-family: 'AnekLatin-SemiBold';
     src:
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-SemiBold.woff2?v=1701244378.woff2")
-        format("woff2"),
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-SemiBold.woff?v=1701244379.woff")
-        format("woff");
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-SemiBold.woff2?v=1701244378.woff2')
+        format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-SemiBold.woff?v=1701244379.woff')
+        format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: "AnekLatin-Bold";
+    font-family: 'AnekLatin-Bold';
     src:
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Bold.woff2?v=1701244378.woff2")
-        format("woff2"),
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Bold.woff?v=1701244378.woff")
-        format("woff");
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Bold.woff2?v=1701244378.woff2')
+        format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekLatin-Bold.woff?v=1701244378.woff')
+        format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: "AnekDevanagari-Regular";
+    font-family: 'AnekDevanagari-Regular';
     src:
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Regular.woff2?v=1701244380.woff2")
-        format("woff2"),
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Regular.woff?v=1701244379.woff")
-        format("woff");
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Regular.woff2?v=1701244380.woff2')
+        format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Regular.woff?v=1701244379.woff')
+        format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: "AnekDevanagari-Medium";
+    font-family: 'AnekDevanagari-Medium';
     src:
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Medium.woff2?v=1701244379.woff2")
-        format("woff2"),
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Medium.woff?v=1701244380.woff")
-        format("woff");
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Medium.woff2?v=1701244379.woff2')
+        format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Medium.woff?v=1701244380.woff')
+        format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: "AnekDevanagari-SemiBold";
+    font-family: 'AnekDevanagari-SemiBold';
     src:
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-SemiBold.woff2?v=1701244379.woff2")
-        format("woff2"),
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-SemiBold.woff?v=1701244379.woff")
-        format("woff");
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-SemiBold.woff2?v=1701244379.woff2')
+        format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-SemiBold.woff?v=1701244379.woff')
+        format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: "AnekDevanagari-Bold";
+    font-family: 'AnekDevanagari-Bold';
     src:
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Bold.woff2?v=1701244379.woff2")
-        format("woff2"),
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Bold.woff?v=1701244379.woff")
-        format("woff");
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Bold.woff2?v=1701244379.woff2')
+        format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-Bold.woff?v=1701244379.woff')
+        format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
-    font-family: "AnekDevanagari-ExtraBold";
+    font-family: 'AnekDevanagari-ExtraBold';
     src:
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-ExtraBold.woff2?v=1701244379.woff2")
-        format("woff2"),
-      url("https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-ExtraBold.woff?v=1701244379.woff")
-        format("woff");
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-ExtraBold.woff2?v=1701244379.woff2')
+        format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0058/8827/8595/files/AnekDevanagari-ExtraBold.woff?v=1701244379.woff')
+        format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -109,15 +109,20 @@
   }
   html,
   body {
-    font-family: "AnekLatin-Regular", sans-serif;
+    font-family: 'AnekLatin-Regular', sans-serif;
     letter-spacing: 0;
+  }
+}
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal text-white md:min-w-[329px];
   }
 }
 /* Custom border radius edge */
 @layer utilities {
   .cut-br::before,
   .cut-br::after {
-    content: "";
+    content: '';
     position: absolute;
     border-top: 16px solid transparent;
     border-left: 16px solid transparent;
@@ -135,10 +140,10 @@
   #v_icon_check ul li {
     position: relative;
     padding-left: 24px;
-    margin-bottom: 1rem;
+    margin-bottom: 4px;
   }
   #v_icon_check ul li::before {
-    content: url("https://cdn.shopify.com/s/files/1/0671/6686/3619/files/checkmark.svg?v=1701765920");
+    content: url('https://cdn.shopify.com/s/files/1/0671/6686/3619/files/checkmark.svg?v=1701765920');
     position: absolute;
     left: 0;
     top: 0;

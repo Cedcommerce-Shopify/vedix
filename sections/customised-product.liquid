@@ -1,0 +1,498 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="relative section-{{ section.id }}-padding">
+  <div class="container mx-auto px-4">
+    <h2 class="mb-2 font-AnekLatin-Bold text-[28px]/[26px] text-mine-shaft md:font-AnekLatin-SemiBold md:text-[42px]/[58px]">
+      {{ section.settings.section_heading }}
+    </h2>
+    <div class="font-AnekLatin-Medium text-[14px]/[24px] text-mine-shaft">
+      {{ section.settings.section_sub_heading }}
+    </div>
+    <ul class="mt-[45px] grid grid-cols-1 gap-x-4 md:grid-cols-3">
+      {% for block in section.blocks %}
+        <li class="relative mb-12 border border-solid border-mine-shaft">
+          {% if block.settings.product_type != blank %}
+            <div class="absolute -top-[26px] left-[14px] mx-auto inline-flex w-11/12 min-w-[140px] max-w-fit items-center justify-center border border-solid border-woodsmoke bg-cape-palliser px-4 py-3 text-center font-AnekLatin-Bold text-[16px]/[26px] uppercase text-white">
+              {{ block.settings.product_type }}
+            </div>
+          {% endif %}
+          <div class="flex items-stretch justify-between border-b border-solid border-mine-shaft">
+            {% if block.settings.product_img != blank %}
+              <div class="block w-2/5 border-r border-solid border-mine-shaft p-4 pt-10">
+                <img
+                  src="{{ block.settings.product_img |  img_url: 'master'}}"
+                  width="{{ block.settings.product_img.width }}"
+                  height="{{ block.settings.product_img.height }}"
+                  loading="lazy"
+                >
+              </div>
+            {% endif %}
+            <div class="flex w-3/5 flex-col gap-4 p-4 pt-10">
+              <h3 class="font-AnekLatin-Bold text-[16px]/[20px] text-mine-shaft">{{ block.settings.title }}</h3>
+              <div class="font-AnekLatin-SemiBold text-[14px]/[20px] text-mine-shaft">
+                {{ block.settings.product_info }}
+              </div>
+              <div class=""></div>
+              <ul class="flex w-full flex-row gap-x-8">
+                <li class="flex items-center gap-x-[6px] text-[12px]/[20px] text-mine-shaft">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8.104" height="12.677" viewBox="0 0 8.104 12.677">
+                    <path id="Path_7847" data-name="Path 7847" d="M317.405,220.521l3.362-6.661a.287.287,0,0,1,.514,0l3.366,6.661a4,4,0,0,1-.743,4.637l-.047.047a4,4,0,0,1-5.663,0l-.047-.047A4,4,0,0,1,317.405,220.521Zm3.621-5.889-3.1,6.149c0,.007-.007.013-.011.02a1.866,1.866,0,0,0,1.756,2.67,3.7,3.7,0,0,0,2.49-1.084l.047-.047c.049-.049.1-.1.144-.153a3.593,3.593,0,0,0,.47-4Z" transform="translate(-316.974 -213.7)" fill="#333"/>
+                  </svg>
+                  30ml
+                </li>
+                <li class="flex items-center gap-x-[6px] text-[12px]/[20px] text-mine-shaft">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13.43" height="12.302" viewBox="0 0 13.43 12.302">
+                    <g id="Group_5668" data-name="Group 5668" transform="translate(-1.852 -2.141)">
+                      <path id="Path_7848" data-name="Path 7848" d="M8.047,2.141a6.153,6.153,0,1,0,5.645,8.552.519.519,0,1,0-.956-.4,5.11,5.11,0,1,1,.257-3.228l-.463-.406a.516.516,0,1,0-.679.778l1.536,1.346a.517.517,0,0,0,.786-.126L15.21,6.9a.517.517,0,0,0-.889-.527l-.3.518A6.171,6.171,0,0,0,8.633,2.172q-.295-.03-.586-.031ZM7.58,5.1a.516.516,0,0,0-.519.515V9.446a.517.517,0,0,0,.324.481l2.223.9a.517.517,0,0,0,.384-.96L8.095,9.1V5.619A.516.516,0,0,0,7.58,5.1Z" fill="#333"/>
+                    </g>
+                  </svg>
+                  30 days
+                </li>
+              </ul>
+            </div>
+          </div>
+          {% if block.settings.product_desc %}
+            <div class="border-b border-solid border-mine-shaft p-4 font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+              {{ block.settings.product_desc }}
+            </div>
+          {% endif %}
+          <div id="benefits" class="border-b border-solid border-mine-shaft p-4">
+            <h4 class="relative mb-5 font-AnekLatin-Bold text-[14px]/[26px] text-mine-shaft">
+              {{ block.settings.benefit_text }}
+              {% if block.settings.heading_icon != blank %}
+                <span class="absolute right-0 top-1 block h-[24px] w-[24px]">
+                  <img
+                    src="{{ block.settings.heading_icon |  img_url: 'master' }}"
+                    width="{{block.settings.heading_icon.width}}"
+                    height="{{ block.settings.heading_icon.height }}"
+                    loading="lazy"
+                  >
+                </span>
+              {% endif %}
+            </h4>
+            <div id="v_icon_check" class="font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+              {{ block.settings.benefit_desc }}
+            </div>
+          </div>
+          <div id="howToUse" class="border-b border-solid border-mine-shaft p-4">
+            <h4 class="relative mb-5 font-AnekLatin-Bold text-[14px]/[26px] text-mine-shaft">
+              {{ block.settings.usage_text }}
+              {% if block.settings.heading_icon != blank %}
+                <span class="absolute right-0 top-1 block h-[24px] w-[24px]">
+                  <img
+                    src="{{ block.settings.heading_icon |  img_url: 'master' }}"
+                    width="{{block.settings.heading_icon.width}}"
+                    height="{{ block.settings.heading_icon.height }}"
+                    loading="lazy"
+                  >
+                </span>
+              {% endif %}
+            </h4>
+            <div class="mb-4 font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+              {{ block.settings.usage_desc }}
+            </div>
+            <ul class="flex flex-col gap-9">
+              <li class="flex items-center gap-x-4">
+                {% if block.settings.usage_product_img_1 != blank %}
+                  <span class="block h-[46px] w-[46px] max-w-[46px] flex-[0_0_100%] overflow-hidden rounded">
+                    <img
+                      src="{{ block.settings.usage_product_img_1 |  img_url: 'master' }}"
+                      width="{{block.settings.usage_product_img_1.width}}"
+                      height="{{ block.settings.usage_product_img_1.height }}"
+                      loading="lazy"
+                    >
+                  </span>
+                {% endif %}
+                <div class="flex flex-col gap-1">
+                  <h4 class="font-AnekLatin-Bold text-[13px]/[20px] text-cape-palliser">
+                    {{ block.settings.usage_step_1 }}
+                  </h4>
+                  <div class="text-[13px]/[20px] text-mine-shaft">{{ block.settings.usage_step_desc_1 }}</div>
+                </div>
+              </li>
+              <li class="flex items-center gap-x-4">
+                {% if block.settings.usage_product_img_2 != blank %}
+                  <span class="block h-[46px] w-[46px] max-w-[46px] flex-[0_0_100%] overflow-hidden rounded">
+                    <img
+                      src="{{ block.settings.usage_product_img_2 |  img_url: 'master' }}"
+                      width="{{block.settings.usage_product_img_2.width}}"
+                      height="{{ block.settings.usage_product_img_2.height }}"
+                      loading="lazy"
+                    >
+                  </span>
+                {% endif %}
+                <div class="flex flex-col gap-1">
+                  <h4 class="font-AnekLatin-Bold text-[13px]/[20px] text-cape-palliser">
+                    {{ block.settings.usage_step_2 }}
+                  </h4>
+                  <div class="text-[13px]/[20px] text-mine-shaft">{{ block.settings.usage_step_desc_2 }}</div>
+                </div>
+              </li>
+              <li class="flex items-center gap-x-4">
+                {% if block.settings.usage_product_img_3 != blank %}
+                  <span class="block h-[46px] w-[46px] max-w-[46px] flex-[0_0_100%] overflow-hidden rounded">
+                    <img
+                      src="{{ block.settings.usage_product_img_3 |  img_url: 'master' }}"
+                      width="{{block.settings.usage_product_img_3.width}}"
+                      height="{{ block.settings.usage_product_img_3.height }}"
+                      loading="lazy"
+                    >
+                  </span>
+                {% endif %}
+                <div class="flex flex-col gap-1">
+                  <h4 class="font-AnekLatin-Bold text-[13px]/[20px] text-cape-palliser">
+                    {{ block.settings.usage_step_3 }}
+                  </h4>
+                  <div class="text-[13px]/[20px] text-mine-shaft">{{ block.settings.usage_step_desc_3 }}</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="ingradients" class="p-4">
+            <h4 class="relative mb-5 font-AnekLatin-Bold text-[14px]/[26px] text-mine-shaft">
+              {{ block.settings.ingradients_heading }}
+              {% if block.settings.heading_icon != blank %}
+                <span class="absolute right-0 top-1 block h-[24px] w-[24px]">
+                  <img
+                    src="{{ block.settings.heading_icon |  img_url: 'master' }}"
+                    width="{{block.settings.heading_icon.width}}"
+                    height="{{ block.settings.heading_icon.height }}"
+                    loading="lazy"
+                  >
+                </span>
+              {% endif %}
+            </h4>
+            <ul class="mt-8 grid grid-cols-4 gap-3">
+              <li class="flex flex-col items-center gap-3">
+                {% if block.settings.ing_product_img_1 != blank %}
+                  <div class="h-[50px] w-[50px]">
+                    <img
+                      src="{{ block.settings.ing_product_img_1 |  img_url: 'master' }}"
+                      width="{{block.settings.ing_product_img_1.width}}"
+                      height="{{ block.settings.ing_product_img_1.height }}"
+                      loading="lazy"
+                    >
+                  </div>
+                  <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+                    {{ block.settings.ing_text_1 }}
+                  </h4>
+                {% endif %}
+              </li>
+              <li class="flex flex-col items-center gap-3">
+                {% if block.settings.ing_product_img_2 != blank %}
+                  <div class="h-[50px] w-[50px]">
+                    <img
+                      src="{{ block.settings.ing_product_img_2 |  img_url: 'master' }}"
+                      width="{{block.settings.ing_product_img_2.width}}"
+                      height="{{ block.settings.ing_product_img_2.height }}"
+                      loading="lazy"
+                    >
+                  </div>
+                  <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+                    {{ block.settings.ing_text_2 }}
+                  </h4>
+                {% endif %}
+              </li>
+              <li class="flex flex-col items-center gap-3">
+                {% if block.settings.ing_product_img_3 != blank %}
+                  <div class="h-[50px] w-[50px]">
+                    <img
+                      src="{{ block.settings.ing_product_img_3 |  img_url: 'master' }}"
+                      width="{{block.settings.ing_product_img_3.width}}"
+                      height="{{ block.settings.ing_product_img_3.height }}"
+                      loading="lazy"
+                    >
+                  </div>
+                  <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+                    {{ block.settings.ing_text_3 }}
+                  </h4>
+                {% endif %}
+              </li>
+              <li class="flex flex-col items-center gap-3">
+                {% if block.settings.ing_product_img_4 != blank %}
+                  <div class="h-[50px] w-[50px]">
+                    <img
+                      src="{{ block.settings.ing_product_img_4 |  img_url: 'master' }}"
+                      width="{{block.settings.ing_product_img_4.width}}"
+                      height="{{ block.settings.ing_product_img_4.height }}"
+                      loading="lazy"
+                    >
+                  </div>
+                  <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+                    {{ block.settings.ing_text_4 }}
+                  </h4>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    {% if section.settings.button_text != blank %}
+      <div class="text-center">
+        <a
+          href="{{ section.settings.button_link }}"
+          class="btn"
+          role="button"
+        >
+          <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="11.796"
+            height="10.315"
+            viewBox="0 0 11.796 10.315"
+          >
+            <g
+            id="Group_8849"
+            data-name="Group 8849"
+            transform="translate(-215.754 -537.843)">
+            <path
+                id="Icon_ionic-ios-arrow-forward"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(204.508 531.646)"
+                fill="#fff"></path>
+            <path
+                id="Icon_ionic-ios-arrow-forward-2"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(210.406 531.646)"
+                fill="#fff"></path>
+            </g>
+          </svg>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customised Product",
+  "class": "section-customised-product",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "section_sub_heading",
+      "label": "Sub heading"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Block",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_type",
+          "label": "Product type"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_img",
+          "label": "Product image"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Product title"
+        },
+        {
+          "type": "richtext",
+          "id": "product_info",
+          "label": "Product info"
+        },
+        {
+          "type": "richtext",
+          "id": "product_desc",
+          "label": "Product description"
+        },
+        {
+          "type": "header",
+          "content": "Benefits"
+        },
+        {
+          "type": "text",
+          "id": "benefit_text",
+          "label": "Benefits text"
+        },
+        {
+          "type": "image_picker",
+          "id": "heading_icon",
+          "label": "Heading Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "benefit_desc",
+          "label": "Benefits description"
+        },
+        {
+          "type": "header",
+          "content": "How to use"
+        },
+        {
+          "type": "text",
+          "id": "usage_text",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "usage_desc",
+          "label": "Usages Descriptions"
+        },
+        {
+          "type": "image_picker",
+          "id": "usage_product_img_1",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "usage_step_1",
+          "label": "Step 1"
+        },
+        {
+          "type": "richtext",
+          "id": "usage_step_desc_1",
+          "label": "Step description"
+        },
+        {
+          "type": "image_picker",
+          "id": "usage_product_img_2",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "usage_step_2",
+          "label": "Step 2"
+        },
+        {
+          "type": "richtext",
+          "id": "usage_step_desc_2",
+          "label": "Step description"
+        },
+        {
+          "type": "image_picker",
+          "id": "usage_product_img_3",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "usage_step_3",
+          "label": "Step 3"
+        },
+        {
+          "type": "richtext",
+          "id": "usage_step_desc_3",
+          "label": "Step description"
+        },
+        {
+          "type": "header",
+          "content": "Power Ingradients"
+        },
+        {
+          "type": "text",
+          "id": "ingradients_heading",
+          "label": "Ingradients Heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "ing_product_img_1",
+          "label": "Product image"
+        },
+        {
+          "type": "richtext",
+          "id": "ing_text_1",
+          "label": "Ingradients text"
+        },
+        {
+          "type": "image_picker",
+          "id": "ing_product_img_2",
+          "label": "Product image"
+        },
+        {
+          "type": "richtext",
+          "id": "ing_text_2",
+          "label": "Ingradients text"
+        },
+        {
+          "type": "image_picker",
+          "id": "ing_product_img_3",
+          "label": "Product image"
+        },
+        {
+          "type": "richtext",
+          "id": "ing_text_3",
+          "label": "Ingradients text"
+        },
+        {
+          "type": "image_picker",
+          "id": "ing_product_img_4",
+          "label": "Product image"
+        },
+        {
+          "type": "richtext",
+          "id": "ing_text_4",
+          "label": "Ingradients text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customised Product"
+    }
+  ]
+}
+{% endschema %}

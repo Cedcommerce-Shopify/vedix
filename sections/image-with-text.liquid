@@ -39,6 +39,26 @@
         >
           {{ section.settings.paragraph }}
         </div>
+        <ul class="grid grid-cols-3 gap-5 md:grid-cols-5">
+          {%- for block in section.blocks -%}
+            <li class="flex flex-col items-center gap-4">
+              {% if block.settings.list_image != blank %}
+                <div class="flex items-center justify-center overflow-hidden rounded-full bg-linen w-[90px] h-[90px]">
+                  <img
+                    src="{{ block.settings.list_image | img_url: '30px' }}"
+                    loading="lazy"
+                    width="{{ block.settings.list_image.width }}"
+                    height="{{ block.settings.list_image.height }}"
+                    alt="{{ block.settings.list_image.alt }}"
+                  >
+                </div>
+              {% endif %}
+              {% if block.settings.title != blank %}
+                <h3 class="text-center font-AnekLatin-SemiBold text-[12px]/[16px] md:text-[14px]/[16px] text-woodsmoke">{{ block.settings.title }}</h3>
+              {% endif %}
+            </li>
+          {%- endfor -%}
+        </ul>
         {% if section.settings.button_text != blank %}
           <a
             href="{{ section.settings.button_link }}"
@@ -131,6 +151,25 @@
       "unit": "px",
       "label": "Padding Bottom",
       "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Block",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "list_image",
+          "label": "image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
     }
   ],
   "presets": [
