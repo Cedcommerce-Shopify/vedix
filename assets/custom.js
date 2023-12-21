@@ -1,3 +1,4 @@
+customSlick();
 function customSlick(){
       $('.customSlider').not('.slick-initialized').slick({ 	
         dots: false,
