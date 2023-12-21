@@ -19,8 +19,8 @@
     </h2>
     <ul class="grid customSlider" role="grid">
       {%- for block in section.blocks -%}
-        <li class="flex flex-col gap-8" role="gridcell">
-          <div class="flex flex-col items-center justify-center gap-3">
+        <li >
+          <div>
             {% if block.settings.col_image != blank %}
               <span class="overflow-hidden rounded-md">
                 <img
