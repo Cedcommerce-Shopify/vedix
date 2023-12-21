@@ -59,10 +59,94 @@
       ],
       "settings": {
       }
+    },
+    "a82d97d2-c1b7-43d3-8042-cfe842066f2b": {
+      "type": "multicolumn-grid",
+      "blocks": {
+        "d609db19-6d87-4cfb-bf07-e075aae12571": {
+          "type": "column",
+          "settings": {
+            "paragraph": "",
+            "col_image": "shopify:\/\/shop_images\/Ellipse_150_2x_229b83c2-aa43-461c-a5e2-7c9c4d732380.png",
+            "title": "NEHA DHUPIA"
+          }
+        },
+        "99cc4c0c-f317-45a0-8693-9f5f69bef29e": {
+          "type": "column",
+          "settings": {
+            "paragraph": "",
+            "col_image": "shopify:\/\/shop_images\/Ellipse_151_2x_e728d4b4-4eaf-4e2e-91db-373aaf925d03.png",
+            "title": "SOHA ALI KHAN"
+          }
+        },
+        "f7c48991-b6a4-437e-b2b8-74ea5fc5b8ca": {
+          "type": "column",
+          "settings": {
+            "paragraph": "",
+            "col_image": "shopify:\/\/shop_images\/Ellipse_151_2x_e728d4b4-4eaf-4e2e-91db-373aaf925d03.png",
+            "title": "SWARA BHASKAR"
+          }
+        }
+      },
+      "block_order": [
+        "d609db19-6d87-4cfb-bf07-e075aae12571",
+        "99cc4c0c-f317-45a0-8693-9f5f69bef29e",
+        "f7c48991-b6a4-437e-b2b8-74ea5fc5b8ca"
+      ],
+      "settings": {
+        "heading": "Lorem Ipsum is simply dummy text",
+        "button_text": "Know Your Hair",
+        "button_link": "#",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "b08c568a-00dd-42f4-b85e-53c72f6ba1c4": {
+      "type": "awards-and-accolades",
+      "blocks": {
+        "db7b2e08-4988-487b-84c8-7756de0cb9ec": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/image6_192a1006-e637-4227-8578-27ec071a09ce.jpg",
+            "col_heading": "Cosmopolitan Award",
+            "title": "Best Product For Hair Volume"
+          }
+        },
+        "1a02d4f4-20d6-4c8e-a86e-5030d29b6de8": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/image2_458ff580-e16d-49c7-9196-2095674b6f9d.jpg",
+            "col_heading": "Entrepreneur Award",
+            "title": "Best Ayurvedic Startup Of The Year"
+          }
+        },
+        "8a1f5f88-1776-4e5f-acee-975f87db353e": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/image2_458ff580-e16d-49c7-9196-2095674b6f9d.jpg",
+            "col_heading": "Entrepreneur Award",
+            "title": "Best Ayurvedic Startup Of The Year"
+          }
+        }
+      },
+      "block_order": [
+        "db7b2e08-4988-487b-84c8-7756de0cb9ec",
+        "1a02d4f4-20d6-4c8e-a86e-5030d29b6de8",
+        "8a1f5f88-1776-4e5f-acee-975f87db353e"
+      ],
+      "settings": {
+        "heading": "Lorem Ipsum is simply dummy text",
+        "button_text": "Know Your Hair",
+        "button_link": "#",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "88f5d421-4ee7-4755-8dd4-437f236dea95",
-    "bb6aad23-66f2-4326-ac3e-97e9ee7fdfe1"
+    "bb6aad23-66f2-4326-ac3e-97e9ee7fdfe1",
+    "a82d97d2-c1b7-43d3-8042-cfe842066f2b",
+    "b08c568a-00dd-42f4-b85e-53c72f6ba1c4"
   ]
 }
