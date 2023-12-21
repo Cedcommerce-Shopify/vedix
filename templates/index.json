@@ -10,9 +10,59 @@
         "button_text": "Know Your Hair",
         "button_link": "#"
       }
+    },
+    "bb6aad23-66f2-4326-ac3e-97e9ee7fdfe1": {
+      "type": "services",
+      "blocks": {
+        "1059309e-5888-4214-a59f-eae457173d79": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/Image_6_2x_e77f558e-8612-41d0-9174-1a50a32a2485.png",
+            "title": "100% Natural Ingredients"
+          }
+        },
+        "8a1aa664-f9ba-45d7-bf6c-6b8aa8b73509": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/Image_6_2x_e77f558e-8612-41d0-9174-1a50a32a2485.png",
+            "title": "100% Natural Ingredients"
+          }
+        },
+        "094b356f-8577-4d21-9056-0b3098e465d7": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/Image_6_2x_e77f558e-8612-41d0-9174-1a50a32a2485.png",
+            "title": "100% Natural Ingredients"
+          }
+        },
+        "c43eb6bd-45c2-416d-88ea-4ddc99d706b0": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/Image_6_2x_e77f558e-8612-41d0-9174-1a50a32a2485.png",
+            "title": "100% Natural Ingredients"
+          }
+        },
+        "83f8f851-a6f3-4960-8c30-1774c1c094f5": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/Image_6_2x_e77f558e-8612-41d0-9174-1a50a32a2485.png",
+            "title": "100% Natural Ingredients"
+          }
+        }
+      },
+      "block_order": [
+        "1059309e-5888-4214-a59f-eae457173d79",
+        "8a1aa664-f9ba-45d7-bf6c-6b8aa8b73509",
+        "094b356f-8577-4d21-9056-0b3098e465d7",
+        "c43eb6bd-45c2-416d-88ea-4ddc99d706b0",
+        "83f8f851-a6f3-4960-8c30-1774c1c094f5"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
-    "88f5d421-4ee7-4755-8dd4-437f236dea95"
+    "88f5d421-4ee7-4755-8dd4-437f236dea95",
+    "bb6aad23-66f2-4326-ac3e-97e9ee7fdfe1"
   ]
 }
