@@ -1,0 +1,125 @@
+{%- assign featured_collection = section.settings.featured_collection -%}
+<div class="bg-white py-[30px]">
+  <div class="container m-auto px-[20px]">
+    {%- assign text_image = section.settings.text_image -%}
+    {% if text_image != blank %}
+      <div class="text-left section-heading hidden sm:block">
+        {{ text_image | image_url: width: text_image.width | image_tag: class: 'w-[177px]', loading: 'lazy' }}
+      </div>
+    {% endif %}
+    <div class="flex items-center justify-between pt-[30px] pb-[20px]">
+      <p class="text-woodsmoke text-xs font-bold">{{ section.settings.heading }}</p>
+      <a href="{{ featured_collection.url }}" class="text-woodsmoke text-xs font-bold">VIEW ALL</a>
+    </div>
+    <p class="text-sm text-woodsmoke font-semibold">{{ section.settings.sub_heading }}</p>
+    {%- assign featured_collection_products = featured_collection.products -%}
+    {%- for card_product in featured_collection_products limit: section.settings.products_to_show -%}
+      <div class="flex items-start flex-wrap mt-[20px] {{ featured_collection_products | size }}">
+        <div class="bg-aeroblue rounded-tl-3 rounded-tr-3 text-center w-[100%]">
+          <p class="py-[10px] px-[10px] font-semibold">{{ card_product.category | upcase }}</p>
+        </div>
+
+        <div class="w-[100%] relative">
+          <div class="w-328 h-160">
+            <img
+              srcset="
+                {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+              "
+              src="{{ card_product.featured_media | image_url: width: 533 }}"
+              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+              alt="{{ card_product.featured_media.alt | escape }}"
+              class="motion-reduce w-[100%] h-[100%]"
+              {% unless lazy_load == false %}
+              loading="lazy"
+              {% endunless %}
+              width="{{ card_product.featured_media.width }}"
+              height="{{ card_product.featured_media.height }}">
+          </div>
+
+          <div class="absolute top-[10px] left-[10px] bg-white-lilac">
+            <span class="text-blue-marguerite text-[16px] opacity-80 px-[5px] py-[7px] font-medium flex items-center">10% OFF</span>
+          </div>
+
+          <div class="text-center bg-quarter-spanish-white rounded-sm m-auto max-w-[210px] flex justify-center items-center mt-[20px] mb-[30px] p-[10px]">
+            <img src="https://cdn.shopify.com/s/files/1/0831/6928/0289/files/Rectangle_13574.png?v=1701668757" class=" mr-[10px]">
+            <span class="text-[12px] text-woodsmoke uppercase">CUSTOMISATIONS AVAILABLE</span>
+          </div>
+          <span class="text-woodsmoke text-[14px] opacity-60">{{ card_product.tags }}</span>
+          <div class="text-left font-medium text-16 leading-22 text-opacity-100 mt-[5px]">
+            <h3>{{ card_product.title }}</h3>
+          </div>
+
+          <div class="flex items-center mt-2 gap-[10px]">
+            <img src="https://cdn.shopify.com/s/files/1/0831/6928/0289/files/Group_8791.png?v=1701683297" alt="">
+            <span>(49)</span>
+          </div>
+
+          <div class="flex mt-2">
+            <p>
+              <span class="text-woodsmoke text-[20px] font-bold">{{ card_product.price | money }}</span>
+              <span class="text-opacity-100 line-through text-woodsmoke text-[20px]">
+                {{- card_product.compare_at_price | money -}}
+              </span>
+            </p>
+          </div>
+
+          <div class="mt-[40px] w-[100%] flex items-center justify-center">
+            <a href="{{ card_product.url }}" class="bg-flame-pea w-[100%] text-white border  text-center border-1 border-solid border-woodsmoke uppercase text-[16px] font-semibold  py-[16px] opacity-100">ADD TO CART +</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Your Custom Shop",
+    "class": "custom-shop",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "text_image",
+        "label": "Text Image"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub Heading"
+      },
+      {
+        "type": "header",
+        "content": "Featured Collection Info"
+      }, {
+        "type": "collection",
+        "id": "featured_collection",
+        "label": "Featured Collection"
+      }, {
+        "type": "range",
+        "id": "products_to_show",
+        "min": 4,
+        "max": 25,
+        "step": 1,
+        "default": 4,
+        "label": "t:sections.featured-collection.settings.products_to_show.label"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Your Custom Shop"
+      }
+    ]
+  }
+{% endschema %}

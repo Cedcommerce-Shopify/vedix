@@ -1,0 +1,106 @@
+<div class="py-[60px] bg-quarter-spanish-white">
+  <div class="container m-auto">
+    <div class="px-[20px]">
+      <h2 class="text-[28px]/[32px] text-woodsmoke text-left font-semibold mb-2">{{ section.settings.heading }}</h2>
+      <div class="flex items-center overflow-x-auto gap-x-[20px]">
+        {% for block in section.blocks %}
+          <div class="min-w-[320px]">
+            <p class="text-[22px]/[28px] text-cape-palliser text-left font-medium my-5">{{ block.settings.info }}</p>
+            <div id="iframe" class="bg-white">
+              {% if block.settings.iframe_video.type == 'youtube' %}
+                <iframe
+                  width="100%"
+                  height="400"
+                  src="https://www.youtube.com/embed/AjuDrAahRmM?si={{ block.settings.iframe_video.id }}"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              {% elsif block.settings.iframe_video.type == 'vimeo' %}
+                <iframe
+                  src="{{ block.settings.iframe_video }}"
+                  width="100%"
+                  height="400"
+                  frameborder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              {% endif %}
+            </div>
+            <div class="flex items-center justify-between mt-[20px]">
+              <p class="text-[16px]/[22px] text-woodsmoke text-left font-semibold">{{ block.settings.client_name }} <br/>
+                <span class="text-[12px]/[22px] text-woodsmoke text-left">{{ block.settings.location_name }}</span>
+              </p>
+              <p class="flex items-center gap-2 text-[14px]/[22px] text-apple text-left font-semibold">
+                {% if block.settings.icon != blank %}
+                  <img
+                    src="{{ block.settings.icon |  img_url: 'master' }}"
+                    width="{{ block.settings.icon }}"
+                    height="{{ block.settings.icon }}"
+                    alt="" />{% endif %}
+                {{ block.settings.label }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Text With Video Frame",
+    "class": "section-text-with-video-frame",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Block",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "text",
+            "id": "info",
+            "label": "Information"
+          },
+          {
+            "type": "video_url",
+            "id": "iframe_video",
+            "label": "Video",
+            "accept": ["youtube", "vimeo"]
+          },
+          {
+            "type": "text",
+            "id": "client_name",
+            "label": "Name"
+          },
+          {
+            "type": "text",
+            "id": "location_name",
+            "label": "Location"
+          }, {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }, {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text With Video Frame"
+      }
+    ]
+  }
+{% endschema %}

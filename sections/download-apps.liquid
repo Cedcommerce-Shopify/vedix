@@ -1,0 +1,110 @@
+<div class="bg-[{{- section.settings.bg_color -}}] mt-[40px] py-[40px]">
+  <div class="container mx-auto px-[20px] max-w-[1088px]">
+    <div>
+      <h2 class="sm:text-text-[24px]/[30px] md:text-[42px]/[30px] text-woodsmoke font-bold text-center ">
+        {{ section.settings.heading }}
+      </h2>
+    </div>
+    <p class="text-[16px]/[18px] text-woodsmoke font-medium text-center mt-[20px] mb-[40px]">
+      {{ section.settings.text }}
+    </p>
+    <div class="max-w-[590px] m-auto">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 ">
+        {%- for block in section.blocks -%}
+          <div class="flex flex-col">
+            <div class="flex mt-[20px] gap-x-[10px] justify-center items-center">
+              <div class="text-[35px]/[30px] text-woodsmoke font-bold">{{ block.settings.avg_rating }}</div>
+              <div class="flex flex-col">
+                {% assign star_count = block.settings.star %}
+                <div class="flex items-center gap-[5px]">
+                  {% for i in (0..star_count) %}
+                    {% render 'star' %}
+                  {% endfor %}
+                </div>
+                <div class="text-[18px]/[30px] text-woodsmoke ">
+                  {{ block.settings.title }}
+                </div>
+              </div>
+            </div>
+            <div class="mt-[10px]">
+              <a href="{{ block.settings.link }}" class="py-[12px] px-[40px] bg-black text-white text-center border border-solid border-black flex justify-center items-center gap-4">
+                {%- assign icon = block.settings.icon -%}
+                {% if icon != blank %}
+                  {{ icon | image_url: width: icon.width | image_tag: class: 'h-[16px] w-[14px]', loading: 'lazy' }}
+                {% endif %}
+                {{ block.settings.button_text }}
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Download App",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "BG Color",
+        "default": "#F7EEDE"
+      }, {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      }, {
+        "type": "text",
+        "id": "text",
+        "label": "Text"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Apps",
+        "type": "apps",
+        "settings": [
+          {
+            "type": "text",
+            "id": "avg_rating",
+            "label": "Avg Rating",
+            "default": "4.8"
+          },
+          {
+            "type": "range",
+            "id": "star",
+            "label": "Star",
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "default": 5
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }, {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+          }, {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Download App"
+      }
+    ]
+  }
+{% endschema %}
