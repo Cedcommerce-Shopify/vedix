@@ -2,6 +2,7 @@
   "sections": {
     "88f5d421-4ee7-4755-8dd4-437f236dea95": {
       "type": "image-with-banner",
+      "disabled": true,
       "settings": {
         "desktop_image": "shopify:\/\/shop_images\/banner-bg-2.png",
         "mobile_image": "shopify:\/\/shop_images\/banner-bg.png",
@@ -93,6 +94,7 @@
         "99cc4c0c-f317-45a0-8693-9f5f69bef29e",
         "f7c48991-b6a4-437e-b2b8-74ea5fc5b8ca"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Lorem Ipsum is simply dummy text",
         "button_text": "Know Your Hair",
@@ -107,7 +109,7 @@
         "db7b2e08-4988-487b-84c8-7756de0cb9ec": {
           "type": "column",
           "settings": {
-            "col_image": "shopify:\/\/shop_images\/image6_192a1006-e637-4227-8578-27ec071a09ce.jpg",
+            "col_image": "shopify:\/\/shop_images\/entrepreneur-award-lg.jpg",
             "col_heading": "Cosmopolitan Award",
             "title": "Best Product For Hair Volume"
           }
@@ -115,7 +117,7 @@
         "1a02d4f4-20d6-4c8e-a86e-5030d29b6de8": {
           "type": "column",
           "settings": {
-            "col_image": "shopify:\/\/shop_images\/image2_458ff580-e16d-49c7-9196-2095674b6f9d.jpg",
+            "col_image": "shopify:\/\/shop_images\/cosmopolitan-award-lg.jpg",
             "col_heading": "Entrepreneur Award",
             "title": "Best Ayurvedic Startup Of The Year"
           }
@@ -123,7 +125,7 @@
         "8a1f5f88-1776-4e5f-acee-975f87db353e": {
           "type": "column",
           "settings": {
-            "col_image": "shopify:\/\/shop_images\/image2_458ff580-e16d-49c7-9196-2095674b6f9d.jpg",
+            "col_image": "shopify:\/\/shop_images\/entrepreneur-award-lg.jpg",
             "col_heading": "Entrepreneur Award",
             "title": "Best Ayurvedic Startup Of The Year"
           }
