@@ -141,12 +141,66 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "8f7545bf-c32d-474c-b32a-313d6076801e": {
+      "type": "accordion",
+      "blocks": {
+        "867998f4-17f9-4449-834e-408d11051c8f": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/banner-bg.png",
+            "col_heading": "Get A Detailed Hair Analysis With The Dosha Assessment Questionnaire",
+            "title": "<p>Answer simple questions about your hair, body, lifestyle, preferences and such to help us assess your Unique Dosha Profile*<\/p>"
+          }
+        },
+        "bde6a193-4365-42bb-aac3-5dfddcfc8450": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/banner-bg.png",
+            "col_heading": "Get Your Customised Daily Hair Care Regimen",
+            "title": "<p>Answer simple questions about your hair, body, lifestyle, preferences and such to help us assess your Unique Dosha Profile*<\/p>"
+          }
+        },
+        "bfea3dd3-e494-48e2-b9b8-f57098fad059": {
+          "type": "column",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/banner-bg.png",
+            "col_heading": "Get Closer To Realising Your Hair Goals",
+            "title": "<p>Answer simple questions about your hair, body, lifestyle, preferences and such to help us assess your Unique Dosha Profile*<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "867998f4-17f9-4449-834e-408d11051c8f",
+        "bde6a193-4365-42bb-aac3-5dfddcfc8450",
+        "bfea3dd3-e494-48e2-b9b8-f57098fad059"
+      ],
+      "settings": {
+        "section_image": "shopify:\/\/shop_images\/bg-pattern.png",
+        "heading": "Lorem Ipsum is simply dummy text",
+        "button_text": "Know Your Hair",
+        "button_link": "#",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "fedeca88-4b96-467e-82e6-c7f3d486a5c9": {
+      "type": "image-text-grid",
+      "settings": {
+        "heading": "Lorem Ipsum is simply dummy text",
+        "button_text": "Know Your Hair",
+        "button_link": "#",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "88f5d421-4ee7-4755-8dd4-437f236dea95",
     "bb6aad23-66f2-4326-ac3e-97e9ee7fdfe1",
     "a82d97d2-c1b7-43d3-8042-cfe842066f2b",
-    "b08c568a-00dd-42f4-b85e-53c72f6ba1c4"
+    "b08c568a-00dd-42f4-b85e-53c72f6ba1c4",
+    "8f7545bf-c32d-474c-b32a-313d6076801e",
+    "fedeca88-4b96-467e-82e6-c7f3d486a5c9"
   ]
 }
