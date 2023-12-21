@@ -5,10 +5,10 @@ function customSlick(){
       $('.customSlider').not('.slick-initialized').slick({ 	
         dots: false,
         arrows:true,
-        infinite: true,
+        infinite: false,
         slidesToShow: 2,
         slidesToScroll: 1,
-        autoplay:true,
+        autoplay:false,
         responsive: [
           {
             breakpoint: 1024,
