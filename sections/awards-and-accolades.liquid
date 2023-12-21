@@ -22,7 +22,7 @@
         <li >
           <div>
             {% if block.settings.col_image != blank %}
-              <span class="overflow-hidden rounded-md">
+              <!-- <span class="overflow-hidden rounded-md"> -->
                 <img
                   src="{{ block.settings.col_image | img_url: 'master' }}"
                   loading="lazy"
@@ -30,7 +30,7 @@
                   height="{{ block.settings.col_image.height }}"
                   alt="{{ block.settings.col_image.alt }}"
                 >
-              </span>
+              <!-- </span> -->
             {% endif %}
             <div class="flex flex-col gap-1">
               <h4 class="font-AnekDevanagari-SemiBold text-[16px]/[18px] capitalize text-woodsmoke md:text-[22px]/[22px]">
