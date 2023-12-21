@@ -177,6 +177,7 @@
         "bde6a193-4365-42bb-aac3-5dfddcfc8450",
         "bfea3dd3-e494-48e2-b9b8-f57098fad059"
       ],
+      "disabled": true,
       "settings": {
         "section_image": "shopify:\/\/shop_images\/bg-pattern.png",
         "heading": "Lorem Ipsum is simply dummy text",
