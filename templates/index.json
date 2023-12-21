@@ -190,6 +190,17 @@
     "fedeca88-4b96-467e-82e6-c7f3d486a5c9": {
       "type": "image-text-grid",
       "blocks": {
+        "ed21ff2b-2ee4-44cb-bd9f-052078d518c3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/product-lg.png",
+            "title": "Vedix Anti-Hair Fall Shampoo",
+            "subheading": "Your custom Vedix Anti-Hair Fall Shampoo:",
+            "paragraph1": "<p>Cleanses your hair and scalp of dirt, pollution, grime, bacteria and excess oils<\/p>",
+            "paragraph2": "<p>Is free of all harmful ingredients like sulfates and parabens<\/p>",
+            "paragraph3": "<p>Maintains your scalp’s pH balance, thus protecting hair and it’s roots<\/p>"
+          }
+        },
         "a34db513-a898-4e6c-84f8-92ae96cf0f6b": {
           "type": "column",
           "settings": {
@@ -211,23 +222,12 @@
             "paragraph2": "<p>Is quick absorbing and non-greasy<\/p>",
             "paragraph3": "<p>Keeps hair bouncy and healthy<\/p>"
           }
-        },
-        "ed21ff2b-2ee4-44cb-bd9f-052078d518c3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/product-lg.png",
-            "title": "Vedix Anti-Hair Fall Shampoo",
-            "subheading": "Your custom Vedix Anti-Hair Fall Shampoo:",
-            "paragraph1": "<p>Cleanses your hair and scalp of dirt, pollution, grime, bacteria and excess oils<\/p>",
-            "paragraph2": "<p>Is free of all harmful ingredients like sulfates and parabens<\/p>",
-            "paragraph3": "<p>Maintains your scalp’s pH balance, thus protecting hair and it’s roots<\/p>"
-          }
         }
       },
       "block_order": [
+        "ed21ff2b-2ee4-44cb-bd9f-052078d518c3",
         "a34db513-a898-4e6c-84f8-92ae96cf0f6b",
-        "90ff29c5-7ad4-4d34-a945-6d3b43395c56",
-        "ed21ff2b-2ee4-44cb-bd9f-052078d518c3"
+        "90ff29c5-7ad4-4d34-a945-6d3b43395c56"
       ],
       "settings": {
         "heading": "Lorem Ipsum is simply dummy text",
@@ -237,13 +237,48 @@
         "padding_bottom": 36
       }
     },
-    "a60df7ef-338f-4bef-851e-36855bfc91d1": {
-      "type": "image-with-text",
+    "2a4c87c5-5a26-474a-ac27-7e051a67423c": {
+      "type": "text-with-icon",
+      "blocks": {
+        "af1b1c86-637c-41be-9ea0-1ffe8a7a6189": {
+          "type": "column",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/Ellipse_156_2x_d5f1724c-ac63-41f6-a9de-77b0443b1b6f.png",
+            "title": "title"
+          }
+        },
+        "889ebcb6-b9f9-4bda-8b59-ab7c8b4d92c7": {
+          "type": "column",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/Ellipse_156_2x_d5f1724c-ac63-41f6-a9de-77b0443b1b6f.png",
+            "title": "title"
+          }
+        },
+        "fc53dd77-a571-4422-86a6-963f251682d6": {
+          "type": "column",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/Ellipse_156_2x_d5f1724c-ac63-41f6-a9de-77b0443b1b6f.png",
+            "title": "title"
+          }
+        },
+        "d3213cfe-0ea2-4942-9211-99eb2064aa48": {
+          "type": "column",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/Ellipse_156_2x_d5f1724c-ac63-41f6-a9de-77b0443b1b6f.png",
+            "title": "title"
+          }
+        }
+      },
+      "block_order": [
+        "af1b1c86-637c-41be-9ea0-1ffe8a7a6189",
+        "889ebcb6-b9f9-4bda-8b59-ab7c8b4d92c7",
+        "fc53dd77-a571-4422-86a6-963f251682d6",
+        "d3213cfe-0ea2-4942-9211-99eb2064aa48"
+      ],
       "settings": {
-        "heading": "",
-        "paragraph": "",
-        "button_text": "",
-        "button_link": "",
+        "heading": "World’s First Personalised Ayurvedic Solution",
+        "description": "",
+        "block_title": "",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -256,6 +291,6 @@
     "b08c568a-00dd-42f4-b85e-53c72f6ba1c4",
     "8f7545bf-c32d-474c-b32a-313d6076801e",
     "fedeca88-4b96-467e-82e6-c7f3d486a5c9",
-    "a60df7ef-338f-4bef-851e-36855bfc91d1"
+    "2a4c87c5-5a26-474a-ac27-7e051a67423c"
   ]
 }
