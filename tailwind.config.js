@@ -37,6 +37,9 @@ module.exports = {
         "silver-chalice": "#A0A0A0",
         "dove-gray": "#6E6E6E",
         mercury: "#E9E9E9",
+        "de-york": "#8CC192",
+        "japanese-laurel": "#038808",
+        gin: "#E6F1E8",
       },
       fontFamily: {
         "AnekLatin-Regular": ["AnekLatin-Regular", "sans-serif"],

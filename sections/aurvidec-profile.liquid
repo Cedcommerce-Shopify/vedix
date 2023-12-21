@@ -1,0 +1,249 @@
+<div id="tabs" class="py-[60px]">
+  <div id="tabs-btn" class="bg-ivory bg-merino bg-opacity-100 px-[20px] py-[40px] shadow-md">
+    <div class="container m-auto">
+      <div class="flex items-center justify-between px-[20px]">
+        <button class="tab-btn tab-active text-[16px] font-medium text-cape-palliser" data-tab="analysis">
+          Analysis
+        </button>
+        <button class="tab-btn text-[16px] font-medium text-gray" data-tab="regimen">Regimen</button>
+        <button class="tab-btn text-[16px] font-medium text-gray" data-tab="review">Review</button>
+      </div>
+    </div>
+  </div>
+  {%- for block in section.blocks -%}
+    <div id="tabs-content" class="relative bg-white px-[20px] pt-[60px]">
+      <div class="container m-auto">
+        <img
+          src="{{ block.settings.bg_image | img_url: 'master' }}"
+          width="{{ block.settings.bg_image }}"
+          height="{{ block.settings.bg_image }}"
+          loading="lazy"
+          alt=""
+          class="absolute right-0 top-[29%] max-w-[60px] overflow-hidden">
+        <div class="max-w-[300px]">
+          <h2 class="mb-[24px] text-[28px] font-medium text-mine-shaft">{{ block.settings.title }}</h2>
+          <div class="mb-[20px] text-[16px] text-black">{{ block.settings.paragraph }}</div>
+          {% if block.settings.sub_title != blank %}
+            <h3>{{ block.settings.sub_title }}</h3>
+          {% endif %}
+        </div>
+        <div class="tab-content" id="analysis">
+          {% if block.settings.label != blank or block.settings.text != blank or block.settings.text_2 != blank %}
+            <div class="mb-[24px] flex flex-col gap-[7px]">
+              <h3 class="text-xl font-bold text-blue-marguerite">{{ block.settings.label }}</h3>
+              <div class="w-full max-w-[294px] rounded-br-[36px] border border-solid border-soapstone bg-cold-purple">
+                <p class="py-[10px] pl-2 text-[12px] font-medium text-butterfly-bush">{{ block.settings.text }}</p>
+              </div>
+              <div class="w-full max-w-[173px] rounded-br-[36px] border border-solid border-soapstone bg-blue-marguerite">
+                <p class="py-[10px] pl-2 text-[12px] font-medium text-white">{{ block.settings.text_2 }}</p>
+              </div>
+              {% if section.settings.sub_title != blank %}
+                <div>
+                  <h3>{{ section.settings.sub_title }}</h3>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+          {% if block.settings.label_2 != blank or block.settings.text_21 != blank or block.settings.text_22 != blank %}
+            <div class="mb-[24px] flex flex-col gap-[7px]">
+              <h3 class="text-xl font-bold text-blue-marguerite">{{ block.settings.label_2 }}</h3>
+              <div class="w-full max-w-[294px] rounded-br-[36px] border border-solid border-soapstone bg-wewak">
+                <p class="py-[10px] pl-2 text-[12px] font-medium text-flame-pea">{{ block.settings.text_21 }}</p>
+              </div>
+              <div class="w-full max-w-[173px] rounded-br-[36px] border border-solid border-soapstone bg-flame-pea">
+                <p class="py-[10px] pl-2 text-[12px] font-medium text-white">{{ block.settings.text_22 }}</p>
+              </div>
+            </div>
+          {% endif %}
+          {% if block.settings.label_3 != blank or block.settings.text_31 != blank or block.settings.text_32 != blank %}
+            <div class="flex flex-col gap-[7px]">
+              <h3 class="text-xl font-bold text-blue-marguerite">{{ block.settings.label_3 }}</h3>
+              <div class="w-full max-w-[294px] rounded-br-[36px] border border-solid border-soapstone bg-surf">
+                <p class="py-[10px] pl-2 text-[12px] font-medium text-green-pea">{{ block.settings.text_31 }}</p>
+              </div>
+              <div class="w-full max-w-[173px] rounded-br-[36px] border border-solid border-soapstone bg-de-york">
+                <p class="py-[10px] pl-2 text-[12px] font-medium text-white">{{ block.settings.text_32 }}</p>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <div id="divider" class="relative m-auto mt-[100px] h-[2px] max-w-[145px] bg-burnt-sienna">
+          <div class="absolute left-[30px] top-0 h-[13px] w-[20px] bg-burnt-sienna"></div>
+          <div class="absolute bottom-0 left-[30px] h-[13px] w-[20px] bg-burnt-sienna"></div>
+        </div>
+        <div>
+          {% if block.settings.icon_1 != blank or block.settings.icon_2 != blank or block.settings.icon_3 != blank %}
+            <div class="flex gap-3 pb-10">
+              {%- assign icon_1 = block.settings.icon_1 -%}
+              {% if icon_1 != blank %}
+                {{ icon_1 | image_url: width: icon_1.width | image_tag: class: '', loading: 'lazy' }}
+              {% endif %}
+              {%- assign icon_2 = block.settings.icon_2 -%}
+              {% if icon_2 != blank %}
+                {{ icon_2 | image_url: width: icon_2.width | image_tag: class: '', loading: 'lazy' }}
+              {% endif %}
+              {%- assign icon_3 = block.settings.icon_3 -%}
+              {% if icon_3 != blank %}
+                {{ icon_3 | image_url: width: icon_3.width | image_tag: class: '', loading: 'lazy' }}
+              {% endif %}
+            </div>
+          {% endif %}
+          {%- assign image = block.settings.image -%}
+          {% if image != blank %}
+            <div>
+              {{ image | image_url: width: image.width | image_tag: class: '', loading: 'lazy' }}
+            </div>
+          {% endif %}
+          {% if block.settings.button_text != blank %}
+            <div class="pt-10">
+              <a href="{{ block.settings.button_link }}" class="font-bold w-full inline-flex items-center justify-center gap-x-2 bg-flame-pea px-4 py-4 text-white">
+                {{ block.settings.button_text }}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11.796"
+                  height="10.315"
+                  viewBox="0 0 11.796 10.315">
+                  <g
+                    id="Group_8849"
+                    data-name="Group 8849"
+                    transform="translate(-215.754 -537.843)">
+                    <path
+                      id="Icon_ionic-ios-arrow-forward"
+                      data-name="Icon ionic-ios-arrow-forward"
+                      d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                      transform="translate(204.508 531.646)"
+                      fill="#fff"></path>
+                    <path
+                      id="Icon_ionic-ios-arrow-forward-2"
+                      data-name="Icon ionic-ios-arrow-forward"
+                      d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                      transform="translate(210.406 531.646)"
+                      fill="#fff"></path>
+                  </g>
+                </svg>
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<div></div>
+{% schema %}
+  {
+    "name": "Ayurvedic Profile",
+    "tag": "section",
+    "settings": [],
+    "blocks": [
+      {
+        "name": "Content",
+        "type": "content",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Photo Images"
+          },
+          {
+            "type": "richtext",
+            "id": "paragraph",
+            "label": "Paragraph"
+          },
+          {
+            "type": "text",
+            "id": "sub_title",
+            "label": "Sub Title"
+          }, {
+            "type": "header",
+            "content": "Vita"
+          }, {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          }, {
+            "type": "text",
+            "id": "text_2",
+            "label": "Text 2"
+          }, {
+            "type": "header",
+            "content": "Pitta"
+          }, {
+            "type": "text",
+            "id": "label_2",
+            "label": "Label"
+          }, {
+            "type": "text",
+            "id": "text_21",
+            "label": "Text"
+          }, {
+            "type": "text",
+            "id": "text_22",
+            "label": "Text 2"
+          }, {
+            "type": "header",
+            "content": "Kapha"
+          }, {
+            "type": "text",
+            "id": "label_3",
+            "label": "Label"
+          }, {
+            "type": "text",
+            "id": "text_31",
+            "label": "Text"
+          }, {
+            "type": "text",
+            "id": "text_32",
+            "label": "Text 2"
+          }, {
+            "type": "header",
+            "content": "Dosha Exploration"
+          }, {
+            "type": "image_picker",
+            "id": "icon_1",
+            "label": "Icon 1"
+          }, {
+            "type": "image_picker",
+            "id": "icon_2",
+            "label": "Icon 2"
+          }, {
+            "type": "image_picker",
+            "id": "icon_3",
+            "label": "Icon 3"
+          }, {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }, {
+            "type": "richtext",
+            "id": "body_text",
+            "label": "Body Text"
+          }, {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+          }, {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ayurvedic Profile"
+      }
+    ]
+  }
+{% endschema %}
