@@ -5,7 +5,7 @@ $(document).ready(function(){
   })
 })
  function addClassForMobile() {
-            var targetDiv = document.getElementById('targetDiv');
+            var targetDiv = document.getElementById('card--grid');
 
             // Check if the screen width is less than or equal to 600 pixels (you can adjust this value)
             if (window.innerWidth <= 600) {
