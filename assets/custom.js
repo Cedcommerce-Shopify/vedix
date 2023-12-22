@@ -27,7 +27,6 @@ function customSlick(ele){
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay:false,
-        centerMode:true,
         responsive: [
           {
             breakpoint: 1024,
