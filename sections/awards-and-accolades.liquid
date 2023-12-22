@@ -11,13 +11,23 @@
     }
   }
 {%- endstyle -%}
-
+<div class="customSlider">
+  {%- for block in section.blocks -%}
+     <img
+                  src="{{ block.settings.col_image | img_url: 'master' }}"
+                  loading="lazy"
+                  width="{{ block.settings.col_image.width }}"
+                  height="{{ block.settings.col_image.height }}"
+                  alt="{{ block.settings.col_image.alt }}"
+                >
+  {% endfor %}
+</div>
 <div class="bg-white section-{{ section.id }}-padding">
   <div class="container mx-auto px-4 text-center">
     <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:font-AnekLatin-Bold md:text-[42px]/[58px]">
       {{ section.settings.heading }}
     </h2>
-    <ul class="flex items-center customSlider" role="grid">
+    <ul class="flex items-center " role="grid">
       {%- for block in section.blocks -%}
         <li class="flex flex-col gap-8" role="gridcell">
           <div class="flex flex-col items-center justify-center gap-3">
