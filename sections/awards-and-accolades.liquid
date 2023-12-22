@@ -13,6 +13,7 @@
 {%- endstyle -%}
 <div class="customSlider">
   {%- for block in section.blocks -%}
+    <div>
      <img
                   src="{{ block.settings.col_image | img_url: 'master' }}"
                   loading="lazy"
@@ -20,6 +21,7 @@
                   height="{{ block.settings.col_image.height }}"
                   alt="{{ block.settings.col_image.alt }}"
                 >
+    </div>
   {% endfor %}
 </div>
 <div class="bg-white section-{{ section.id }}-padding">
