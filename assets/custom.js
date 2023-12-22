@@ -1,11 +1,11 @@
 $(document).ready(function(){
   $("[data-slider]").each(function(){
     console.log($(this));
+    customSlick($(this));
   })
-customSlick();
 })
-function customSlick(){
-      $('.customSlider').not('.slick-initialized').slick({ 	
+function customSlick(ele){
+      $(ele).not('.slick-initialized').slick({ 	
         dots: false,
         arrows:true,
         infinite: false,
