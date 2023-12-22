@@ -38,15 +38,15 @@ function customSlick(ele){
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
+              slidesToShow: mobileSide,
+              slidesToScroll: mobileSide,
             }
           },
           {
             breakpoint: 480,
             settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
+              slidesToShow: mobileSide,
+              slidesToScroll: mobileSide,
             }
           }
 
