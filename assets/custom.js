@@ -6,7 +6,7 @@ $(document).ready(function(){
     customSlick($(this));
   })
 })
- function addClassForMobile() {
+ function addDataAttributeForMobile() {
             var targetDiv = document.getElementById('card--grid');
 
             // Check if the screen width is less than or equal to 600 pixels (you can adjust this value)
