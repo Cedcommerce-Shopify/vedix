@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  $("[data-slider]").each(function(){
+    console.log($(this);
+  })
 customSlick();
 })
 function customSlick(){
