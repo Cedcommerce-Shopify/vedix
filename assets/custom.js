@@ -18,6 +18,8 @@ $(document).ready(function(){
             }
         }
 function customSlick(ele){
+      let mobileSide = $(ele).data('data-slide_mobile');
+      console.log("mobileSide",mobileSide);
       $(ele).not('.slick-initialized').slick({ 	
         dots: false,
         arrows:false,
