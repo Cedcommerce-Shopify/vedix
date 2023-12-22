@@ -10,7 +10,7 @@ $(document).ready(function(){
             // Check if the screen width is less than or equal to 600 pixels (you can adjust this value)
             if (window.innerWidth <= 600) {
                 // Add the 'mobile-view' class if it's a mobile view
-                targetDiv.classList.add('mobile-view');
+                targetDiv.setAttribute('data-slider');
             }
         }
 function customSlick(ele){
