@@ -7,11 +7,12 @@ $(document).ready(function(){
 function customSlick(ele){
       $(ele).not('.slick-initialized').slick({ 	
         dots: false,
-        arrows:true,
+        arrows:false,
         infinite: false,
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay:false,
+        centerMode:true,
         responsive: [
           {
             breakpoint: 1024,
