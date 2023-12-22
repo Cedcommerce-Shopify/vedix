@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  addDataAttributeForMobile();
+  window.addEventListener('resize', addDataAttributeForMobile);
   $("[data-slider]").each(function(){
     console.log($(this));
     customSlick($(this));
