@@ -27,9 +27,9 @@
     <ul id="price_list" class="mt-[45px] grid grid-cols-1 md:grid-cols-3 gap-4">
         {%- for block in section.blocks -%}
         <li class="relative border border-solid border-mine-shaft mb-12">
-          {% if block.settings.step_title != blank %}
+          {% if block.settings.title != blank %}
             <div class="absolute -top-[26px] left-[14px] mx-auto w-11/12 max-w-[200px] border border-solid border-woodsmoke bg-cape-palliser px-4 py-3 text-center font-AnekLatin-Bold text-[16px]/[26px] text-white">
-              {{ block.settings.step_title }}
+              {{ block.settings.title }}
             </div>
           {% endif %}
           {% if block.settings.product_image != blank %}
@@ -143,7 +143,7 @@
       "settings": [
         {
           "type": "text",
-          "id": "step_title",
+          "id": "title",
           "label": "Step title"
         },
         {
