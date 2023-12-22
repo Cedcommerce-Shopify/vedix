@@ -357,6 +357,32 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "2095db2b-f75b-4c82-ae4f-a9b0d2bcd3f1": {
+      "type": "regimen",
+      "blocks": {
+        "7185a8bb-f5f1-4a7d-8a30-56937a84a3b0": {
+          "type": "column",
+          "settings": {
+            "step_title": "3 STEP HAIR REGIMEN",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_1214.jpg",
+            "product_desc": "<p>Reduces hairfall & help get stronger hair roots.<\/p><p>Nourishes hair follicles.<\/p><p>Improves hair softness & shine.<\/p>",
+            "pricing_title": "Starting at Rs. 999\/ Month",
+            "pricing_list": "<ul><li><strong>Free<\/strong> Vedix Prakriti Booklet worth ₹499<\/li><li><strong>Free<\/strong> Vedix Prakriti Booklet worth ₹499<\/li><\/ul>",
+            "member_title": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "7185a8bb-f5f1-4a7d-8a30-56937a84a3b0"
+      ],
+      "settings": {
+        "heading": "Prasanth’s Customised Ayurvedic Anti-Hairfall & Hair Growth Regimen",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -367,6 +393,7 @@
     "8f7545bf-c32d-474c-b32a-313d6076801e",
     "fedeca88-4b96-467e-82e6-c7f3d486a5c9",
     "2a4c87c5-5a26-474a-ac27-7e051a67423c",
-    "5eb0a841-96d5-4592-81ad-7f0b844f2feb"
+    "5eb0a841-96d5-4592-81ad-7f0b844f2feb",
+    "2095db2b-f75b-4c82-ae4f-a9b0d2bcd3f1"
   ]
 }
