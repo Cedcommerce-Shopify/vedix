@@ -374,10 +374,40 @@
             "button_text": "BUY NOW",
             "button_url": "#"
           }
+        },
+        "bcacd524-2f2b-4541-bfbf-033f07250b81": {
+          "type": "column",
+          "settings": {
+            "title": "3 STEP HAIR REGIMEN",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_1214.jpg",
+            "product_desc": "<p>Reduces hairfall & help get stronger hair roots.<\/p><p>Nourishes hair follicles.<\/p><p>Improves hair softness & shine.<\/p>",
+            "pricing_title": "Starting at Rs. 999\/ Month",
+            "pricing_1": "<strong> Free<\/strong> Vedix Prakriti Booklet worth ₹499",
+            "pricing_2": "<strong> Free<\/strong> Vedix Prakriti Booklet worth ₹499",
+            "member_title": "For Tatva Members, starting at Rs 799\/ Month",
+            "button_text": "BUY NOW",
+            "button_url": "#"
+          }
+        },
+        "6216aa25-5949-43cb-acef-63a2cdc27601": {
+          "type": "column",
+          "settings": {
+            "title": "3 STEP HAIR REGIMEN",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_1214.jpg",
+            "product_desc": "<p>Reduces hairfall & help get stronger hair roots.<\/p><p>Nourishes hair follicles.<\/p><p>Improves hair softness & shine.<\/p>",
+            "pricing_title": "Starting at Rs. 999\/ Month",
+            "pricing_1": "<strong> Free<\/strong> Vedix Prakriti Booklet worth ₹499",
+            "pricing_2": "<strong> Free<\/strong> Vedix Prakriti Booklet worth ₹499",
+            "member_title": "For Tatva Members, starting at Rs 799\/ Month",
+            "button_text": "BUY NOW",
+            "button_url": "#"
+          }
         }
       },
       "block_order": [
-        "7185a8bb-f5f1-4a7d-8a30-56937a84a3b0"
+        "7185a8bb-f5f1-4a7d-8a30-56937a84a3b0",
+        "bcacd524-2f2b-4541-bfbf-033f07250b81",
+        "6216aa25-5949-43cb-acef-63a2cdc27601"
       ],
       "settings": {
         "heading": "Prasanth’s Customised Ayurvedic Anti-Hairfall & Hair Growth Regimen",
