@@ -345,8 +345,6 @@ body {
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    {% render 'external-assets' %}
-    
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -419,5 +417,6 @@ body {
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    {% render 'external-assets' %}
   </body>
 </html>
