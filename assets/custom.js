@@ -6,14 +6,14 @@ function customSlick(){
         dots: false,
         arrows:true,
         infinite: false,
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay:false,
         responsive: [
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 2,
+              slidesToShow: 3,
               slidesToScroll: 1,
             }
           },
