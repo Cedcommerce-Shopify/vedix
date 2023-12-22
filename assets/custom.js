@@ -11,6 +11,8 @@ $(document).ready(function(){
             if (window.innerWidth <= 600) {
                 // Add the 'mobile-view' class if it's a mobile view
                 targetDiv.setAttribute('data-slider');
+            }else{
+              targetDiv.removeAttribute('data-slider');
             }
         }
 function customSlick(ele){
