@@ -368,7 +368,8 @@
             "product_image": "shopify:\/\/shop_images\/Rectangle_1214.jpg",
             "product_desc": "<p>Reduces hairfall & help get stronger hair roots.<\/p><p>Nourishes hair follicles.<\/p><p>Improves hair softness & shine.<\/p>",
             "pricing_title": "Starting at Rs. 999\/ Month",
-            "pricing_list": "<ul><li><strong>Free<\/strong> Vedix Prakriti Booklet worth ₹499<\/li><li><strong>Free<\/strong> Vedix Prakriti Booklet worth ₹499<\/li><\/ul>",
+            "pricing_1": "<strong> Free<\/strong> Vedix Prakriti Booklet worth ₹499",
+            "pricing_2": "",
             "member_title": "For Tatva Members, starting at Rs 799\/ Month",
             "button_text": "BUY NOW",
             "button_url": "#"
