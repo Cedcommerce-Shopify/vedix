@@ -137,11 +137,7 @@
         "8a1f5f88-1776-4e5f-acee-975f87db353e"
       ],
       "settings": {
-        "heading": "Lorem Ipsum is simply dummy text",
-        "button_text": "Know Your Hair",
-        "button_link": "#",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Lorem Ipsum is simply dummy text"
       }
     },
     "8f7545bf-c32d-474c-b32a-313d6076801e": {
@@ -282,6 +278,84 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "5eb0a841-96d5-4592-81ad-7f0b844f2feb": {
+      "type": "card-grid",
+      "blocks": {
+        "75fbf84e-29f5-43b7-8140-827540576783": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Group_8898.svg",
+            "title": "Plant Based Ingredients"
+          }
+        },
+        "279cde6a-5f04-434d-8e3c-b3fbd66132c9": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Group_8896.svg",
+            "title": "No Side Effects"
+          }
+        },
+        "83fa1a16-1cca-4b1e-9711-580e1365cbe0": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Group_8895.svg",
+            "title": "No Harmful Chemicals"
+          }
+        },
+        "6431830e-7e61-4278-94f9-f771d453027f": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Group_8898.svg",
+            "title": "Skin and Hair Friendly"
+          }
+        },
+        "1701e397-e398-463b-a604-8a3845c293ee": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Group_8896.svg",
+            "title": "Verified Studies and Illustrations"
+          }
+        },
+        "214d7819-8e85-4a65-8c04-63554322fe3f": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Group_8895.svg",
+            "title": "Result-Oriented Mechanism"
+          }
+        },
+        "ecdd0494-859c-403a-832e-4f2ab7694a4a": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Group_8896.svg",
+            "title": "Result-Oriented Mechanism"
+          }
+        },
+        "1e3ff919-76d1-447c-aa45-ec83a58a24cc": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Group_8898.svg",
+            "title": "No Animal Testing"
+          }
+        }
+      },
+      "block_order": [
+        "75fbf84e-29f5-43b7-8140-827540576783",
+        "279cde6a-5f04-434d-8e3c-b3fbd66132c9",
+        "83fa1a16-1cca-4b1e-9711-580e1365cbe0",
+        "6431830e-7e61-4278-94f9-f771d453027f",
+        "1701e397-e398-463b-a604-8a3845c293ee",
+        "214d7819-8e85-4a65-8c04-63554322fe3f",
+        "ecdd0494-859c-403a-832e-4f2ab7694a4a",
+        "1e3ff919-76d1-447c-aa45-ec83a58a24cc"
+      ],
+      "settings": {
+        "heading": "Lorem Ipsum is simply dummy text",
+        "button_text": "Know Your Hair",
+        "button_link": "#",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -291,6 +365,7 @@
     "b08c568a-00dd-42f4-b85e-53c72f6ba1c4",
     "8f7545bf-c32d-474c-b32a-313d6076801e",
     "fedeca88-4b96-467e-82e6-c7f3d486a5c9",
-    "2a4c87c5-5a26-474a-ac27-7e051a67423c"
+    "2a4c87c5-5a26-474a-ac27-7e051a67423c",
+    "5eb0a841-96d5-4592-81ad-7f0b844f2feb"
   ]
 }
