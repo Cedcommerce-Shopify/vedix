@@ -6,7 +6,7 @@ function customSlick(){
         dots: false,
         arrows:true,
         infinite: false,
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay:false,
         responsive: [
