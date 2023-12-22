@@ -19,6 +19,7 @@ $(document).ready(function(){
         }
 function customSlick(ele){
       let mobileSide = $(ele).attr('data-slide_mobile');
+      mobileSide = Number(mobileSide);
       console.log("mobileSide",mobileSide);
       $(ele).not('.slick-initialized').slick({ 	
         dots: false,
