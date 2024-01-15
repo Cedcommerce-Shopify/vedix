@@ -1,90 +1,125 @@
-<div class="relative flex items-center justify-center">
-  <div class="flex items-center justify-center px-4 py-48 2xl:container md:px-28 2xl:mx-auto">
-    <div class="relative px-8 flex w-90 flex-col justify-center py-16 bg-yellow-50 md:px-8">
-      <div class="mt-8">
-        <h1 class="pb-4 text-2xl font-semibold text-black">Are you sure you want to exit?</h1>
+<div class="overlay before:fixed before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-[8] before:h-full before:bg-black before:opacity-75 before:content-['']">
+  <div class="fixed left-1/2 top-1/2 z-[9] w-full max-w-[324px] -translate-x-1/2 -translate-y-1/2 transform bg-white">
+    <div class="w-90 relative flex flex-col justify-center px-5 py-9 ">
+      <div id="popupHeader" class="mb-6 flex items-center justify-between">
+        <button aria-label="close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="34"
+            height="34"
+            viewBox="0 0 34 34"
+          >
+              <g
+                id="Group_1252"
+                data-name="Group 1252"
+                transform="translate(-42 -231)">
+              <circle
+                id="Ellipse_4"
+                data-name="Ellipse 4"
+                cx="17"
+                cy="17"
+                r="17"
+                transform="translate(42 231)"
+                fill="#f2efef" />
+              <circle
+                id="Ellipse_3"
+                data-name="Ellipse 3"
+                cx="14"
+                cy="14"
+                r="14"
+                transform="translate(45 234)"
+                fill="#d8d8d8" />
+              <g
+                id="Group_1251"
+                data-name="Group 1251"
+                transform="translate(3488.88 417.505) rotate(180)">
+                <path
+                  id="Path_3976"
+                  data-name="Path 3976"
+                  d="M14.157,8.713a.637.637,0,0,0,.635-.635V4.27A1.253,1.253,0,0,0,13.56,3H5.232A1.253,1.253,0,0,0,4,4.27V18.236a1.253,1.253,0,0,0,1.232,1.27H13.56a1.253,1.253,0,0,0,1.232-1.27V14.427a.635.635,0,0,0-1.27,0l.038,3.809H5.27L5.232,4.27h8.291V8.079A.637.637,0,0,0,14.157,8.713Z"
+                  transform="translate(3419 158)"
+                  fill="#333" />
+                <path
+                  id="Path_3977"
+                  data-name="Path 3977"
+                  d="M22.973,13.722l-2.539-2.539a.633.633,0,1,0-.9.9l1.454,1.454H13.635a.635.635,0,1,0,0,1.27h7.358l-1.454,1.454a.632.632,0,0,0,0,.9.623.623,0,0,0,.451.184.65.65,0,0,0,.451-.184l2.539-2.539a.606.606,0,0,0,.14-.209.636.636,0,0,0-.14-.692Z"
+                  transform="translate(3415.713 155.079)"
+                  fill="#333" />
+              </g>
+            </g>
+          </svg>
+        </button>
+        <button aria-label="close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="13.984"
+            height="13.984"
+            viewBox="0 0 13.984 13.984"
+          >
+            <g
+              id="Group_1250"
+              data-name="Group 1250"
+              transform="translate(683.252 283.471) rotate(135)">
+              <path
+                id="Path_3968"
+                data-name="Path 3968"
+                d="M679.031,665.684V682.06"
+                transform="translate(-396.343 -0.184)"
+                fill="none"
+                stroke="#8d8d8d"
+                stroke-linecap="round"
+                stroke-width="1.7" />
+              <path
+                id="Path_3969"
+                data-name="Path 3969"
+                d="M0,0V16.376"
+                transform="translate(290.876 673.688) rotate(90)"
+                fill="none"
+                stroke="#8d8d8d"
+                stroke-linecap="round"
+                stroke-width="1.7" />
+            </g>
+          </svg>
+        </button>
       </div>
-      <div class="mt">
-        <p class="mt-2 text-base text-black">You’re Just 3 Steps Away From Analysis, All Your Progress Will Be Lost.</p>
+      <div id="popupBody" class="mb-9 flex flex-col gap-2">
+        <h1 class="font-AnekLatin-Bold text-[20px]/[22px] text-mine-shaft">Are you sure you want to exit?</h1>
+        <p class="font-AnekLatin-Medium text-[16px]/[22px] text-mine-shaft">
+          You’re Just 3 Steps Away From Analysis, All Your Progress Will Be Lost.
+        </p>
       </div>
-      <button class="mt-6 w-full px-16 py-4 text-center bg-flame-pea text-white">Complete Quiz</button>
-      <a href="#" class="mt-6 w-full px-16 py-4 border border-current text-center text-base text-black">Exit Anyway</a>
-      <button class="absolute right-8 top-8" aria-label="close">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="13.984"
-          height="13.984"
-          viewBox="0 0 13.984 13.984">
-          <g
-            id="Group_1250"
-            data-name="Group 1250"
-            transform="translate(683.252 283.471) rotate(135)">
-            <path
-              id="Path_3968"
-              data-name="Path 3968"
-              d="M679.031,665.684V682.06"
-              transform="translate(-396.343 -0.184)"
-              fill="none"
-              stroke="#8d8d8d"
-              stroke-linecap="round"
-              stroke-width="1.7" />
-            <path
-              id="Path_3969"
-              data-name="Path 3969"
-              d="M0,0V16.376"
-              transform="translate(290.876 673.688) rotate(90)"
-              fill="none"
-              stroke="#8d8d8d"
-              stroke-linecap="round"
-              stroke-width="1.7" />
-          </g>
-        </svg>
-      </button>
-      <button class="absolute left-8 top-8" aria-label="close">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="34"
-          height="34"
-          viewBox="0 0 34 34">
-          <g
-            id="Group_1252"
-            data-name="Group 1252"
-            transform="translate(-42 -231)">
-          <circle
-            id="Ellipse_4"
-            data-name="Ellipse 4"
-            cx="17"
-            cy="17"
-            r="17"
-            transform="translate(42 231)"
-            fill="#f2efef" />
-          <circle
-            id="Ellipse_3"
-            data-name="Ellipse 3"
-            cx="14"
-            cy="14"
-            r="14"
-            transform="translate(45 234)"
-            fill="#d8d8d8" />
-          <g
-            id="Group_1251"
-            data-name="Group 1251"
-            transform="translate(3488.88 417.505) rotate(180)">
-            <path
-              id="Path_3976"
-              data-name="Path 3976"
-              d="M14.157,8.713a.637.637,0,0,0,.635-.635V4.27A1.253,1.253,0,0,0,13.56,3H5.232A1.253,1.253,0,0,0,4,4.27V18.236a1.253,1.253,0,0,0,1.232,1.27H13.56a1.253,1.253,0,0,0,1.232-1.27V14.427a.635.635,0,0,0-1.27,0l.038,3.809H5.27L5.232,4.27h8.291V8.079A.637.637,0,0,0,14.157,8.713Z"
-              transform="translate(3419 158)"
-              fill="#333" />
-            <path
-              id="Path_3977"
-              data-name="Path 3977"
-              d="M22.973,13.722l-2.539-2.539a.633.633,0,1,0-.9.9l1.454,1.454H13.635a.635.635,0,1,0,0,1.27h7.358l-1.454,1.454a.632.632,0,0,0,0,.9.623.623,0,0,0,.451.184.65.65,0,0,0,.451-.184l2.539-2.539a.606.606,0,0,0,.14-.209.636.636,0,0,0-.14-.692Z"
-              transform="translate(3415.713 155.079)"
-              fill="#333" />
-          </g>
-        </g>
-      </svg>
-    </button>
+      <div id="popupFooter" class="flex flex-col gap-2">
+        <button class="btn min-w-fit">
+          <span class="mb-[-2px] mt-[2px]">Complete Quiz</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="11.796"
+            height="10.315"
+            viewBox="0 0 11.796 10.315"
+          >
+            <g
+              id="Group_8849"
+              data-name="Group 8849"
+              transform="translate(-215.754 -537.843)">
+              <path
+                id="Icon_ionic-ios-arrow-forward"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(204.508 531.646)"
+                fill="#fff"></path>
+              <path
+                id="Icon_ionic-ios-arrow-forward-2"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(210.406 531.646)"
+                fill="#fff"></path>
+            </g>
+          </svg>
+        </button>
+        <a href="#" class="btn min-w-fit border-dove-gray bg-white text-mine-shaft"
+          ><span class="mb-[-2px] mt-[2px]">Exit Anyway</span></a
+        >
+      </div>
+    </div>
   </div>
-</div></div>
+</div>

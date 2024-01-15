@@ -1,0 +1,154 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="bg-merino section-{{ section.id }}-padding">
+  <div class="container mx-auto px-4">
+    <h2 class="mb-6 font-AnekLatin-Bold text-[28px]/[32px] text-woodsmoke md:mb-4 md:font-AnekLatin-SemiBold md:text-[42px]/[58px]">
+      {{ section.settings.title }}
+    </h2>
+    <div class="text-[16px]/[22px] text-woodsmoke">{{ section.settings.description }}</div>
+    <div id="Projects" class="py-6">
+      <div class="flex items-center justify-between gap-4 py-3">
+        {% if section.settings.collection_name != blank %}
+          <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] uppercase text-woodsmoke md:text-[24px]/[22px]">
+            {{ section.settings.collection_name }}
+          </h3>
+        {% endif %}
+        {% if section.settings.button_text != blank %}
+          <a
+            class="flex items-center gap-4 font-AnekLatin-SemiBold text-[14px]/[22px] text-flame-pea md:text-[20px]/[22px]"
+            href="{{ section.settings.button_link }}"
+          >
+            {{- section.settings.button_text }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12.227"
+              height="11.62"
+              viewBox="0 0 12.227 11.62"
+            >
+              <path
+                id="Path_9837"
+                data-name="Path 9837"
+                d="M366.168,3969h11.667m0,0-5.25-5.25m5.25,5.25-5.25,5.25"
+                transform="translate(-366.168 -3963.19)"
+                fill="none"
+                stroke="#de5844"
+                stroke-width="1.583" />
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+      <div class="no-scrollbar::-webkit-scrollbar no-scrollbar grid grid-cols-2 gap-4 overflow-x-auto md:grid-cols-4">
+        {% for block in section.blocks %}
+          {% assign collection_data = block.settings.collections %}
+          <div class="relative">
+            <a href="{{ collection_data.url }}" class="block">
+              {% if block.settings.collection_img != blank %}
+              {% else %}
+                <div class="relative inline-block h-full w-full before:inline-block before:h-0 before:w-0 before:pb-[100%] before:content-['']">
+                  <img
+                    src="{{collection_data.featured_image |  img_url: 'medium'}}"
+                    alt="Product"
+                    class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center"
+                  >
+                </div>
+              {% endif %}
+              <div class="bg-white px-4 py-3 text-center font-AnekLatin-SemiBold text-[12px]/[22px] capitalize text-woodsmoke md:text-[18px]/[18px]">
+                {{ collection_data.title }}
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Discover Our Product",
+  "class": "section-discover-product",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Enter your heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Discription",
+      "default": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    },
+    {
+      "type": "text",
+      "id": "collection_name",
+      "label": "Collection name"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Column",
+      "name": "Block",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collections",
+          "label": "Collections"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Discover Our Product"
+    }
+  ]
+}
+{% endschema %}

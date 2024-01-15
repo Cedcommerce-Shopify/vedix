@@ -11,51 +11,51 @@
   }
 {%- endstyle -%}
 
-<div class='bg-white section-{{ section.id }}-padding'>
-  <div class='container mx-auto px-4'>
-    <h2 class='mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-center md:text-[42px]/[58px]'>
+<div class="section-{{ section.id }}-padding" style="background-color: {{ section.settings.section_bg }};">
+  <div class="container mx-auto px-4">
+    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-center md:text-[42px]/[58px]">
       {{ section.settings.title }}
     </h2>
-    <ul class='mx-auto my-12 flex max-w-[730px] items-center justify-center gap-3 overflow-auto'>
+    <ul class="mx-auto my-12 flex max-w-[730px] items-center justify-center gap-3 overflow-auto">
       {% if section.settings.category_all != blank %}
-        <li class='flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke'>
+        <li class="flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
           {{ section.settings.category_all }}
         </li>
       {% endif %}
       {% if section.settings.category_a != blank %}
-        <li class='flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke'>
+        <li class="flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
           {{ section.settings.category_a }}
         </li>
       {% endif %}
       {% if section.settings.category_b != blank %}
-        <li class='flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke'>
+        <li class="flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
           {{ section.settings.category_b }}
         </li>
       {% endif %}
       {% if section.settings.category_c != blank %}
-        <li class='flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke'>
+        <li class="flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
           {{ section.settings.category_c }}
         </li>
       {% endif %}
     </ul>
-    <ul class='mx-auto mt-12 flex max-w-[730px] flex-col gap-3'>
+    <ul class="mx-auto mt-12 flex max-w-[730px] flex-col gap-3">
       {% for block in section.blocks %}
-        <li class='border border-solid border-mercury bg-merino px-4 py-6 rounded'>
-          <h1 class='relative pr-10 font-AnekLatin-SemiBold text-[14px]/[24px] text-mine-shaft'>
+        <li class="border border-solid border-mercury bg-merino px-4 py-6 rounded">
+          <h1 class="relative pr-10 font-AnekLatin-SemiBold text-[14px]/[24px] text-mine-shaft">
             {{ block.settings.title }}
             {% if block.settings.icon != blank %}
-              <span class='absolute right-0 top-1 block h-[24px] w-[24px]'>
+              <span class="absolute right-0 top-1 block h-[24px] w-[24px]">
                 <img
-                  src='{{ block.settings.icon |  img_url: 'master' }}'
-                  width='{{ block.settings.icon.width }}'
-                  height='{{ block.settings.icon.height }}'
-                  alt='{{ block.settings.icon.alt }}'
-                  loading='lazy'
+                  src="{{ block.settings.icon |  img_url: 'master' }}"
+                  width="{{ block.settings.icon.width }}"
+                  height="{{ block.settings.icon.height }}"
+                  alt="{{ block.settings.icon.alt }}"
+                  loading="lazy"
                 >
               </span>
             {% endif %}
           </h1>
-          <div class='mt-4 font-AnekLatin-Medium text-[13px]/[18px] text-mine-shaft'>
+          <div class="mt-4 font-AnekLatin-Medium text-[13px]/[18px] text-mine-shaft">
             {{ block.settings.faq_text }}
           </div>
         </li>
@@ -70,6 +70,12 @@
   "class": "section-faq",
   "tag": "section",
   "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
     {
       "type": "text",
       "id": "title",

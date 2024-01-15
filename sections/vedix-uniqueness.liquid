@@ -1,0 +1,87 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="section-{{ section.id }}-padding"
+  style="background-color: {{ section.settings.section_bg }}"
+  ;
+>
+  <div class="container mx-auto px-4">
+    <h2 class="mb-4 font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:mb-6 md:text-center md:text-[42px]/[58px]">
+      {{ section.settings.title }}
+    </h2>
+    <div class="flex items-center justify-center py-4">
+      <img
+        src="{{ section.settings.image |  img_url: 'master' }}"
+        loading="lazy"
+        width="{{ section.settings.image.width }}"
+        height="{{ section.settings.image.height }}"
+        alt="{{ section.settings.image.alt }}"
+      >
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Vedix's uniqueness",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Enter your heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Images"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vedix's uniqueness"
+    }
+  ]
+}
+{% endschema %}
