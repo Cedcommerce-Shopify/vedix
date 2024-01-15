@@ -18,7 +18,7 @@
     <h2 class="mb-6 text-center font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-[42px]/[58px]">
       {{ section.settings.heading }}
     </h2>
-    <div class="mx-auto max-w-[602px]">
+    <div class="mx-auto max-w-[602px] flex flex-col">
       <div class="flex max-h-[190px] overflow-hidden">
         {% if section.settings.product_image_1 %}
           <span class="block w-2/4">
@@ -43,7 +43,18 @@
           </span>
         {% endif %}
       </div>
-      <div class="mb-4 mt-10 flex items-center border border-solid border-mercury bg-merino">
+      <div class="text-center mx-auto my-6 flex md:order-1">
+        {% if section.settings.button_text != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="btn min-w-[180px]"
+            role="button"
+          >
+            <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+          </a>
+        {% endif %}
+      </div>
+      <div class="mt-10 flex items-center border border-solid border-mercury bg-merino">
         {% if section.settings.col_text_1 != blank %}
           <div class="max-w-[45%] flex-[0_0_100%] bg-merino px-[10px] py-4 font-AnekLatin-Medium">
             {{ section.settings.col_text_1 }}
@@ -111,23 +122,37 @@
       "label": "Product image"
     },
     {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
       "type": "header",
       "content": "Column header"
     },
     {
       "type": "text",
       "id": "col_text_1",
-      "label": "Column 1"
+      "label": "Column 1",
+      "default": "Col header 1"
     },
     {
       "type": "text",
       "id": "col_text_2",
-      "label": "Column 2"
+      "label": "Column 2",
+      "default": "Col header 2"
     },
     {
       "type": "text",
       "id": "col_text_3",
-      "label": "Column 3"
+      "label": "Column 3",
+      "default": "Col header 3"
     },
     {
       "type": "header",
@@ -163,7 +188,8 @@
         {
           "type": "richtext",
           "id": "title",
-          "label": "Description"
+          "label": "Description",
+          "default": "<p>Lorem ipsum dolor sit amet.</p>"
         },
         {
           "type": "image_picker",

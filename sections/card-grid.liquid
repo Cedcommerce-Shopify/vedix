@@ -17,7 +17,12 @@
       {{ section.settings.heading }}
     </h2>
     <div class="text-center">
-      <ul class="mx-auto mb-8 grid max-w-[718px] grid-cols-3 md:grid-cols-4 gap-4 gap-y-16" role="list" id="card--grid" data-slide_mobile="3">
+      <ul
+        class="mx-auto mb-8 grid max-w-[718px] grid-cols-3 md:grid-cols-4 gap-4 gap-y-16"
+        role="list"
+        id="card--grid"
+        data-slide_mobile="3"
+      >
         {%- for block in section.blocks -%}
           <li class="snap-start" role="listitem">
             <div class="flex w-[100px] flex-col items-center justify-center gap-3 text-center md:w-[168px]">
@@ -87,12 +92,13 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "info": "Add section heading here"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button text"
+      "label": "Button text",
+      "default": "Button text"
     },
     {
       "type": "url",
@@ -138,7 +144,8 @@
         {
           "type": "inline_richtext",
           "id": "title",
-          "label": "Add image title here"
+          "label": "Add image title here",
+          "default": "Lorem Ipsum is simply dummy text"
         }
       ]
     }

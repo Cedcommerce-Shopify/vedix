@@ -16,18 +16,18 @@
   class="overflow-hidden bg-quarter-spanish-white section-{{ section.id }}-padding"
 >
   <div
-    class="rotate-90 bg-contain bg-center bg-no-repeat"
+    class="bg-[length:100%_70%] bg-center bg-no-repeat md:rotate-90 md:bg-[length:500px_100%]"
     {% if section.settings.section_image != blank %}
       style="background-image: url('{{ section.settings.section_image |  img_url: 'master' }}')"
     {% endif %}
   >
-    <div class="container mx-auto px-4 -rotate-90">
+    <div class="container mx-auto px-4 md:-rotate-90">
       {% if section.settings.heading != blank %}
-        <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-center md:font-AnekLatin-Bold md:text-[42px]/[58px]">
+        <h2 class="mb-10 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-center md:font-AnekLatin-Bold md:text-[42px]/[58px]">
           {{ section.settings.heading }}
         </h2>
       {% endif %}
-      <div class="relative mx-auto my-10 flex max-w-[340px] flex-col gap-4 border border-solid border-woodsmoke bg-white text-center">
+      <div class="relative mx-auto mb-[80px] mt-[120px] flex max-w-[340px] flex-col gap-4 border border-solid border-woodsmoke bg-white text-center">
         {% if section.settings.product_offer != blank %}
           <div class="absolute -top-[26px] left-0 right-0 mx-auto w-11/12 max-w-sm border border-solid border-woodsmoke bg-white px-4 py-3 text-center font-AnekLatin-Bold text-[16px]/[22px] text-woodsmoke">
             {{ section.settings.product_offer }}
@@ -36,7 +36,7 @@
         {% if section.settings.product_offer_desc != blank %}
           <div class="flex flex-col gap-4 px-4 pt-10">{{ section.settings.product_offer_desc }}</div>
         {% endif %}
-        <div class="bg-blue-marguerite px-4 py-1 text-[14px]/[22px] text-white">Rs.299/-</div>
+        <div class="bg-blue-marguerite px-4 py-1 font-AnekDevanagari-Bold text-[14px]/[22px] text-white">Rs.299/-</div>
         <div class="flex gap-4 px-4 pb-6">
           {% if section.settings.product_image != blank %}
             <span class="w-[100px] flex-initial">
@@ -61,7 +61,7 @@
               </div>
             {% endif %}
             {% if section.settings.product_checklist != blank %}
-              <div id="v_icon_check" class="text-[16px]/[18px] text-woodsmoke">
+              <div id="v_icon_check" class="text-[16px]/[18px] text-woodsmoke md:text-[16px]/[18px]">
                 {{ section.settings.product_checklist }}
               </div>
             {% endif %}
@@ -69,37 +69,18 @@
               {% if section.settings.link_text != blank %}
                 <a
                   href="{{ section.settings.link_url }}"
-                  class="inline-flex items-center gap-x-2 font-AnekLatin-SemiBold text-[12px]/[18px] text-woodsmoke opacity-60"
+                  class="inline-flex items-center gap-x-1 font-AnekLatin-SemiBold text-[12px]/[18px] text-woodsmoke opacity-60"
                 >
                   {{ section.settings.link_text }}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="11.796"
-                    height="10.315"
-                    viewBox="0 0 11.796 10.315"
-                  >
-                    <g
-                      id="Group_8849"
-                      data-name="Group 8849"
-                      transform="translate(-215.754 -537.843)">
-                      <path
-                        id="Icon_ionic-ios-arrow-forward"
-                        data-name="Icon ionic-ios-arrow-forward"
-                        d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-                        transform="translate(204.508 531.646)"
-                        fill="#fff" />
-                      <path
-                        id="Icon_ionic-ios-arrow-forward-2"
-                        data-name="Icon ionic-ios-arrow-forward"
-                        d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-                        transform="translate(210.406 531.646)"
-                        fill="#fff" />
-                    </g>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="9.313" height="5.477" viewBox="0 0 9.313 5.477">
+                    <path id="Path_9818" data-name="Path 9818" d="M248.809,46.167l3.6,3.667,3.6-3.667" transform="translate(-247.748 -45.106)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
                   </svg>
                 </a>
               {% endif %}
-              <div class="flex gap-2">
-                <strong class="price">Rs.299</strong>
+              <div class="flex justify-end gap-2">
+                <strong class="price font-AnekLatin-Bold text-[14px]/[22px] text-woodsmoke line-through opacity-60"
+                  >Rs.299</strong
+                >
                 <strong class="font-AnekLatin-Bold text-[14px]/[22px] text-fruit-salad">FREE</strong>
               </div>
             </div>
@@ -155,13 +136,13 @@
     {
       "type": "image_picker",
       "id": "section_image",
-      "label": "Image"
+      "label": "Background image"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "info": "Add section heading here"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "header",
@@ -171,38 +152,42 @@
       "type": "text",
       "id": "product_offer",
       "label": "Heading",
-      "info": "Add column title here"
+      "default": "FREE GIFTS WORTH Rs.299/-"
     },
     {
       "type": "richtext",
       "id": "product_offer_desc",
-      "label": "Add info here"
+      "label": "Add info here",
+      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
     },
     {
       "type": "image_picker",
       "id": "product_image",
-      "label": "Image"
+      "label": "Product image"
     },
     {
       "type": "text",
       "id": "product_name",
       "label": "Heading",
-      "info": "Add column title here"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "richtext",
       "id": "product_info",
-      "label": "Add info here"
+      "label": "Add info here",
+      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>"
     },
     {
       "type": "richtext",
       "id": "product_checklist",
-      "label": "Add info here"
+      "label": "Add info here",
+      "default": "<p>Lorem ipsum dolor sit amet.</p>"
     },
     {
       "type": "text",
       "id": "link_text",
-      "label": "Button text"
+      "label": "Button text",
+      "default": "Button text"
     },
     {
       "type": "url",
@@ -216,7 +201,8 @@
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button text"
+      "label": "Button text",
+      "default": "Button text"
     },
     {
       "type": "url",
@@ -226,7 +212,8 @@
     {
       "type": "richtext",
       "id": "bottom_text",
-      "label": "Add info here"
+      "label": "Add info here",
+      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>"
     },
     {
       "type": "header",

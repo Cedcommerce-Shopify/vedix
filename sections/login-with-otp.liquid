@@ -98,7 +98,7 @@
           {% comment %} <a href="#" class="underline text/[14px]/[20px] text-flame-pea font-AnekLatin-Medium">Resend OTP</a> {% endcomment %}
         </div>
       </form>
-      {% if section.settings.alredy_user_link %}
+      {% if section.settings.alredy_user != blank %}
         <div class="text-center">
           <a
             href="{{ section.settings.alredy_user_link }}"
@@ -134,27 +134,32 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading"
+      "label": "Heading",
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "description",
-      "label": "Description"
+      "label": "Description",
+      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
     },
     {
       "type": "richtext",
       "id": "otp_title",
-      "label": "OTP title"
+      "label": "OTP title",
+      "default": "<p>Enter Otp Sent On phone no.</p>"
     },
     {
       "type": "richtext",
       "id": "otp_resend",
-      "label": "Resend OTP text"
+      "label": "Resend OTP text",
+      "default": "<p>Resend OTP</p>"
     },
     {
       "type": "text",
       "id": "alredy_user",
-      "label": "Footer text"
+      "label": "Footer text",
+      "default": "Or Skip directly to analysis"
     },
     {
       "type": "url",

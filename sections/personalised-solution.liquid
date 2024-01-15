@@ -1,0 +1,239 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="bg-soapstone bg-left-top bg-no-repeat section-{{ section.id }}-padding"
+  style="{% if section.settings.section_image != blank %} background-image: url('{{ section.settings.section_image |  img_url: 'master' }}') {% endif %}"
+>
+  <div class="container mx-auto px-4">
+    <h2 class="mb-4 font-AnekLatin-Bold text-[28px]/[32px] text-woodsmoke md:text-[42px]/[58px]">
+      {{ section.settings.heading }}
+    </h2>
+    <div class="text-[16px]/[22px] text-woodsmoke">{{ section.settings.sub_heading }}</div>
+    <ul class="mt-5 grid grid-cols-1 gap-x-3 md:gap-x-4 gap-y-3 md:mt-8 md:grid-cols-3">
+      {% for block in section.blocks %}
+        <li class="flex items-center gap-[10px]">
+          <div class="border border-solid border-quarter-spanish-white bg-white shadow-[0px_0px_15px_rgba(13,18,18,0.1)]">
+            <div class="flex items-center justify-between gap-1 bg-calico px-[10px] py-[8px]">
+              <div class="flex flex-col gap-1">
+                <h3 class="font-AnekLatin-SemiBold text-[14px]/[18px] uppercase text-cape-palliser md:text-[16px]/[20px]">
+                  {{ block.settings.title }}
+                </h3>
+                <div class="flex gap-4 font-AnekLatin-SemiBold text-[10px]/[16px] text-tundora md:text-[13px]/[22px]">
+                  <span>{{ block.settings.age_gender }}</span>
+                  <span class="relative before:absolute before:left-[-10px] before:top-[50%] before:h-[2px] before:w-[2px] before:translate-y-[-50%] before:rounded-full before:bg-tundora before:content-['']">
+                    {{- block.settings.location -}}
+                  </span>
+                </div>
+              </div>
+              <div class="block">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/verified.svg?v=1704112606"
+                  width="22"
+                  height="22"
+                  loading="lazy"
+                  alt="verified"
+                >
+              </div>
+            </div>
+            <div class="flex gap-3 bg-double-pearl-lusta px-[10px] py-4">
+              <div class="h-[83px] w-[83px] max-w-[83px] flex-[0_0_100%]">
+                {% if block.settings.user_image != blank %}
+                  <img
+                    src="{{ block.settings.user_image |  img_url: 'master' }}"
+                    width="{{ block.settings.user_image.width }}"
+                    height="{{ block.settings.user_image.height }}"
+                    loading="lazy"
+                    alt="{{ block.settings.user_image.alt }}"
+                    class="h-full w-full"
+                  >
+                {% endif %}
+              </div>
+              <div class="text-[14px]/[19px] text-woodsmoke md:text-[16px]/[21px]">
+                {{ block.settings.user_comment }}
+              </div>
+            </div>
+            <div class="p-4 text-center">
+              <h3 class="text-[12px]/[22px] uppercase text-woodsmoke opacity-60">
+                {{ block.settings.ayurvedic_profile }}
+              </h3>
+              <h3 class="font-AnekLatin-Medium text-[14px]/[19px] text-woodsmoke md:text-[16px]/[19px]">
+                {{ block.settings.hair_concern }}
+              </h3>
+              <div class="block p-4">
+                {% if block.settings.stat_image != blank %}
+                  <img
+                    src="{{ block.settings.stat_image |  img_url: 'master' }}"
+                    width="{{ block.settings.stat_image.width }}"
+                    height="{{ block.settings.stat_image.height }}"
+                    loading="lazy"
+                    alt="{{ block.settings.stat_image.alt }}"
+                    class="h-full w-full"
+                  >
+                {% endif %}
+              </div>
+              <ul class="mb-4 flex items-center justify-center gap-4">
+                <li class="flex flex-col items-center gap-3">
+                  <span class="block">
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/hairfall.svg?v=1704179149"
+                      width="40"
+                      height="40"
+                      loading="lazy"
+                      alt="verified"
+                    >
+                  </span>
+                  <h4 class="font-AnekLatin-Medium text-[12px]/[19px] text-woodsmoke">Hairfall</h4>
+                </li>
+                <li class="flex flex-col items-center gap-3">
+                  <span class="block">
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/dandruff.svg?v=1704179149"
+                      width="40"
+                      height="40"
+                      loading="lazy"
+                      alt="verified"
+                    >
+                  </span>
+                  <h4 class="font-AnekLatin-Medium text-[12px]/[19px] text-woodsmoke">Dandruff</h4>
+                </li>
+                <li class="flex flex-col items-center gap-3">
+                  <span class="block">
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/grey-hair.svg?v=1704179149"
+                      width="40"
+                      height="40"
+                      loading="lazy"
+                      alt="verified"
+                    >
+                  </span>
+                  <h4 class="font-AnekLatin-Medium text-[12px]/[19px] text-woodsmoke">Grey Hair</h4>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Personalised solution",
+  "class": "section-personalised-solution",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Section heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Block",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Person name",
+          "default": "Enter your name here"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "age_gender",
+          "label": "Age & Gender",
+          "default": "Enter your age and gender"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "Enter your location here"
+        },
+        {
+          "type": "image_picker",
+          "id": "user_image",
+          "label": "User image"
+        },
+        {
+          "type": "richtext",
+          "id": "user_comment",
+          "label": "User feedback",
+          "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
+        },
+        {
+          "type": "text",
+          "id": "ayurvedic_profile",
+          "label": "Profile",
+          "default": "Ayurvedic Profile"
+        },
+        {
+          "type": "text",
+          "id": "hair_concern",
+          "label": "Hair concern",
+          "default": "Leading to Potential Hair Concerns"
+        },
+        {
+          "type": "image_picker",
+          "id": "stat_image",
+          "label": "Hair stats image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Personalised solution"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,95 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="bg-quarter-spanish-white section-{{ section.id }}-padding">
+  <div class="container mx-auto px-4">
+    <ul class="grid grid-cols-3 gap-2 text-center">
+      {% for block in section.blocks %}
+        <li class="flex flex-col items-center gap-y-3">
+          {% if block.settings.trust_icon != blank %}
+            <div class="flex min-h-[30px] items-center justify-end">
+              <img
+                src="{{ block.settings.trust_icon | img_url: 'master' }}"
+                loading="lazy"
+                width="{{ block.settings.trust_icon.width }}"
+                height="{{ block.settings.trust_icon.height }}"
+                alt="{{ block.settings.trust_icon.alt }}"
+              >
+            </div>
+          {% endif %}
+          <h3 class="font-AnekLatin-Medium text-[14px]/[16px] text-woodsmoke opacity-60">
+            {{ block.settings.title }}
+          </h3>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Trust icons",
+  "class": "section-trust-icons",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Column",
+      "name": "Block",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "trust_icon",
+          "label": "Trust Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Lorem ipsum dolor sit amet"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust icons"
+    }
+  ]
+}
+{% endschema %}

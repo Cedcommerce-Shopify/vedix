@@ -1,70 +1,163 @@
-<div class="bg-[#FFFFFF] py-8">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-[28px]/[32px] text-[#131818] text-left font-AnekLatin-SemiBold mb-6">{{ section.settings.heading }}</h2>
-    <ul class="grid grid-cols-2 md:grid-cols-3 gap-5"  data-slider data-slide_mobile="1">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="bg-white section-{{ section.id }}-padding">
+  <div class="container mx-auto px-4">
+    <h2 class="mb-6 font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke">
+      {{ section.settings.heading }}
+    </h2>
+    <ul class="grid grid-cols-2 gap-5 md:grid-cols-3" data-slider data-slide_mobile="1">
       {%- for block in section.blocks -%}
         <li class="flex flex-col">
           <div class="flex flex-col items-center justify-center gap-3">
             {% if block.settings.col_image != blank %}
-              <span class="border border-solid border-[#131818] rounded-md overflow-hidden">
+              <span class="overflow-hidden rounded-md border border-solid border-woodsmoke">
                 <img
                   src="{{ block.settings.col_image | img_url: 'master' }}"
                   loading="lazy"
                   width="{{ block.settings.col_image.width }}"
                   height="{{ block.settings.col_image.height }}"
-                  alt="{{ block.settings.col_image.alt }}" />
+                  alt="{{ block.settings.col_image.alt }}"
+                >
               </span>
             {% endif %}
-            <div class="flex flex-col gap-1">
-              <h4 class="text-[#000000] text-[16px]/[18px] capitalize font-AnekLatin-Bold tracking-tight">{{ block.settings.col_heading }}</h4>
-              <p class="text-[#000000] text-[16px]/[18px] capitalize tracking-tight">{{ block.settings.title }}</p>
+            <div class="flex flex-col gap-1 text-center">
+              <h4 class="font-AnekLatin-SemiBold text-[16px]/[18px] capitalize text-woodsmoke md:text-[22px]/[22px]">
+                {{ block.settings.title }}
+              </h4>
+              <p class="text-[16px]/[18px] capitalize text-woodsmoke">{{ block.settings.description }}</p>
             </div>
           </div>
         </li>
       {% endfor %}
     </ul>
+    {% if section.settings.button_text != blank %}
+      <div class="text-center">
+        <a
+          href="{{ section.settings.button_link }}"
+          class="btn mt-12"
+          role="button"
+        >
+          <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="11.796"
+            height="10.315"
+            viewBox="0 0 11.796 10.315"
+          >
+            <g
+              id="Group_8849"
+              data-name="Group 8849"
+              transform="translate(-215.754 -537.843)">
+              <path
+                id="Icon_ionic-ios-arrow-forward"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(204.508 531.646)"
+                fill="#fff"></path>
+              <path
+                id="Icon_ionic-ios-arrow-forward-2"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(210.406 531.646)"
+                fill="#fff"></path>
+            </g>
+          </svg>
+        </a>
+      </div>
+    {% endif %}
   </div>
 </div>
 {% schema %}
-  {
-    "name": "Awards & Accolades",
-    "class": "section",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "info": "Add section heading here"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "column",
-        "name": "Block",
-        "limit": 3,
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "col_image",
-            "label": "Image"
-          }, {
-            "type": "text",
-            "id": "col_heading",
-            "label": "Heading",
-            "info": "Add column title here"
-          }, {
-            "type": "inline_richtext",
-            "id": "title",
-            "label": "Add column info here"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Awards & Accolades"
-      }
-    ]
-  }
+{
+  "name": "Awards & Accolades",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Lorem Ipsum is simply dummy text"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Block",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "col_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Lorem Ipsum is simply dummy text",
+          "info": "Add column title here"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "description",
+          "default": "Lorem Ipsum is simply dummy text",
+          "label": "Add column info here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Awards & Accolades"
+    }
+  ]
+}
 {% endschema %}

@@ -115,11 +115,23 @@
 }
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal text-white md:min-w-[329px];
+    @apply inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-4 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal text-white md:min-w-[329px];
   }
 }
 /* Custom border radius edge */
 @layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari, and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
   .cut-br::before,
   .cut-br::after {
     content: '';
