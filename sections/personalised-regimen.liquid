@@ -1,0 +1,158 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="bg-double-pearl-lusta bg-cover bg-[90%_bottom] bg-no-repeat md:bg-bottom section-{{ section.id }}-padding"
+  style="{% if section.settings.section_image != blank %} background-image: url('{{ section.settings.section_image |  img_url: 'master' }}') {% endif %}"
+>
+  <div class="container mx-auto px-4">
+    <div class="ml-0 max-w-[894px]">
+      <h2 class="mb-4 font-AnekLatin-SemiBold text-[34px]/[36px] text-merino md:mb-8 md:text-[56px]/[58px]">
+        {{ section.settings.heading }}
+      </h2>
+      <div class="text-[16px]/[22px] text-serenade md:text-[18px]/[22px]">{{ section.settings.sub_heading }}</div>
+      <ul class="my-24 grid max-w-[740px] grid-cols-2 gap-x-2 gap-y-3 md:my-16 md:gap-x-4">
+        {% for block in section.blocks %}
+          <li>
+            <div class="relative block bg-white">
+              <div class="relative inline-block h-full w-full before:inline-block before:h-0 before:w-0 before:pb-[100%] before:content-[''] md:before:pb-[60%]">
+                {% if block.settings.user_image != blank %}
+                  <img
+                    src="{{ block.settings.user_image |  img_url: 'master' }}"
+                    width="{{ block.settings.user_image.width }}"
+                    height="{{ block.settings.user_image.height }}"
+                    loading="lazy"
+                    alt="{{ block.settings.user_image.alt }}"
+                    class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center"
+                  >
+                {% endif %}
+              </div>
+              {% if block.settings.button_text != blank %}
+                <a
+                  href="{{ block.settings.button_link }}"
+                  class="btn w-full min-w-fit border-none"
+                  role="button"
+                >
+                  <span class="mb-[-2px] mt-[2px]">{{ block.settings.button_text }}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11.796"
+                    height="10.315"
+                    viewBox="0 0 11.796 10.315"
+                  >
+                    <g
+                        id="Group_8849"
+                        data-name="Group 8849"
+                        transform="translate(-215.754 -537.843)">
+                        <path
+                        id="Icon_ionic-ios-arrow-forward"
+                        data-name="Icon ionic-ios-arrow-forward"
+                        d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                        transform="translate(204.508 531.646)"
+                        fill="#fff"></path>
+                        <path
+                        id="Icon_ionic-ios-arrow-forward-2"
+                        data-name="Icon ionic-ios-arrow-forward"
+                        d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                        transform="translate(210.406 531.646)"
+                        fill="#fff"></path>
+                    </g>
+                  </svg>
+                </a>
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Personalised regimen",
+  "class": "section-personlised-regimen",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Section heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Block",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "user_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Personalised regimen"
+    }
+  ]
+}
+{% endschema %}

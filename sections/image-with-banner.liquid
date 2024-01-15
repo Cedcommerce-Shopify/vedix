@@ -1,67 +1,83 @@
-<div class="relative flex flex-row bg-givry py-4 before:block before:pb-[130%] before:content-[''] sm:before:pb-[80%] md:before:pb-[38%]">
-  <div class="image-with-text__image absolute bottom-0 left-0 right-0 top-0 flex h-full w-full flex-row before:block before:pb-[130%] before:content-[''] sm:before:pb-[80%] md:before:pb-[38%]">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
 
-    {% if section.settings.desktop_image != blank %}
-      <img
-        class="absolute bottom-0 left-0 right-0 top-0 hidden h-full w-full object-cover object-center md:block lg:block"
-        src="{{ section.settings.desktop_image |  img_url: 'master' }}')"
-        loading="lazy"
-        width="{{ section.settings.desktop_image.width }}"
-        height="{{ section.settings.desktop_image.height }}"
-        alt="{{ section.settings.desktop_image.alt }}"
-      >
-    {% endif %}
-    {% if section.settings.mobile_image != blank %}
-      <img
-        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-contain object-bottom md:hidden lg:hidden"
-        src="{{ section.settings.mobile_image |  img_url: 'master' }}')"
-        loading="lazy"
-        width="{{ section.settings.mobile_image.width }}"
-        height="{{ section.settings.mobile_image.height }}"
-        alt="{{ section.settings.mobile_image.alt }}"
-      >
-    {% endif %}
-  </div>
-  <div class="image-with-text__content container relative mx-auto flex w-full flex-col justify-start px-4 md:justify-center">
-    <div class="flex max-w-[736px] flex-col">
-      <h1 class="mb-3 font-AnekLatin-SemiBold text-[34px]/[36px] text-woodsmoke md:mb-7 md:font-AnekLatin-Bold md:text-[56px]/[58px]">
-        {{ section.settings.heading }}
-      </h1>
-      <div class="text-woodsmoke md:font-AnekLatin-Medium md:text-[18px]/[22px]">{{ section.settings.paragraph }}</div>
-    </div>
-    {% if section.settings.button_text != blank %}
-      <a
-        href="{{ section.settings.button_link }}"
-        class="absolute bottom-0 left-1/2 inline-flex w-max -translate-x-1/2 items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-7 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal tracking-normal text-white md:relative md:left-0 md:mt-[207px] md:min-w-[329px] md:-translate-x-0"
-        role="button"
-      >
-        <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.796"
-          height="10.315"
-          viewBox="0 0 11.796 10.315"
+<div class="section-{{ section.id }}-padding">
+  <div class="relative flex flex-row bg-givry py-4 before:block before:pb-[130%] before:content-[''] sm:before:pb-[80%] md:before:pb-[38%]">
+    <div class="image-with-text__image absolute bottom-0 left-0 right-0 top-0 flex h-full w-full flex-row before:block before:pb-[130%] before:content-[''] sm:before:pb-[80%] md:before:pb-[38%]">
+      {% if section.settings.desktop_image != blank %}
+        <img
+          class="absolute bottom-0 left-0 right-0 top-0 hidden h-full w-full object-cover object-center md:block lg:block"
+          src="{{ section.settings.desktop_image |  img_url: 'master' }}')"
+          loading="lazy"
+          width="{{ section.settings.desktop_image.width }}"
+          height="{{ section.settings.desktop_image.height }}"
+          alt="{{ section.settings.desktop_image.alt }}"
         >
-          <g
-            id="Group_8849"
-            data-name="Group 8849"
-            transform="translate(-215.754 -537.843)">
-            <path
-              id="Icon_ionic-ios-arrow-forward"
-              data-name="Icon ionic-ios-arrow-forward"
-              d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-              transform="translate(204.508 531.646)"
-              fill="#fff"></path>
-            <path
-              id="Icon_ionic-ios-arrow-forward-2"
-              data-name="Icon ionic-ios-arrow-forward"
-              d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-              transform="translate(210.406 531.646)"
-              fill="#fff"></path>
-          </g>
-        </svg>
-      </a>
-    {% endif %}
+      {% endif %}
+      {% if section.settings.mobile_image != blank %}
+        <img
+          class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-contain object-bottom md:hidden lg:hidden"
+          src="{{ section.settings.mobile_image |  img_url: 'master' }}')"
+          loading="lazy"
+          width="{{ section.settings.mobile_image.width }}"
+          height="{{ section.settings.mobile_image.height }}"
+          alt="{{ section.settings.mobile_image.alt }}"
+        >
+      {% endif %}
+    </div>
+    <div class="image-with-text__content container relative mx-auto flex w-full flex-col justify-start px-4 md:justify-center">
+      <div class="flex max-w-[736px] flex-col">
+        <h1 class="mb-3 font-AnekLatin-SemiBold text-[34px]/[36px] text-woodsmoke md:mb-7 md:font-AnekLatin-Bold md:text-[56px]/[58px]">
+          {{ section.settings.title }}
+        </h1>
+        <div class="text-woodsmoke md:font-AnekLatin-Medium md:text-[18px]/[22px]">
+          {{ section.settings.paragraph }}
+        </div>
+      </div>
+      {% if section.settings.button_text != blank %}
+        <a
+          href="{{ section.settings.button_link }}"
+          class="btn absolute bottom-0 left-1/2 w-max -translate-x-1/2 md:relative md:left-0 md:mt-[207px] md:min-w-[329px] md:-translate-x-0"
+          role="button"
+        >
+          <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="11.796"
+            height="10.315"
+            viewBox="0 0 11.796 10.315"
+          >
+            <g
+              id="Group_8849"
+              data-name="Group 8849"
+              transform="translate(-215.754 -537.843)">
+              <path
+                id="Icon_ionic-ios-arrow-forward"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(204.508 531.646)"
+                fill="#fff"></path>
+              <path
+                id="Icon_ionic-ios-arrow-forward-2"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(210.406 531.646)"
+                fill="#fff"></path>
+            </g>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
   </div>
 </div>
 {% schema %}
@@ -84,24 +100,51 @@
     },
     {
       "type": "text",
-      "id": "heading",
-      "label": "Heading"
+      "id": "title",
+      "label": "Heading",
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "richtext",
       "id": "paragraph",
       "label": "Paragraph",
+      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>",
       "info": "Add section info here"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button text"
+      "label": "Button text",
+      "default": "Button text"
     },
     {
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
     }
   ],
   "presets": [

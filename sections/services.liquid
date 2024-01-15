@@ -1,7 +1,10 @@
-<div class="border-y border-solid border-mine-shaft bg-surf px-6 py-4">
+<div
+  class="{% if section.settings.section_border == true %}border-y border-solid border-mine-shaft{% endif %} px-6 py-3"
+  style="background-color: {{ section.settings.section_bg }};"
+>
   <div class="container mx-auto">
     <ul
-      class="flex-no-wrap flex touch-auto items-center justify-start gap-4 overflow-x-auto lg:justify-center"
+      class="flex-no-wrap no-scrollbar::-webkit-scrollbar no-scrollbar flex touch-auto items-center justify-start gap-x-4 overflow-x-auto md:gap-x-24 lg:justify-center"
       role="list"
     >
       {%- for block in section.blocks -%}
@@ -31,7 +34,20 @@
   "name": "Services",
   "class": "section-services",
   "tag": "section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "section_border",
+      "label": "Border",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#B9DABD"
+    }
+  ],
   "blocks": [
     {
       "type": "column",

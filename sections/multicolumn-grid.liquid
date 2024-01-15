@@ -13,10 +13,11 @@
 {%- endstyle -%}
 
 <div class="bg-ecru-white section-{{ section.id }}-padding">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:font-AnekLatin-Bold md:text-[42px]/[58px]">
+  <div class="container mx-auto px-4">
+    <h2 class="mb-6 font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:font-AnekLatin-Bold md:text-[42px]/[58px]">
       {{ section.settings.heading }}
     </h2>
+    <div class="mb-7 text-[16px]/[22px] text-woodsmoke">{{ section.settings.description }}</div>
     <ul class="grid grid-cols-3 gap-2 md:gap-4" role="grid">
       {%- for block in section.blocks -%}
         <li class="flex flex-col gap-8" role="gridcell">
@@ -25,13 +26,14 @@
           </div>
           <div class="flex flex-col items-center justify-center gap-3 md:-mt-[72px]">
             {% if block.settings.col_image != blank %}
-              <span class="w-16 overflow-hidden rounded-full md:w-20">
+              <span class="relative inline-block h-[64px] w-[64] overflow-hidden rounded-full md:h-[80px] md:w-[80px]">
                 <img
                   src="{{ block.settings.col_image | img_url: 'master' }}"
                   loading="lazy"
                   width="{{ block.settings.col_image.width }}"
                   height="{{ block.settings.col_image.height }}"
                   alt="{{ block.settings.col_image.alt }}"
+                  class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center"
                 >
               </span>
             {% endif %}
@@ -43,37 +45,39 @@
       {%- endfor -%}
     </ul>
     {% if section.settings.button_text != blank %}
-      <a
-        href="{{ section.settings.button_link }}"
-        class="btn mt-12"
-        role="button"
-      >
-        <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.796"
-          height="10.315"
-          viewBox="0 0 11.796 10.315"
+      <div class="text-center">
+        <a
+          href="{{ section.settings.button_link }}"
+          class="btn mt-12"
+          role="button"
         >
-          <g
-            id="Group_8849"
-            data-name="Group 8849"
-            transform="translate(-215.754 -537.843)">
-            <path
-              id="Icon_ionic-ios-arrow-forward"
-              data-name="Icon ionic-ios-arrow-forward"
-              d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-              transform="translate(204.508 531.646)"
-              fill="#fff"></path>
-            <path
-              id="Icon_ionic-ios-arrow-forward-2"
-              data-name="Icon ionic-ios-arrow-forward"
-              d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
-              transform="translate(210.406 531.646)"
-              fill="#fff"></path>
-          </g>
-        </svg>
-      </a>
+          <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="11.796"
+            height="10.315"
+            viewBox="0 0 11.796 10.315"
+          >
+            <g
+              id="Group_8849"
+              data-name="Group 8849"
+              transform="translate(-215.754 -537.843)">
+              <path
+                id="Icon_ionic-ios-arrow-forward"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(204.508 531.646)"
+                fill="#fff"></path>
+              <path
+                id="Icon_ionic-ios-arrow-forward-2"
+                data-name="Icon ionic-ios-arrow-forward"
+                d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                transform="translate(210.406 531.646)"
+                fill="#fff"></path>
+            </g>
+          </svg>
+        </a>
+      </div>
     {% endif %}
   </div>
 </div>
@@ -87,12 +91,19 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "info": "Add section heading here"
+      "default": "Lorem Ipsum is simply dummy text"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button text"
+      "label": "Button text",
+      "default": "Button text"
     },
     {
       "type": "url",
@@ -134,6 +145,7 @@
           "type": "richtext",
           "id": "paragraph",
           "label": "Paragraph",
+          "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>",
           "info": "Add info about the field here"
         },
         {
@@ -144,6 +156,7 @@
         {
           "type": "inline_richtext",
           "id": "title",
+          "default": "Lorem ipsum",
           "label": "Add image title here"
         }
       ]
