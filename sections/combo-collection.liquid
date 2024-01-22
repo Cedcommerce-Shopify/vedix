@@ -3,7 +3,6 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -13,18 +12,22 @@
 {%- endstyle -%}
 
 {%- assign featured_collection = section.settings.featured_collection -%}
-<div class="section-{{ section.id }}-padding" style="background-color:{{ section.settings.section_bg }};">
+<div
+  class="section-{{ section.id }}-padding"
+  style="background-color: {{ section.settings.section_bg }}"
+  id="exclusive-descount"
+>
   <div class="container mx-auto px-4">
-    <h2 class="mb-6 font-AnekLatin-SemiBold text-[18px]/[22px] text-woodsmoke md:text-[20px]/[22px]">
+    <h2 class="mb-6 font-AnekLatin-SemiBold text-woodsmoke text-[28px]/[32px]">
       {{ section.settings.heading }}
     </h2>
-    <ul class="grid grid-cols-2 gap-2 md:gap-5 md:grid-cols-5">
+    <ul class="grid grid-cols-2 gap-5 md:grid-cols-5">
       {%- assign featured_collection_products = featured_collection.products -%}
       {% assign product_count = featured_collection_products | size %}
       {% if product_count > 0 %}
         {%- for card_product in featured_collection_products limit: section.settings.products_to_show -%}
-          <li class="relative">
-            <div class="w-328 h-160">
+          <li class="relative border border-solid border-spring-wood">
+            <div class="block">
               <img
                 srcset="
                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -45,37 +48,37 @@
                 width="{{ card_product.featured_media.width }}"
                 height="{{ card_product.featured_media.height }}"
               >
-              <span class="absolute left-[10px] top-[10px] flex items-center bg-white-lilac px-[5px] py-[7px] font-AnekLatin-Medium text-[10px]/[14px] text-woodsmoke text-opacity-60"
-                >10% OFF</span
-              >
             </div>
-            <div class="body-text">
-              <span class="font-AnekLatin-Medium text-[14px]/[18px] text-woodsmoke text-opacity-60">
-                {{- card_product.tags -}}
-              </span>
-              <h3 class="mt-[5px] font-AnekLatin-SemiBold text-[14px]/[20px]">
-                {{ card_product.title }}
-              </h3>
+            <div class="flex flex-col gap-[10px] p-4">
+              {% if section.settings.show_product_label != false %}
+                <div class="flex items-center justify-center bg-white-lilac px-[5px] py-[7px] font-AnekLatin-Medium text-[12px]/[16px] text-blue-marguerite">
+                  Shea + Aloe + Coco Butter
+                </div>
+              {% endif %}
+              {% if section.settings.show_collection_tag != false %}
+                <span class="text-[14px]/[18px] text-woodsmoke text-opacity-60">{{ card_product.tags }}</span>
+              {% endif %}
+              <h3 class="font-AnekLatin-SemiBold text-[18px]/[24px] text-woodsmoke">{{ card_product.title }}</h3>
               <div class="mt-2 flex items-center gap-[10px]">
                 <img src="https://cdn.shopify.com/s/files/1/0831/6928/0289/files/Group_8791.png?v=1701683297" alt="">
                 <span class="text-[14px]/[22px] text-woodsmoke text-opacity-40">(49)</span>
               </div>
-
-              <div class="flex flex-col gap-2">
-                <span class="font-AnekLatin-Bold text-[20px]/[22px] text-woodsmoke">
-                  {{- card_product.price | money -}}
-                </span>
-                <span class="text-[16px]/[22px] text-woodsmoke text-opacity-40 line-through">
-                  {{- card_product.compare_at_price | money -}}
-                </span>
+              <div class="flex items-baseline gap-3">
+                <p class="truncate font-AnekLatin-Bold text-[20px]/[22px] text-woodsmoke">
+                  {{ card_product.price | money }}
+                </p>
+                <p class="truncate font-AnekLatin-Medium text-[20px]/[22px] text-woodsmoke text-opacity-50 line-through">
+                  {{ card_product.compare_at_price | money }}
+                </p>
+                <span class="font-AnekDevanagari-SemiBold text-[13px]/[22px] text-blue-marguerite">22% OFF</span>
               </div>
-            </div>
-            <div class="mt-5">
               <a
                 href="{{ card_product.url }}"
                 class="btn w-full min-w-fit"
-                ><span class="mb-[-2px] mt-[2px] uppercase">ADD TO CART +</span></a
+                role="button"
               >
+                <span class="mb-[-2px] mt-[2px]">ADD TO CART</span>
+              </a>
             </div>
           </li>
         {% endfor %}
@@ -85,15 +88,15 @@
 </div>
 {% schema %}
 {
-  "name": "Exclusive Discounts",
-  "class": "section-exclusive-discounts",
+  "name": "Combo collection",
+  "class": "section-generic-product",
   "tag": "section",
   "settings": [
     {
       "type": "color",
       "id": "section_bg",
       "label": "Background color",
-      "default": "#FFFBF8"
+      "default": "#FFFFFF"
     },
     {
       "type": "text",
@@ -106,6 +109,12 @@
       "content": "Featured Collection Info"
     },
     {
+      "type": "checkbox",
+      "id": "show_collection_tag",
+      "label": "Show Collection Tag",
+      "default": false
+    },
+    {
       "type": "collection",
       "id": "featured_collection",
       "label": "Featured Collection"
@@ -113,11 +122,17 @@
     {
       "type": "range",
       "id": "products_to_show",
-      "min": 4,
+      "min": 2,
       "max": 25,
       "step": 1,
-      "default": 4,
+      "default": 2,
       "label": "t:sections.featured-collection.settings.products_to_show.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_label",
+      "label": "Show Product Label",
+      "default": false
     },
     {
       "type": "header",
@@ -146,7 +161,7 @@
   ],
   "presets": [
     {
-      "name": "Exclusive Discounts"
+      "name": "Combo collection"
     }
   ]
 }

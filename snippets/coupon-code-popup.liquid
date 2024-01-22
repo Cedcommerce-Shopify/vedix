@@ -1,81 +1,71 @@
-<div class="overlay before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:h-full before:bg-black before:opacity-75 before:content-['']">
-  <div class="fixed bottom-0 w-full bg-ecru-white pt-[20px]">
-    <div class="container m-auto px-[20px]">
-      <div id="pack-header" class="mb-[24px] flex items-center justify-between">
-        <h2 class="text-left font-AnekLatin-Bold text-[18px]/[22px] text-mine-shaft">Apply Coupon</h2>
-        <img src="file:///C:/Users/Yogesh-2338/Desktop/twillind/assests/close.svg" alt="">
+<div class="overlay before:fixed before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-[9] before:h-full before:bg-black before:opacity-75 before:content-['']">
+  <div class="fixed bottom-0 right-0 z-[9] w-full max-w-[428px] bg-ecru-white">
+    <div class="container m-auto p-5">
+      <div id="popupHeader" class="mb-[24px] flex items-center justify-between">
+        <h2 class="font-AnekLatin-Bold text-[18px]/[22px] text-mine-shaft">Apply Coupon</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 11.326 11.315">
+          <path id="Path_11777" data-name="Path 11777" d="M165.033,579.321a.973.973,0,0,1,0,1.392,1,1,0,0,1-1.392,0l-3.978-3.978-3.978,3.978a1,1,0,0,1-1.392,0,.973.973,0,0,1,0-1.392l3.979-3.978-3.979-3.978a.984.984,0,1,1,1.392-1.391l3.978,3.978,3.978-3.978a.984.984,0,0,1,1.392,1.391l-3.979,3.978Z" transform="translate(-154 -569.68)" fill="#000000"/>
+        </svg>
       </div>
-      <div id="coupon" class="mt-[20px]">
-        <div class="border-1 mb-[28px] border border-black bg-white px-[20px] py-[20px]">
+      <div id="popupBody" class="mt-[20px]">
+        <div class="mb-[28px] border border-solid border-black bg-white px-5 py-5">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-x-[15px]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                <path id="Path_12946" data-name="Path 12946" d="M133.477,494.25l.912-1.576a.825.825,0,0,0-.3-1.129l-1.577-.912v-1.818a.826.826,0,0,0-.826-.825h-1.816l-.91-1.577a.831.831,0,0,0-.5-.385.819.819,0,0,0-.322-.022.829.829,0,0,0-.305.1l-1.577.912-1.578-.913a.824.824,0,0,0-1.127.3l-.912,1.578h-1.816a.826.826,0,0,0-.826.825v1.816l-1.577.913a.818.818,0,0,0-.243.212.825.825,0,0,0-.164.612.856.856,0,0,0,.1.305l.913,1.576-.913,1.576a.839.839,0,0,0-.083.627.829.829,0,0,0,.384.5l1.577.913v1.816a.826.826,0,0,0,.826.825h1.818l.912,1.578a.836.836,0,0,0,.3.3.85.85,0,0,0,.413.111.838.838,0,0,0,.414-.111l1.576-.912,1.577.912a.828.828,0,0,0,1.129-.3l.912-1.578h1.815a.826.826,0,0,0,.826-.825v-1.816l1.578-.913a.815.815,0,0,0,.384-.5.794.794,0,0,0,.021-.322.829.829,0,0,0-.1-.305Zm-9.292-4.139a1.239,1.239,0,1,1-.876.363A1.237,1.237,0,0,1,124.185,490.111Zm.249,7.93-1.323-.99,4.957-6.608,1.321.991Zm3.882.331a1.243,1.243,0,0,1-.474-.095,1.221,1.221,0,0,1-.4-.269,1.235,1.235,0,0,1,0-1.752,1.227,1.227,0,0,1,.876-.363,1.24,1.24,0,0,1,0,2.479Z" transform="translate(-118 -486)" fill="rgba(0,0,0,0.6)"/>
-              </svg>
-              <p class="text-left font-AnekLatin-SemiBold text-[14px]/[22px] capitalize text-woodsmoke opacity-[60%]">
-                Enter Discount Code
-              </p>
+              <img src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/icon-discount.svg?v=1705648123">
+              <input
+                type="text"
+                class="font-AnekLatin-SemiBold text-[14px]/[22px] uppercase text-woodsmoke text-opacity-60 focus-visible:border-none focus-visible:outline-none"
+                placeholder="Enter Discount Code"
+              >
             </div>
-            <div class="">
-              <p class="text-left font-AnekLatin-SemiBold text-[14px]/[22px] capitalize text-woodsmoke opacity-[60%]">
-                Apply
-              </p>
-            </div>
+            <p class="text-left font-AnekLatin-SemiBold text-[16px]/[22px] capitalize text-woodsmoke text-opacity-60">
+              Apply
+            </p>
           </div>
         </div>
-        <div class="border-1 mb-[15px] border border-alto bg-white px-[20px] py-[20px]">
+        <div class="mb-[15px] border border-solid border-alto bg-white px-5 py-4">
           <h3 class="font-AnekLatin-Medium text-[14px]/[22px] text-woodsmoke">
             Extra 10% off upto ₹100 on first purchase
           </h3>
           <div class="mt-[12px] flex items-center justify-between">
-            <div class="border-1 border border-dashed border-black px-[7px] py-[5px]">
-              <p class="text-blborder-black font-AnekLatin-SemiBold text-[14px]/[22px] uppercase">WELCOME10</p>
+            <div id="couponCode" class="block">
+              <p class="text-blborder-black border border-dashed border-black px-[7px] py-[5px] font-AnekLatin-SemiBold text-[14px]/[22px] uppercase">
+                WELCOME10
+              </p>
+
+              {% comment %} ACTIVE STATE COUPON CODE {% endcomment %}
+              <div class="hidden items-center gap-x-[15px]">
+                <div class="flex items-center gap-x-[5px] bg-gin p-[7px]">
+                  <span id="coupon">
+                    <img src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/icon-discount-flag.svg?v=1705652300">
+                  </span>
+                  <span class="font-AnekLatin-SemiBold text-[14px]/[22px] uppercase text-de-york">WELCOME10</span>
+                  <a href="" id="remove">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8.621" height="8.621" viewBox="0 0 8.621 8.621">
+                      <path id="Path_12787" data-name="Path 12787" d="M1135.5,1074.75l-6.5,6.5m0-6.5,6.5,6.5" transform="translate(-1127.939 -1073.689)" fill="none" stroke="rgba(0,0,0,0.6)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </svg>
+                  </a>
+                </div>
+                <p class="font-AnekLatin-SemiBold text-[14px]/[22px] capitalize text-fruit-salad">Saved 84</p>
+              </div>
             </div>
-            <div class="border-1 rounded-md border border-solid border-dove-gray px-[7px] py-[5px]">
-              <p class="text-blborder-black font-AnekLatin-SemiBold text-[14px]/[22px] uppercase">Apply</p>
-            </div>
-          </div>
-          {% comment %} ACTIVE STATE COUPON CODE {% endcomment %}
-          <div class="flex items-center gap-x-[15px]">
-            <div class="flex items-center gap-x-[5px] bg-gin p-[7px]">
-              <span id="coupon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  width="12"
-                  height="13"
-                  viewBox="0 0 12 13"
-                >
-                  <defs>
-                    <clipPath id="clip-path">
-                      <rect id="Rectangle_15490" data-name="Rectangle 15490" width="13" height="12" transform="translate(1050 1071.5) rotate(90)" fill="#fff"/>
-                    </clipPath>
-                  </defs>
-                  <g id="Group_9385" data-name="Group 9385" transform="translate(-1038 -1071.5)" clip-path="url(#clip-path)">
-                    <path id="Path_12783" data-name="Path 12783" d="M1043.47,1082.47l5.19-5.2v-4.14h-4.14l-5.19,5.2Zm2.86-7.84a.82.82,0,0,1,.83-.83.836.836,0,0,1,.84.83.816.816,0,0,1-.25.59.8.8,0,0,1-.59.25.834.834,0,0,1-.59-.25A.849.849,0,0,1,1046.33,1074.63Z" fill="#8bc292" opacity="0.3"/>
-                    <path id="Path_12784" data-name="Path 12784" d="M1038.39,1077.39a1.328,1.328,0,0,0,0,1.88l4.14,4.14a1.34,1.34,0,0,0,1.89,0l5.19-5.2a1.3,1.3,0,0,0,.39-.94v-4.14a1.336,1.336,0,0,0-1.33-1.33h-4.14a1.3,1.3,0,0,0-.94.39Zm10.28-4.26v4.14l-5.2,5.2-4.14-4.14,5.2-5.2Z" fill="#8bc292"/>
-                    <path id="Path_12785" data-name="Path 12785" d="M1046.33,1074.63a.845.845,0,0,0,.84.84.837.837,0,0,0,.83-.84.828.828,0,0,0-.83-.83A.837.837,0,0,0,1046.33,1074.63Z" fill="#8bc292"/>
-                  </g>
-                </svg>
-              </span>
-              <span class="font-AnekLatin-SemiBold text-[14px]/[22px] uppercase text-de-york">WELCOME10</span>
-              <a href="" id="remove">
-                <svg xmlns="http://www.w3.org/2000/svg" width="8.621" height="8.621" viewBox="0 0 8.621 8.621">
-                  <path id="Path_12787" data-name="Path 12787" d="M1135.5,1074.75l-6.5,6.5m0-6.5,6.5,6.5" transform="translate(-1127.939 -1073.689)" fill="none" stroke="rgba(0,0,0,0.6)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                </svg>
-              </a>
-            </div>
-            <p class="font-AnekLatin-SemiBold text-[14px]/[22px] capitalize text-fruit-salad">Saved 84</p>
+
+            <button
+              type="button"
+              class="border border-solid border-dove-gray px-[7px] py-[5px] font-AnekLatin-SemiBold text-[14px]/[22px] uppercase"
+            >
+              Apply
+            </button>
           </div>
         </div>
-        <div class="border-1 mb-[15px] border border-alto bg-white px-[20px] py-[20px]">
+        <div class="mb-[15px] border border-solid border-alto bg-white px-5 py-4">
           <h3 class="mb-[12px] font-AnekLatin-Medium text-[14px]/[22px] text-woodsmoke">Get a FREE Booster Oil</h3>
-          <p class="mb-[12px] font-AnekLatin-Medium text-[14px]/[22px] text-woodsmoke opacity-60">
+          <p class="mb-[12px] font-AnekLatin-Medium text-[14px]/[18px] text-woodsmoke text-opacity-60">
             worth ₹299 on purchase of haircare 3 step regimen
           </p>
-          <h5 class="font-AnekLatin-Medium text-[12px]/[22px] text-woodsmoke">No coupon code required</h5>
+          <h5 class="text-[12px]/[22px] text-woodsmoke">No coupon code required</h5>
         </div>
-        <div class="border-1 mb-[15px] border border-alto bg-white px-[20px] py-[20px]">
+        <div class="mb-[15px] border border-solid border-alto bg-white px-5 py-4">
           <div class="flex items-center justify-between">
             <div class="">
               <h3 class="mb-[12px] font-AnekLatin-Medium text-[14px]/[22px] text-woodsmoke">
@@ -83,26 +73,23 @@
               </h3>
               <p class="text-[14px]/[17px] text-woodsmoke opacity-60">Shop 2 item(S) more to apply</p>
             </div>
-            <div class="border-1 rounded-md border border-solid border-dove-gray px-[7px] py-[5px]">
-              <p class="text-blborder-black font-AnekLatin-SemiBold text-[14px]/[22px] uppercase">ADD ITEMs</p>
-            </div>
+            <button
+              type="button"
+              class="text-blborder-black border border-solid border-dove-gray px-[7px] py-[5px] font-AnekLatin-SemiBold text-[14px]/[22px] uppercase"
+            >
+              ADD ITEMs
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <div class="custom-box-shadow bg-white py-[20px]">
-      <div class="container">
-        <div class="flex items-center justify-between px-[20px]">
-          <div class="">
-            <h3 class="mb-[12px] font-AnekLatin-Bold text-[20px]/[22px] text-woodsmoke">₹0</h3>
-            <p class="text-[14px]/[22px] text-woodsmoke opacity-[60%]">Coupon Saving</p>
-          </div>
-          <div class="border-1 border-wootext-woodsmoke border bg-flame-pea px-[20px] py-[12px]">
-            <button type="submit" class="font-AnekLatin-SemiBold text-[16px]/[16px] uppercase text-white">
-              GO TO CART
-            </button>
-          </div>
+    <div class="bg-white py-5 shadow-[0px_-3px_6px_#0000000D]">
+      <div class="flex items-center justify-between px-5">
+        <div class="flex flex-col gap-2">
+          <h3 class="font-AnekLatin-Bold text-[20px]/[22px] text-woodsmoke">₹0</h3>
+          <p class="text-[14px]/[22px] text-woodsmoke text-opacity-60">Coupon Saving</p>
         </div>
+        <button type="submit" class="btn min-w-fit"><span class="mb-[-2px] mt-[2px]">GO TO CART</span></button>
       </div>
     </div>
   </div>

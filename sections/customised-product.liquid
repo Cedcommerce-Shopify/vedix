@@ -10,13 +10,14 @@
     }
   }
 {%- endstyle -%}
-<div class="relative section-{{ section.id }}-padding">
+
+<div class="relative section-{{ section.id }}-padding" style="background-color:{{ section.settings.section_bg }};">
   <div class="container mx-auto px-4">
     <h2 class="mb-2 font-AnekLatin-Bold text-[28px]/[26px] text-mine-shaft md:font-AnekLatin-SemiBold md:text-[42px]/[58px]">
       {{ section.settings.section_heading }}
     </h2>
     <div class="font-AnekLatin-Medium text-[14px]/[24px] text-mine-shaft">
-      {{ section.settings.section_sub_heading }}
+      {{ section.settings.description }}
     </div>
     <ul class="mt-[45px] grid grid-cols-1 gap-x-4 md:grid-cols-3">
       {% for block in section.blocks %}
@@ -27,16 +28,18 @@
             </div>
           {% endif %}
           <div class="flex items-stretch justify-between border-b border-solid border-mine-shaft">
-            {% if block.settings.product_img != blank %}
-              <div class="block w-2/5 border-r border-solid border-mine-shaft p-4 pt-10">
+            <div class="block w-2/5 border-r border-solid border-mine-shaft p-4 pt-10">
+              {% if block.settings.product_img != blank %}
                 <img
                   src="{{ block.settings.product_img |  img_url: 'master'}}"
                   width="{{ block.settings.product_img.width }}"
                   height="{{ block.settings.product_img.height }}"
                   loading="lazy"
                 >
-              </div>
-            {% endif %}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+              {% endif %}
+            </div>
             <div class="flex w-3/5 flex-col gap-4 p-4 pt-10">
               <h3 class="font-AnekLatin-Bold text-[16px]/[20px] text-mine-shaft">{{ block.settings.title }}</h3>
               <div class="font-AnekLatin-SemiBold text-[14px]/[20px] text-mine-shaft">
@@ -68,12 +71,12 @@
           <div id="benefits" class="border-b border-solid border-mine-shaft p-4">
             <h4 class="relative mb-5 font-AnekLatin-Bold text-[14px]/[26px] text-mine-shaft">
               {{ block.settings.benefit_text }}
-              {% if block.settings.heading_icon != blank %}
+              {% if block.settings.benefit_icon != blank %}
                 <span class="absolute right-0 top-1 block h-[24px] w-[24px]">
                   <img
-                    src="{{ block.settings.heading_icon |  img_url: 'master' }}"
-                    width="{{block.settings.heading_icon.width}}"
-                    height="{{ block.settings.heading_icon.height }}"
+                    src="{{ block.settings.benefit_icon |  img_url: 'master' }}"
+                    width="{{block.settings.benefit_icon.width}}"
+                    height="{{ block.settings.benefit_icon.height }}"
                     loading="lazy"
                   >
                 </span>
@@ -86,12 +89,12 @@
           <div id="howToUse" class="border-b border-solid border-mine-shaft p-4">
             <h4 class="relative mb-5 font-AnekLatin-Bold text-[14px]/[26px] text-mine-shaft">
               {{ block.settings.usage_text }}
-              {% if block.settings.heading_icon != blank %}
+              {% if block.settings.usage_icon != blank %}
                 <span class="absolute right-0 top-1 block h-[24px] w-[24px]">
                   <img
-                    src="{{ block.settings.heading_icon |  img_url: 'master' }}"
-                    width="{{block.settings.heading_icon.width}}"
-                    height="{{ block.settings.heading_icon.height }}"
+                    src="{{ block.settings.usage_icon |  img_url: 'master' }}"
+                    width="{{block.settings.usage_icon.width}}"
+                    height="{{ block.settings.usage_icon.height }}"
                     loading="lazy"
                   >
                 </span>
@@ -102,16 +105,18 @@
             </div>
             <ul class="flex flex-col gap-9">
               <li class="flex items-center gap-x-4">
-                {% if block.settings.usage_product_img_1 != blank %}
-                  <span class="block h-[46px] w-[46px] max-w-[46px] flex-[0_0_100%] overflow-hidden rounded">
+                <span class="block h-[46px] w-[46px] max-w-[46px] flex-[0_0_100%] overflow-hidden rounded">
+                  {% if block.settings.usage_product_img_1 != blank %}
                     <img
                       src="{{ block.settings.usage_product_img_1 |  img_url: 'master' }}"
                       width="{{block.settings.usage_product_img_1.width}}"
                       height="{{ block.settings.usage_product_img_1.height }}"
                       loading="lazy"
                     >
-                  </span>
-                {% endif %}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                  {% endif %}
+                </span>
                 <div class="flex flex-col gap-1">
                   <h4 class="font-AnekLatin-Bold text-[13px]/[20px] text-cape-palliser">
                     {{ block.settings.usage_step_1 }}
@@ -120,16 +125,18 @@
                 </div>
               </li>
               <li class="flex items-center gap-x-4">
-                {% if block.settings.usage_product_img_2 != blank %}
-                  <span class="block h-[46px] w-[46px] max-w-[46px] flex-[0_0_100%] overflow-hidden rounded">
+                <span class="block h-[46px] w-[46px] max-w-[46px] flex-[0_0_100%] overflow-hidden rounded">
+                  {% if block.settings.usage_product_img_2 != blank %}
                     <img
                       src="{{ block.settings.usage_product_img_2 |  img_url: 'master' }}"
                       width="{{block.settings.usage_product_img_2.width}}"
                       height="{{ block.settings.usage_product_img_2.height }}"
                       loading="lazy"
                     >
-                  </span>
-                {% endif %}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                  {% endif %}
+                </span>
                 <div class="flex flex-col gap-1">
                   <h4 class="font-AnekLatin-Bold text-[13px]/[20px] text-cape-palliser">
                     {{ block.settings.usage_step_2 }}
@@ -138,16 +145,18 @@
                 </div>
               </li>
               <li class="flex items-center gap-x-4">
-                {% if block.settings.usage_product_img_3 != blank %}
-                  <span class="block h-[46px] w-[46px] max-w-[46px] flex-[0_0_100%] overflow-hidden rounded">
+                <span class="block h-[46px] w-[46px] max-w-[46px] flex-[0_0_100%] overflow-hidden rounded">
+                  {% if block.settings.usage_product_img_3 != blank %}
                     <img
                       src="{{ block.settings.usage_product_img_3 |  img_url: 'master' }}"
                       width="{{block.settings.usage_product_img_3.width}}"
                       height="{{ block.settings.usage_product_img_3.height }}"
                       loading="lazy"
                     >
-                  </span>
-                {% endif %}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                  {% endif %}
+                </span>
                 <div class="flex flex-col gap-1">
                   <h4 class="font-AnekLatin-Bold text-[13px]/[20px] text-cape-palliser">
                     {{ block.settings.usage_step_3 }}
@@ -160,12 +169,12 @@
           <div id="ingradients" class="p-4">
             <h4 class="relative mb-5 font-AnekLatin-Bold text-[14px]/[26px] text-mine-shaft">
               {{ block.settings.ingradients_heading }}
-              {% if block.settings.heading_icon != blank %}
+              {% if block.settings.ingradients_icon != blank %}
                 <span class="absolute right-0 top-1 block h-[24px] w-[24px]">
                   <img
-                    src="{{ block.settings.heading_icon |  img_url: 'master' }}"
-                    width="{{block.settings.heading_icon.width}}"
-                    height="{{ block.settings.heading_icon.height }}"
+                    src="{{ block.settings.ingradients_icon |  img_url: 'master' }}"
+                    width="{{block.settings.ingradients_icon.width}}"
+                    height="{{ block.settings.ingradients_icon.height }}"
                     loading="lazy"
                   >
                 </span>
@@ -173,64 +182,72 @@
             </h4>
             <ul class="mt-8 grid grid-cols-4 gap-3">
               <li class="flex flex-col items-center gap-3">
-                {% if block.settings.ing_product_img_1 != blank %}
-                  <div class="h-[50px] w-[50px]">
+                <div class="h-[50px] w-[50px]">
+                  {% if block.settings.ing_product_img_1 != blank %}
                     <img
                       src="{{ block.settings.ing_product_img_1 |  img_url: 'master' }}"
                       width="{{block.settings.ing_product_img_1.width}}"
                       height="{{ block.settings.ing_product_img_1.height }}"
                       loading="lazy"
                     >
-                  </div>
-                  <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
-                    {{ block.settings.ing_text_1 }}
-                  </h4>
-                {% endif %}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                  {% endif %}
+                </div>
+                <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+                  {{ block.settings.ing_text_1 }}
+                </h4>
               </li>
               <li class="flex flex-col items-center gap-3">
-                {% if block.settings.ing_product_img_2 != blank %}
-                  <div class="h-[50px] w-[50px]">
+                <div class="h-[50px] w-[50px]">
+                  {% if block.settings.ing_product_img_2 != blank %}
                     <img
                       src="{{ block.settings.ing_product_img_2 |  img_url: 'master' }}"
                       width="{{block.settings.ing_product_img_2.width}}"
                       height="{{ block.settings.ing_product_img_2.height }}"
                       loading="lazy"
                     >
-                  </div>
-                  <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
-                    {{ block.settings.ing_text_2 }}
-                  </h4>
-                {% endif %}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                  {% endif %}
+                </div>
+                <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+                  {{ block.settings.ing_text_2 }}
+                </h4>
               </li>
               <li class="flex flex-col items-center gap-3">
-                {% if block.settings.ing_product_img_3 != blank %}
-                  <div class="h-[50px] w-[50px]">
+                <div class="h-[50px] w-[50px]">
+                  {% if block.settings.ing_product_img_3 != blank %}
                     <img
                       src="{{ block.settings.ing_product_img_3 |  img_url: 'master' }}"
                       width="{{block.settings.ing_product_img_3.width}}"
                       height="{{ block.settings.ing_product_img_3.height }}"
                       loading="lazy"
                     >
-                  </div>
-                  <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
-                    {{ block.settings.ing_text_3 }}
-                  </h4>
-                {% endif %}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                  {% endif %}
+                </div>
+                <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+                  {{ block.settings.ing_text_3 }}
+                </h4>
               </li>
               <li class="flex flex-col items-center gap-3">
-                {% if block.settings.ing_product_img_4 != blank %}
-                  <div class="h-[50px] w-[50px]">
+                <div class="h-[50px] w-[50px]">
+                  {% if block.settings.ing_product_img_4 != blank %}
                     <img
                       src="{{ block.settings.ing_product_img_4 |  img_url: 'master' }}"
                       width="{{block.settings.ing_product_img_4.width}}"
                       height="{{ block.settings.ing_product_img_4.height }}"
                       loading="lazy"
                     >
-                  </div>
-                  <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
-                    {{ block.settings.ing_text_4 }}
-                  </h4>
-                {% endif %}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                  {% endif %}
+                </div>
+                <h4 class="text-center font-AnekLatin-Medium text-[13px]/[20px] text-mine-shaft">
+                  {{ block.settings.ing_text_4 }}
+                </h4>
               </li>
             </ul>
           </div>
@@ -282,20 +299,28 @@
   "tag": "section",
   "settings": [
     {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#FFFBF8"
+    },
+    {
       "type": "text",
       "id": "section_heading",
       "label": "Heading",
-      "default": "Heading"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "richtext",
-      "id": "section_sub_heading",
-      "label": "Sub heading"
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button text"
+      "label": "Button text",
+      "default": "Button text"
     },
     {
       "type": "url",
@@ -336,7 +361,8 @@
         {
           "type": "text",
           "id": "product_type",
-          "label": "Product type"
+          "label": "Product type",
+          "default": "Lorem ipsum"
         },
         {
           "type": "image_picker",
@@ -346,17 +372,20 @@
         {
           "type": "richtext",
           "id": "title",
-          "label": "Product title"
+          "label": "Product title",
+          "default": "<p>Lorem Ipsum is simply dummy text</p>"
         },
         {
           "type": "richtext",
           "id": "product_info",
-          "label": "Product info"
+          "label": "Product info",
+          "default": "<p>Cras commodo eget enim at consectetur. Nunc a tincidunt orci.</p>"
         },
         {
           "type": "richtext",
           "id": "product_desc",
-          "label": "Product description"
+          "label": "Product description",
+          "default": "<p>Vivamus semper pharetra quam. Suspendisse id efficitur metus, a gravida magna. Sed lacus ex, ullamcorper eget turpis at, tristique molestie quam.</p>"
         },
         {
           "type": "header",
@@ -365,17 +394,19 @@
         {
           "type": "text",
           "id": "benefit_text",
-          "label": "Benefits text"
+          "label": "Heading",
+          "default": "Lorem Ipsum is simply dummy text"
         },
         {
           "type": "image_picker",
-          "id": "heading_icon",
-          "label": "Heading Icon"
+          "id": "benefit_icon",
+          "label": "Icon"
         },
         {
           "type": "richtext",
           "id": "benefit_desc",
-          "label": "Benefits description"
+          "label": "Description",
+          "default": "<p>Ut consectetur convallis consequat.</p>"
         },
         {
           "type": "header",
@@ -384,12 +415,19 @@
         {
           "type": "text",
           "id": "usage_text",
-          "label": "Heading"
+          "label": "Heading",
+          "default": "Lorem Ipsum is simply dummy text"
+        },
+        {
+          "type": "image_picker",
+          "id": "usage_icon",
+          "label": "Icon"
         },
         {
           "type": "richtext",
           "id": "usage_desc",
-          "label": "Usages Descriptions"
+          "label": "Description",
+          "default": "<p>Ut consectetur convallis consequat.</p>"
         },
         {
           "type": "image_picker",
@@ -399,12 +437,14 @@
         {
           "type": "text",
           "id": "usage_step_1",
-          "label": "Step 1"
+          "label": "Step 1",
+          "default": "Lorem Ipsum"
         },
         {
           "type": "richtext",
           "id": "usage_step_desc_1",
-          "label": "Step description"
+          "label": "Step description",
+          "default": "<p>Lorem Ipsum is simply dummy text</p>"
         },
         {
           "type": "image_picker",
@@ -414,12 +454,14 @@
         {
           "type": "text",
           "id": "usage_step_2",
-          "label": "Step 2"
+          "label": "Step 2",
+          "default": "Lorem Ipsum"
         },
         {
           "type": "richtext",
           "id": "usage_step_desc_2",
-          "label": "Step description"
+          "label": "Step description",
+          "default": "<p>Lorem Ipsum is simply dummy text</p>"
         },
         {
           "type": "image_picker",
@@ -429,12 +471,14 @@
         {
           "type": "text",
           "id": "usage_step_3",
-          "label": "Step 3"
+          "label": "Step 3",
+          "default": "Lorem Ipsum"
         },
         {
           "type": "richtext",
           "id": "usage_step_desc_3",
-          "label": "Step description"
+          "label": "Step description",
+          "default": "<p>Lorem Ipsum is simply dummy text</p>"
         },
         {
           "type": "header",
@@ -443,7 +487,13 @@
         {
           "type": "text",
           "id": "ingradients_heading",
-          "label": "Ingradients Heading"
+          "label": "Heading",
+          "default": "Lorem Ipsum is simply dummy text"
+        },
+        {
+          "type": "image_picker",
+          "id": "ingradients_icon",
+          "label": "Icon"
         },
         {
           "type": "image_picker",
@@ -453,7 +503,8 @@
         {
           "type": "richtext",
           "id": "ing_text_1",
-          "label": "Ingradients text"
+          "label": "Ingradients text",
+          "default": "<p>Lorem Ipsum is simply dummy text</p>"
         },
         {
           "type": "image_picker",
@@ -463,7 +514,8 @@
         {
           "type": "richtext",
           "id": "ing_text_2",
-          "label": "Ingradients text"
+          "label": "Ingradients text",
+          "default": "<p>Lorem Ipsum is simply dummy text</p>"
         },
         {
           "type": "image_picker",
@@ -473,7 +525,8 @@
         {
           "type": "richtext",
           "id": "ing_text_3",
-          "label": "Ingradients text"
+          "label": "Ingradients text",
+          "default": "<p>Lorem Ipsum is simply dummy text</p>"
         },
         {
           "type": "image_picker",
@@ -483,7 +536,8 @@
         {
           "type": "richtext",
           "id": "ing_text_4",
-          "label": "Ingradients text"
+          "label": "Description",
+          "default": "<p>Lorem Ipsum is simply dummy text</p>"
         }
       ]
     }

@@ -35,6 +35,11 @@
                     alt="{{ block.settings.user_image.alt }}"
                     class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center"
                   >
+                {% else %}
+                  {{
+                    'detailed-apparel-1'
+                    | placeholder_svg_tag: 'placeholder-svg absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center'
+                  }}
                 {% endif %}
               </div>
               {% if block.settings.button_text != blank %}
@@ -92,7 +97,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Section heading"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "inline_richtext",
@@ -139,7 +144,8 @@
         {
           "type": "text",
           "id": "button_text",
-          "label": "Button text"
+          "label": "Button text",
+          "default": "Button text"
         },
         {
           "type": "url",

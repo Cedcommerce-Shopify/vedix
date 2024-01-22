@@ -21,13 +21,17 @@
       {{ section.settings.title }}
     </h2>
     <div class="flex items-center justify-center py-4">
-      <img
-        src="{{ section.settings.image |  img_url: 'master' }}"
-        loading="lazy"
-        width="{{ section.settings.image.width }}"
-        height="{{ section.settings.image.height }}"
-        alt="{{ section.settings.image.alt }}"
-      >
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image |  img_url: 'master' }}"
+          loading="lazy"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+          alt="{{ section.settings.image.alt }}"
+        >
+      {% else %}
+        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg h-full w-full' }}
+      {% endif %}
     </div>
   </div>
 </div>
@@ -46,7 +50,7 @@
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "Enter your heading"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "image_picker",

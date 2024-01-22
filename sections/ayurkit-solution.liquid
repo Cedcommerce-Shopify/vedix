@@ -13,6 +13,7 @@
 
 <div
   class="bg-double-pearl-lusta section-{{ section.id }}-padding"
+  style="background-color:{{ section.settings.section_bg }};"
 >
   <div class="container mx-auto px-4">
     <h2 class="mb-4 font-AnekLatin-Bold text-[28px]/[32px] text-woodsmoke md:font-AnekLatin-SemiBold md:text-[42px]/[58px]">
@@ -37,6 +38,11 @@
                     alt="{{ block.settings.user_image.alt }}"
                     class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center"
                   >
+                {% else %}
+                  {{
+                    'detailed-apparel-1'
+                    | placeholder_svg_tag: 'placeholder-svg absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center'
+                  }}
                 {% endif %}
               </div>
             </div>
@@ -58,10 +64,16 @@
   "tag": "section",
   "settings": [
     {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#FCECD6"
+    },
+    {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Section heading"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "inline_richtext",

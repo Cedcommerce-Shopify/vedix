@@ -23,6 +23,8 @@
             loading="lazy"
             alt="{{ block.settings.image.alt }}"
           >
+        {% else %}
+          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg h-full w-full' }}
         {% endfor %}
       </div>
       <div class="pt-4 font-AnekLatin-SemiBold text-[14px]/[20px] text-woodsmoke opacity-70">

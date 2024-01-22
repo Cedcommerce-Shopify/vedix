@@ -40,7 +40,7 @@
     </ul>
     <ul class="mx-auto mt-12 flex max-w-[730px] flex-col gap-3">
       {% for block in section.blocks %}
-        <li class="border border-solid border-mercury bg-merino px-4 py-6 rounded">
+        <li class="rounded border border-solid border-mercury bg-merino px-4 py-6">
           <h1 class="relative pr-10 font-AnekLatin-SemiBold text-[14px]/[24px] text-mine-shaft">
             {{ block.settings.title }}
             {% if block.settings.icon != blank %}
@@ -80,7 +80,7 @@
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "Heading"
+      "default": "Frequently Asked Questions"
     },
     {
       "type": "header",
@@ -89,22 +89,26 @@
     {
       "type": "text",
       "id": "category_all",
-      "label": "Category title"
+      "label": "Category title",
+      "default": "All"
     },
     {
       "type": "text",
       "id": "category_a",
-      "label": "Category title"
+      "label": "Category title",
+      "default": "Category A"
     },
     {
       "type": "text",
       "id": "category_b",
-      "label": "Category title"
+      "label": "Category title",
+      "default": "Category B"
     },
     {
       "type": "text",
       "id": "category_c",
-      "label": "Category title"
+      "label": "Category title",
+      "default": "Category C"
     },
     {
       "type": "header",
@@ -151,7 +155,8 @@
         {
           "type": "richtext",
           "id": "faq_text",
-          "label": "FAQ text"
+          "label": "FAQ text",
+          "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
         }
       ]
     }
