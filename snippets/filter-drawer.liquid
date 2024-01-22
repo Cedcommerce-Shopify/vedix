@@ -1,0 +1,125 @@
+<cart-drawer
+  id="cart-drawer"
+  class="fixed z-[9] left-0 top-0 w-screen h-screen flex justify-end bg-woodsmoke bg-opacity-80 transition duration-300 ease-in-out"
+>
+  <div id="CartDrawer" class="cart-drawer">
+    <div id="CartDrawer-Overlay" class="cart-drawer__overlay fixed top-0 right-0 bottom-0 left-0 block"></div>
+    <div
+      id="filter-drawer"
+      class="drawer__inner bg-soapstone transform translate-x-0 translate-y-0 overflow-auto h-screen min-w-[320px] flex flex-col transition-transform duration-300 ease-in-out md:min-w-[400px]"
+    >
+      <div
+        id="drawer__header"
+        class="flex items-center justify-between bg-soapstone border border-1 border-almond px-[20px] py-[30px]"
+      >
+        <h2 class="text-[24px]/[22px] text-woodsmoke capitalize font-AnekLatin-Bold">Filter & Sort</h2>
+        <div id="filter-close" onclick="hideDrawer()">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0683/5922/5645/files/close-icon.png?v=1705642256"
+            alt="close-icon"
+            class="cursor-pointer"
+          >
+        </div>
+      </div>
+      <cart-drawer-items class="flex justify-between h-full mt-[30px]">
+        <div class="w-[40%] border-l-0 border-r-1 border-t-0 border-b-0 border border-almond">
+          <ul>
+            <li class="border-l-0 border-r-0 border-t-0 border-b-1 border border-almond pl-[20px] py-[20px]">
+              <div>
+                <a href="" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Sort</a>
+              </div>
+            </li>
+            <li class="border-l-0 border-r-0 border-t-0 border-b-1 border border-almond pl-[20px] py-[20px]">
+              <div>
+                <a href="" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Concerns</a>
+              </div>
+            </li>
+            <li class="border-l-0 border-r-0 border-t-0 border-b-1 border border-almond pl-[20px] py-[20px] bg-quarter-spanish-white">
+              <div>
+                <a href="" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Categories</a>
+              </div>
+            </li>
+            <li class="border-l-0 border-r-0 border-t-0 border-b-1 border border-almond pl-[20px] py-[20px]">
+              <div>
+                <a href="" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Scalp Type</a>
+              </div>
+            </li>
+            <li class="border-l-0 border-r-0 border-t-0 border-b-1 border border-almond pl-[20px] py-[20px]">
+              <div>
+                <a href="" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Hair Type</a>
+              </div>
+            </li>
+            <li class="border-l-0 border-r-0 border-t-0 border-b-1 border border-almond pl-[20px] py-[20px]">
+              <div>
+                <a href="" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Hair Texture</a>
+              </div>
+            </li>
+            <li class="border-l-0 border-r-0 border-t-0 border-b-1 border border-almond pl-[20px] py-[20px]">
+              <div>
+                <a href="" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Ingredients</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="w-[60%] pl-[30px]">
+          <h3 class="text-[16px]/[22px] text-woodsmoke capitalize font-AnekLatin-Medium mt-[33px] opacity-40">
+            Filter by
+          </h3>
+          <div class="filter-list mt-[16px]">
+            <div class="flex items-center gap-x-[12px] mb-[20px]">
+              <input
+                type="checkbox"
+                id="oil_type"
+                class="border border-woodsmoke h-[15px] w-[15px] border-1 rounded-sm checked:bg-black checked:text-white"
+              >
+              <label for="oil_type" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Hair Oil</label>
+            </div>
+            <div class="flex items-center gap-x-[12px] mb-[20px]">
+              <input
+                type="checkbox"
+                id="shampoo"
+                class="border border-woodsmoke h-[15px] w-[15px] border-1 rounded-sm checked:bg-black checked:text-white"
+              >
+              <label for="shampoo" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Shampoo</label>
+            </div>
+            <div class="flex items-center gap-x-[12px] mb-[20px]">
+              <input
+                type="checkbox"
+                id="serum"
+                class="border border-woodsmoke h-[15px] w-[15px] border-1 rounded-sm checked:bg-black checked:text-white"
+              >
+              <label for="serum" class="text-[16px]/[22px] text-woodsmoke font-AnekLatin-Medium">Serum</label>
+            </div>
+          </div>
+        </div>
+      </cart-drawer-items>
+      <div id="drawer__footer" class="flex items-center justify-between border-t border-solid  border-woodsmoke">
+        <div class="w-[40%] bg-white text-center">
+          <a
+            href=""
+            class="text-[16px]/[16px] py-[20px] w-full text-woodsmoke capitalize font-AnekLatin-SemiBold"
+            id="close-drawer"
+            >Cancel</a
+          >
+        </div>
+        <div class="w-[60%] bg-flame-pea text-center">
+          <button class="text-[16px]/[16px] py-[20px] w-full text-white capitalize font-AnekLatin-SemiBold">
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</cart-drawer>
+
+<script>
+  function showDrawer() {
+    var drawer = document.getElementById('cart-drawer')
+    drawer.style.display = 'flex'
+  }
+
+  function hideDrawer() {
+    var drawer = document.getElementById('cart-drawer')
+    drawer.style.display = 'none'
+  }
+</script>

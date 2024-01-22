@@ -18,7 +18,7 @@
     <h2 class="mb-6 text-center font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-[42px]/[58px]">
       {{ section.settings.heading }}
     </h2>
-    <div class="mx-auto max-w-[602px] flex flex-col">
+    <div class="mx-auto flex max-w-[602px] flex-col">
       <div class="flex max-h-[190px] overflow-hidden">
         {% if section.settings.product_image_1 %}
           <span class="block w-2/4">
@@ -43,7 +43,7 @@
           </span>
         {% endif %}
       </div>
-      <div class="text-center mx-auto my-6 flex md:order-1">
+      <div class="mx-auto my-6 flex text-center md:order-1">
         {% if section.settings.button_text != blank %}
           <a
             href="{{ section.settings.button_link }}"
@@ -76,22 +76,34 @@
           <li class="flex items-stretch border border-solid border-mercury bg-merino">
             <div class="max-w-[45%] flex-[0_0_100%] bg-merino px-[10px] py-4">{{ block.settings.title }}</div>
             <div class="flex max-w-[25%] flex-[0_0_100%] items-center justify-center bg-merino px-[10px] py-4">
-              <img
-                src="{{ block.settings.product_icon_1 | img_url: 'master' }}"
-                loading="lazy"
-                width="{{ block.settings.product_icon_1.width }}"
-                height="{{ block.settings.product_icon_1.height }}"
-                alt="{{ block.settings.product_icon_1.alt }}"
-              >
+              <span class="flex h-8 w-8 items-center justify-center">
+                {% if block.settings.product_icon_1 != blank %}
+                  <img
+                    src="{{ block.settings.product_icon_1 | img_url: 'master' }}"
+                    loading="lazy"
+                    width="{{ block.settings.product_icon_1.width }}"
+                    height="{{ block.settings.product_icon_1.height }}"
+                    alt="{{ block.settings.product_icon_1.alt }}"
+                  >
+                {% else %}
+                  {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                {% endif %}
+              </span>
             </div>
             <div class="flex max-w-[30%] flex-[0_0_100%] items-center justify-center bg-surf px-[10px] py-4">
-              <img
-                src="{{ block.settings.product_icon_2 | img_url: 'master' }}"
-                loading="lazy"
-                width="{{ block.settings.product_icon_2.width }}"
-                height="{{ block.settings.product_icon_2.height }}"
-                alt="{{ block.settings.product_icon_2.alt }}"
-              >
+              <span class="flex h-8 w-8 items-center justify-center">
+                {% if block.settings.product_icon_2 != blank %}
+                  <img
+                    src="{{ block.settings.product_icon_2 | img_url: 'master' }}"
+                    loading="lazy"
+                    width="{{ block.settings.product_icon_2.width }}"
+                    height="{{ block.settings.product_icon_2.height }}"
+                    alt="{{ block.settings.product_icon_2.alt }}"
+                  >
+                {% else %}
+                  {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                {% endif %}
+              </span>
             </div>
           </li>
         {% endfor %}
@@ -109,7 +121,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Heading"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "image_picker",
