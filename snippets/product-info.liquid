@@ -2,7 +2,7 @@
 
 <div id="product-info" class="relative py-[20px] ">
   <div class="container m-auto px-[20px]">
-    <div class="flex flex-col gap-x-[40px] md:flex-row lg:flex-row xl:flex-row">
+    <div class="flex flex-col gap-x-8 md:flex-row lg:flex-row xl:flex-row">
       <div class="relative mb-[30px] sm:w-[100%] md:w-[100%] lg:w-[50%]">
         <div class="absolute left-[15px] top-[10px] bg-white-lilac p-3">
           <span class="font-AnekLatin-SemiBold text-blue-marguerite sm:text-[13px]/[22px] md:text-[13px]/[22px] lg:text-[13px]/[22px]"
@@ -10,7 +10,7 @@
           >
         </div>
         <div id="product-image" class="flex flex-col items-start gap-[10px]">
-          <div class="">
+          <div class="block w-full">
             <img src="https://picsum.photos/id/400/500" alt="" class="h-full w-full">
           </div>
           <ul class="flex items-center gap-x-[10px]">
@@ -111,7 +111,11 @@
         {% render 'make-your-selection' %}
         {% render 'trust-icons' %}
         {% render 'product-benefits' %}
-        {% render 'customized-your-selection-popup' %}
+        {% comment %} {% render 'filter-drawer' %} {% endcomment %}
+        {% comment %}
+          {% render 'cart-drawer' %}
+          {% render 'customized-your-selection-popup' %}
+        {% endcomment %}
       </div>
     </div>
   </div>

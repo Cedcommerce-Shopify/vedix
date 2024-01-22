@@ -59,6 +59,11 @@ module.exports = {
         "spring-wood": "#F5F0EC",
         merlin: "#3D3C36",
         "albescent-white": "#F4E0CD",
+        apricot: "#E88272",
+        gallery: "#EFEFEF",
+        tan: "#D6B793",
+        "cod-gray": "#1E1E1E",
+        zanah: "#C9E7CA",
       },
       fontFamily: {
         "AnekLatin-Regular": ["AnekLatin-Regular", "sans-serif"],

@@ -28,8 +28,8 @@
             <p class="text-[12px]/[22px] text-woodsmoke">30 Jun 2022</p>
           </div>
           <div class="mb-4 block">
-            {% if block.settings.client_image != blank %}
-              <span class="block overflow-hidden rounded-[14px]">
+            <span class="block overflow-hidden rounded-[14px]">
+              {% if block.settings.client_image != blank %}
                 <img
                   src="{{ block.settings.client_image |  img_url: 'master' }}')"
                   loading="lazy"
@@ -37,8 +37,10 @@
                   height="{{ block.settings.client_image.height }}"
                   alt="{{ block.settings.client_image.alt }}"
                 >
-              </span>
-            {% endif %}
+              {%- else %}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+              {% endif %}
+            </span>
           </div>
           <div class="flex flex-col gap-1 text-left">
             <h2 class="font-AnekLatin-SemiBold text-[16px]/[22px] capitalize text-woodsmoke">

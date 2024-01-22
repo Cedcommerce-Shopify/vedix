@@ -11,14 +11,14 @@
   }
 {%- endstyle -%}
 
-<div class="bg-merino section-{{ section.id }}-padding">
+<div class="bg-merino section-{{ section.id }}-padding" style="background-color:{{ section.settings.section_bg }};">
   <div class="container mx-auto px-4">
     <h2 class="mb-6 font-AnekLatin-Bold text-[28px]/[32px] text-woodsmoke md:mb-4 md:font-AnekLatin-SemiBold md:text-[42px]/[58px]">
       {{ section.settings.title }}
     </h2>
     <div class="text-[16px]/[22px] text-woodsmoke">{{ section.settings.description }}</div>
     <div id="Projects" class="py-6">
-      <div class="flex items-center justify-between gap-4 py-3">
+      <div class="flex items-center justify-between gap-4 py-3 mb-3">
         {% if section.settings.collection_name != blank %}
           <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] uppercase text-woodsmoke md:text-[24px]/[22px]">
             {{ section.settings.collection_name }}
@@ -54,6 +54,7 @@
           <div class="relative">
             <a href="{{ collection_data.url }}" class="block">
               {% if block.settings.collection_img != blank %}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg h-full w-full' }}
               {% else %}
                 <div class="relative inline-block h-full w-full before:inline-block before:h-0 before:w-0 before:pb-[100%] before:content-['']">
                   <img
@@ -80,10 +81,16 @@
   "tag": "section",
   "settings": [
     {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#FAF7F1"
+    },
+    {
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "Enter your heading"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "inline_richtext",
@@ -99,7 +106,8 @@
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button text"
+      "label": "Button text",
+      "default": "Button text"
     },
     {
       "type": "url",

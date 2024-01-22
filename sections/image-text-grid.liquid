@@ -12,7 +12,7 @@
   }
 {%- endstyle -%}
 
-<div class="bg-white section-{{ section.id }}-padding">
+<div class="section-{{ section.id }}-padding" style="background-color: {{ section.settings.section_bg }}">
   <div class="container mx-auto px-4">
     <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:font-AnekLatin-Bold md:text-[42px]/[58px]">
       {{ section.settings.heading }}
@@ -21,8 +21,8 @@
       {%- for block in section.blocks -%}
         <div class="border border-solid border-woodsmoke">
           {%- assign image = block.settings.image -%}
-          {% if image != blank %}
-            <div class="block border-b border-solid border-woodsmoke bg-bridal-heath">
+          <div class="block border-b border-solid border-woodsmoke bg-bridal-heath">
+            {% if image != blank %}
               {{
                 image
                 | image_url: width: image.width
@@ -30,8 +30,10 @@
                   class: 'bg-ecru-white h-40 h-full w-full object-cover object-center border-b-1 ',
                   loading: 'lazy'
               }}
-            </div>
-          {% endif %}
+            {% else %}
+              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+            {% endif %}
+          </div>
           <div class="bg-white px-3 py-6 text-left">
             <h3 class="mb-2 font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke md:text-[24px]/[28px]">
               {{ block.settings.title }}
@@ -92,6 +94,12 @@
   "max_blocks": 4,
   "tag": "section",
   "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -154,13 +162,13 @@
           "type": "text",
           "id": "subheading",
           "label": "Product Sub-heading",
-          "default": "Lorem Ipsum is simply dummy text"
+          "default": "Vivamus semper pharetra quam"
         },
         {
           "type": "richtext",
           "id": "paragraph",
           "label": "Paragraph",
-          "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>"
+          "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
         }
       ]
     }

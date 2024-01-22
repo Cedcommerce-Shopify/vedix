@@ -1,0 +1,294 @@
+{%- style -%}
+    .slick-list{padding:0 35% 0 0 !important;}
+   .slick-list { margin: 0 -10px; }
+   .slick-slide {  margin: 0 10px;  }
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"
+>
+<div
+  class="overflow-hidden section-{{ section.id }}-padding"
+  style="background-color:{{ section.settings.section_bg }};"
+>
+  <div class="container mx-auto px-4">
+    <div class="hidden md:block">
+      <div class="mb-[24px] flex items-center justify-between">
+        <h2 class="mb-2 font-AnekLatin-SemiBold text-[42px]/[58px] text-woodsmoke">{{ section.settings.heading }}</h2>
+        <div class="flex items-center gap-x-[24px]">
+          <a href="javascript:void(0)" class="arrow-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+              <g id="Group_9009" data-name="Group 9009" transform="translate(1227.352 6023.648) rotate(180)">
+                  <circle id="Ellipse_135" data-name="Ellipse 135" cx="18.648" cy="18.648" r="18.648" transform="translate(1189.704 5986)" fill="#f6c5be" stroke="#131818" stroke-width="0.704" />
+                  <path
+                      id="Path_10868"
+                      data-name="Path 10868"
+                      d="M65.312,28.564a.575.575,0,0,0,.816,0l8.656-8.656a.576.576,0,0,0,0-.816l-8.656-8.655a.577.577,0,1,0-.816.816L73.559,19.5l-8.248,8.248a.576.576,0,0,0,0,.816Z"
+                      transform="translate(1139.352 5985.648)"
+                      fill="#131818"
+                  />
+              </g>
+            </svg>
+          </a>
+          <a href="javascript:void(0)" class="arrow-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+              <g id="Group_8887" data-name="Group 8887" transform="translate(-1189.352 -5985.648)">
+                  <circle id="Ellipse_135" data-name="Ellipse 135" cx="18.648" cy="18.648" r="18.648" transform="translate(1189.704 5986)" fill="#f6c5be" stroke="#131818" stroke-width="0.704" />
+                  <path
+                      id="Path_10868"
+                      data-name="Path 10868"
+                      d="M65.312,28.564a.575.575,0,0,0,.816,0l8.656-8.656a.576.576,0,0,0,0-.816l-8.656-8.655a.577.577,0,1,0-.816.816L73.559,19.5l-8.248,8.248a.576.576,0,0,0,0,.816Z"
+                      transform="translate(1139.352 5985.648)"
+                      fill="#131818"
+                  />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="flex justify-between">
+          <ul id="testimonials-content" class="mt-[50px] w-full md:w-3/5">
+            {%- for block in section.blocks -%}
+              <li>
+                <div class="max-w-[300px]">
+                  <p class="font-AnekLatin-SemiBold text-[22px]/[28px] text-cape-palliser">
+                    {{ block.settings.feedback }}
+                  </p>
+                  <div class="mt-[20px] flex items-center justify-between">
+                    <p class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
+                      {{ block.settings.name }}
+                      <br>
+                      <span class="text-[12px]/[22px] text-woodsmoke">{{ block.settings.location }} </span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+          <ul id="testimonials-videos" class="flex w-full items-center gap-[16px] md:w-2/5">
+            {%- for block in section.blocks -%}
+              <li>
+                <div>
+                  <iframe
+                    width="100%"
+                    height="235"
+                    src=" {{ block.settings.video_link }} "
+                    title="{{ block.settings.feedback }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="mt-[20px] flex items-center justify-between">
+                  <p class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
+                    {{ block.settings.name }}
+                    <br>
+                    <span class="text-[12px]/[22px] text-woodsmoke"> {{ block.settings.location }} </span>
+                  </p>
+                  <p class="flex items-center gap-x-[10px] font-AnekLatin-SemiBold text-[14px]/[22px] text-fruit-salad">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.732" height="10.178" viewBox="0 0 13.732 10.178">
+                      <path
+                          id="Path_1125"
+                          data-name="Path 1125"
+                          d="M20,591.721l3.694,3.694,7.387-7.915"
+                          transform="translate(-18.674 -586.175)"
+                          fill="none"
+                          stroke="#4caf50"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.875"
+                      />
+                    </svg>
+                    Verifiied
+                  </p>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="block md:hidden">
+      <div>
+        <h2 class="mb-6 font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke">{{ section.settings.heading }}</h2>
+        <ul class="hear-from-people-mobile flex items-center">
+          {%- for block in section.blocks -%}
+            <li>
+              <p class="font-AnekLatin-SemiBold text-[22px]/[28px] text-cape-palliser">
+                "My hair fall reduced and my hair became thicker over time because of Vedix 2"
+              </p>
+              <div class="mt-[10px] h-full w-full">
+                <iframe
+                  width="100%"
+                  height="235"
+                  src=" {{ block.settings.video_link }}"
+                  title="{{ block.settings.feedback }}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="mt-[20px] flex items-center justify-between">
+                <p class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
+                  {{ block.settings.name }}
+                  <br>
+                  <span class="text-[12px]/[22px] text-woodsmoke">{{ block.settings.location }} </span>
+                </p>
+                <p class="flex items-center gap-x-[10px] font-AnekLatin-SemiBold text-[14px]/[22px] text-fruit-salad">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13.732" height="10.178" viewBox="0 0 13.732 10.178">
+                    <path
+                        id="Path_1125"
+                        data-name="Path 1125"
+                        d="M20,591.721l3.694,3.694,7.387-7.915"
+                        transform="translate(-18.674 -586.175)"
+                        fill="none"
+                        stroke="#4caf50"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.875"
+                    />
+                  </svg>
+                  Verifiied
+                </p>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $('#testimonials-content').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      dots: false,
+      fade: true,
+      asNavFor: '#testimonials-videos',
+    })
+
+    $('#testimonials-videos').slick({
+      centerMode: true,
+      centerPadding: '180px',
+      asNavFor: '#testimonials-content',
+      arrows: false,
+      dots: false,
+      focusOnSelect: true,
+      prevArrow: $('.arrow-prev'),
+      nextArrow: $('.arrow-next'),
+    })
+    $('.arrow-prev').click(function () {
+      $('#testimonials-videos').slick('slickPrev')
+    })
+    $('.arrow-next').click(function () {
+      $('#testimonials-videos').slick('slickNext')
+    })
+  })
+
+  $('.hear-from-people-mobile').slick({
+    centerMode: true,
+    centerPadding: '20px',
+    arrows: false,
+    dots: false,
+    focusOnSelect: true,
+  })
+</script>
+{% schema %}
+{
+  "name": "Client Stories",
+  "class": "section-client-stories",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#FAF7F1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Lorem Ipsum is simply dummy text"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Stories",
+      "type": "stories",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video_link",
+          "label": "Video Link"
+        },
+        {
+          "type": "richtext",
+          "id": "feedback",
+          "label": "Feedback",
+          "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Lorem Ipsum"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "Consetetur"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Client Stories"
+    }
+  ]
+}
+{% endschema %}

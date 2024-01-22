@@ -17,22 +17,24 @@
       <h2 class="mb-6 font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-[42px]/[58px]">
         {{ section.settings.title }}
       </h2>
-      {% if section.settings.payment_icon != blank %}
-        <div class="my-5 flex items-center justify-center">
+      <div class="my-5 flex items-center justify-center">
+        {% if section.settings.image != blank %}
           <img
-            src="{{ section.settings.payment_icon |  img_url: 'master' }}"
-            width="{{ section.settings.payment_icon.width }}"
-            height="{{ section.settings.payment_icon.height }}"
-            alt="{{ section.settings.payment_icon.alt }}"
+            src="{{ section.settings.image |  img_url: 'master' }}"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+            alt="{{ section.settings.image.alt }}"
             loading="lazy"
           >
-        </div>
-      {% endif %}
+        {% else %}
+          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+        {% endif %}
+      </div>
       <ul class="my-7 flex snap-x items-center justify-center gap-x-[20px] overflow-x-auto">
         {% for block in section.blocks %}
           <li class="flex w-[100px] snap-start scroll-ml-6 flex-col items-center justify-center gap-3 text-center">
-            {% if block.settings.trust_badge != blank %}
-              <div class="flex h-[100px] w-[100px] items-center justify-center rounded bg-white-lilac">
+            <div class="flex h-[100px] w-[100px] items-center justify-center rounded overflow-hidden bg-white-lilac">
+              {% if block.settings.trust_badge != blank %}
                 <img
                   src="{{ block.settings.trust_badge |  img_url: 'master' }}"
                   width="{{ block.settings.trust_badge.width }}"
@@ -40,8 +42,10 @@
                   alt="{{ block.settings.trust_badge.alt }}"
                   loading="lazy"
                 >
-              </div>
-            {% endif %}
+              {% else %}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+              {% endif %}
+            </div>
           </li>
         {% endfor %}
       </ul>
@@ -59,12 +63,12 @@
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "Heading"
+      "default": "Lorem Ipsum is simply dummy text"
     },
     {
       "type": "image_picker",
-      "id": "payment_icon",
-      "label": "Payment icon"
+      "id": "image",
+      "label": "Upload image"
     },
     {
       "type": "header",
