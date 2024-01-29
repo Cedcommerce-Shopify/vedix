@@ -6,10 +6,12 @@
       "settings": {
         "desktop_image": "shopify:\/\/shop_images\/banner-bg-2.png",
         "mobile_image": "shopify:\/\/shop_images\/banner-bg.png",
-        "heading": "World’s First Personalised Ayurvedic Solution",
+        "title": "Lorem Ipsum is simply dummy text",
         "paragraph": "<p>Vedix Is The World’s Most Awarded Customised Ayurvedic” Hair Care<\/p>",
         "button_text": "Know Your Hair",
-        "button_link": "#"
+        "button_link": "#",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "bb6aad23-66f2-4326-ac3e-97e9ee7fdfe1": {
@@ -59,6 +61,8 @@
         "83f8f851-a6f3-4960-8c30-1774c1c094f5"
       ],
       "settings": {
+        "section_border": true,
+        "section_bg": "#B9DABD"
       }
     },
     "a82d97d2-c1b7-43d3-8042-cfe842066f2b": {
@@ -97,6 +101,7 @@
       "disabled": true,
       "settings": {
         "heading": "Lorem Ipsum is simply dummy text",
+        "description": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<\/p>",
         "button_text": "Know Your Hair",
         "button_link": "#",
         "padding_top": 36,
@@ -110,24 +115,24 @@
           "type": "column",
           "settings": {
             "col_image": "shopify:\/\/shop_images\/entrepreneur-award-lg.jpg",
-            "col_heading": "Cosmopolitan Award",
-            "title": "Best Product For Hair Volume"
+            "title": "Best Product For Hair Volume",
+            "description": "Lorem Ipsum is simply dummy text"
           }
         },
         "1a02d4f4-20d6-4c8e-a86e-5030d29b6de8": {
           "type": "column",
           "settings": {
             "col_image": "shopify:\/\/shop_images\/cosmopolitan-award-lg.jpg",
-            "col_heading": "Entrepreneur Award",
-            "title": "Best Ayurvedic Startup Of The Year"
+            "title": "Best Ayurvedic Startup Of The Year",
+            "description": "Lorem Ipsum is simply dummy text"
           }
         },
         "8a1f5f88-1776-4e5f-acee-975f87db353e": {
           "type": "column",
           "settings": {
             "col_image": "shopify:\/\/shop_images\/entrepreneur-award-lg.jpg",
-            "col_heading": "Entrepreneur Award",
-            "title": "Best Ayurvedic Startup Of The Year"
+            "title": "Best Ayurvedic Startup Of The Year",
+            "description": "Lorem Ipsum is simply dummy text"
           }
         }
       },
@@ -137,7 +142,11 @@
         "8a1f5f88-1776-4e5f-acee-975f87db353e"
       ],
       "settings": {
-        "heading": "Lorem Ipsum is simply dummy text"
+        "heading": "Lorem Ipsum is simply dummy text",
+        "button_text": "Button text",
+        "button_link": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "8f7545bf-c32d-474c-b32a-313d6076801e": {
@@ -147,24 +156,24 @@
           "type": "column",
           "settings": {
             "col_image": "shopify:\/\/shop_images\/banner-bg.png",
-            "col_heading": "Get A Detailed Hair Analysis With The Dosha Assessment Questionnaire",
-            "title": "<p>Answer simple questions about your hair, body, lifestyle, preferences and such to help us assess your Unique Dosha Profile*<\/p>"
+            "title": "<p>Answer simple questions about your hair, body, lifestyle, preferences and such to help us assess your Unique Dosha Profile*<\/p>",
+            "description": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<\/p>"
           }
         },
         "bde6a193-4365-42bb-aac3-5dfddcfc8450": {
           "type": "column",
           "settings": {
             "col_image": "shopify:\/\/shop_images\/banner-bg.png",
-            "col_heading": "Get Your Customised Daily Hair Care Regimen",
-            "title": "<p>Answer simple questions about your hair, body, lifestyle, preferences and such to help us assess your Unique Dosha Profile*<\/p>"
+            "title": "<p>Answer simple questions about your hair, body, lifestyle, preferences and such to help us assess your Unique Dosha Profile*<\/p>",
+            "description": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<\/p>"
           }
         },
         "bfea3dd3-e494-48e2-b9b8-f57098fad059": {
           "type": "column",
           "settings": {
             "col_image": "shopify:\/\/shop_images\/banner-bg.png",
-            "col_heading": "Get Closer To Realising Your Hair Goals",
-            "title": "<p>Answer simple questions about your hair, body, lifestyle, preferences and such to help us assess your Unique Dosha Profile*<\/p>"
+            "title": "<p>Answer simple questions about your hair, body, lifestyle, preferences and such to help us assess your Unique Dosha Profile*<\/p>",
+            "description": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<\/p>"
           }
         }
       },
@@ -192,9 +201,7 @@
             "image": "shopify:\/\/shop_images\/product-lg.png",
             "title": "Vedix Anti-Hair Fall Shampoo",
             "subheading": "Your custom Vedix Anti-Hair Fall Shampoo:",
-            "paragraph1": "<p>Cleanses your hair and scalp of dirt, pollution, grime, bacteria and excess oils<\/p>",
-            "paragraph2": "<p>Is free of all harmful ingredients like sulfates and parabens<\/p>",
-            "paragraph3": "<p>Maintains your scalp’s pH balance, thus protecting hair and it’s roots<\/p>"
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<\/p>"
           }
         },
         "a34db513-a898-4e6c-84f8-92ae96cf0f6b": {
@@ -203,9 +210,7 @@
             "image": "shopify:\/\/shop_images\/product-lg.png",
             "title": "Vedix Customised Anti-Hair Fall Oil",
             "subheading": "Your Vedix Anti-Hair Fall Oil:",
-            "paragraph1": "<p>Is Customised with specific herbs chosen to alleviate your elevated Doshas.<\/p>",
-            "paragraph2": "<p>Immediately lubricates the hair follicles and scalp bed<\/p>",
-            "paragraph3": "<p>Moisturizes the hair strands and the scalp, and penetrates deep into the hair follicle to start working<\/p>"
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<\/p>"
           }
         },
         "90ff29c5-7ad4-4d34-a945-6d3b43395c56": {
@@ -214,9 +219,7 @@
             "image": "shopify:\/\/shop_images\/product-lg.png",
             "title": "Vedix Hair Growth Serum",
             "subheading": "Your Vedix Hair Regrowth Serum:",
-            "paragraph1": "<p>Penetrates into your scalp bed and expands the hair follicles, promoting hair growth<\/p>",
-            "paragraph2": "<p>Is quick absorbing and non-greasy<\/p>",
-            "paragraph3": "<p>Keeps hair bouncy and healthy<\/p>"
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<\/p>"
           }
         }
       },
@@ -226,6 +229,7 @@
         "90ff29c5-7ad4-4d34-a945-6d3b43395c56"
       ],
       "settings": {
+        "section_bg": "#FFFFFF",
         "heading": "Lorem Ipsum is simply dummy text",
         "button_text": "Know Your Hair",
         "button_link": "#",
@@ -414,6 +418,60 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "regimen_EN6Nqd": {
+      "type": "regimen",
+      "blocks": {
+        "column_hPNeye": {
+          "type": "column",
+          "settings": {
+            "title": "3 STEP HAIR REGIMEN",
+            "product_desc": "<p>Lorem Ipsum is simply dummy text<\/p>",
+            "pricing_title": "Vivamus semper pharetra quam",
+            "pricing_1": "Cras commodo eget enim at consectetur.",
+            "pricing_2": "Cras commodo eget enim at consectetur.",
+            "member_title": "Vivamus semper pharetra quam.",
+            "button_text": "Button text",
+            "button_url": ""
+          }
+        },
+        "column_a3wM7N": {
+          "type": "column",
+          "settings": {
+            "title": "3 STEP HAIR REGIMEN",
+            "product_desc": "<p>Lorem Ipsum is simply dummy text<\/p>",
+            "pricing_title": "Vivamus semper pharetra quam",
+            "pricing_1": "Cras commodo eget enim at consectetur.",
+            "pricing_2": "Cras commodo eget enim at consectetur.",
+            "member_title": "Vivamus semper pharetra quam.",
+            "button_text": "Button text",
+            "button_url": ""
+          }
+        },
+        "column_44Hr7h": {
+          "type": "column",
+          "settings": {
+            "title": "3 STEP HAIR REGIMEN",
+            "product_desc": "<p>Lorem Ipsum is simply dummy text<\/p>",
+            "pricing_title": "Vivamus semper pharetra quam",
+            "pricing_1": "Cras commodo eget enim at consectetur.",
+            "pricing_2": "Cras commodo eget enim at consectetur.",
+            "member_title": "Vivamus semper pharetra quam.",
+            "button_text": "Button text",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_hPNeye",
+        "column_a3wM7N",
+        "column_44Hr7h"
+      ],
+      "settings": {
+        "heading": "Lorem Ipsum is simply dummy text",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -425,6 +483,7 @@
     "fedeca88-4b96-467e-82e6-c7f3d486a5c9",
     "2a4c87c5-5a26-474a-ac27-7e051a67423c",
     "5eb0a841-96d5-4592-81ad-7f0b844f2feb",
-    "2095db2b-f75b-4c82-ae4f-a9b0d2bcd3f1"
+    "2095db2b-f75b-4c82-ae4f-a9b0d2bcd3f1",
+    "regimen_EN6Nqd"
   ]
 }
