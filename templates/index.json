@@ -62,7 +62,7 @@
       ],
       "settings": {
         "section_border": true,
-        "section_bg": "#B9DABD"
+        "section_bg": "#b9dabd"
       }
     },
     "a82d97d2-c1b7-43d3-8042-cfe842066f2b": {
@@ -229,7 +229,7 @@
         "90ff29c5-7ad4-4d34-a945-6d3b43395c56"
       ],
       "settings": {
-        "section_bg": "#FFFFFF",
+        "section_bg": "#ffffff",
         "heading": "Lorem Ipsum is simply dummy text",
         "button_text": "Know Your Hair",
         "button_link": "#",
@@ -472,6 +472,17 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "image_with_banner_xtN9ww": {
+      "type": "image-with-banner",
+      "settings": {
+        "title": "Lorem Ipsum is simply dummy text",
+        "paragraph": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<\/p>",
+        "button_text": "Button text",
+        "button_link": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -484,6 +495,7 @@
     "2a4c87c5-5a26-474a-ac27-7e051a67423c",
     "5eb0a841-96d5-4592-81ad-7f0b844f2feb",
     "2095db2b-f75b-4c82-ae4f-a9b0d2bcd3f1",
-    "regimen_EN6Nqd"
+    "regimen_EN6Nqd",
+    "image_with_banner_xtN9ww"
   ]
 }
