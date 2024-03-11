@@ -28,6 +28,7 @@
               {% if block.settings.col_image != blank %}
                 <img
                   src="{{ block.settings.col_image | img_url: 'master' }}"
+                  class="h-full w-full"
                   loading="lazy"
                   width="{{ block.settings.col_image.width }}"
                   height="{{ block.settings.col_image.height }}"
@@ -45,8 +46,22 @@
                 <h4 class="relative pr-6 font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke md:text-[24px]/[28px]">
                   {{ block.settings.title }}
                   <span class="absolute right-2 top-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9.313" height="5.477" viewBox="0 0 9.313 5.477">
-                      <path id="Path_9818" data-name="Path 9818" d="M248.809,46.167l3.6,3.667,3.6-3.667" transform="translate(-247.748 -45.106)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9.313"
+                      height="5.477"
+                      viewBox="0 0 9.313 5.477"
+                    >
+                      <path
+                        id="Path_9818"
+                        data-name="Path 9818"
+                        d="M248.809,46.167l3.6,3.667,3.6-3.667"
+                        transform="translate(-247.748 -45.106)"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5" />
                     </svg>
                   </span>
                 </h4>
@@ -134,7 +149,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Top",
-      "default": 36
+      "default": 60
     },
     {
       "type": "range",
@@ -144,7 +159,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Bottom",
-      "default": 36
+      "default": 60
     }
   ],
   "blocks": [

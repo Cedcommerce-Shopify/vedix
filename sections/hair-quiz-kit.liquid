@@ -25,8 +25,7 @@
               <a
                 href="{{ section.settings.button_link }}"
                 class="btn w-full md:w-fit"
-                role="button"
-              >
+                role="button">
                 <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
               </a>
             </div>
@@ -35,7 +34,7 @@
             <h3 class="mb-2 font-AnekLatin-Medium text-[16px]/[22px] text-cape-palliser">
               {{ section.settings.user_count }}
             </h3>
-            <div class="text-[16px]/[22px] text-woodsmoke opacity-60">
+            <div class="text-[16px]/[22px] text-woodsmoke">
               {{ section.settings.count_desc }}
             </div>
           </div>
@@ -55,93 +54,85 @@
   </div>
 </div>
 {% schema %}
-{
-  "name": "Hair Quiz Kit",
-  "class": "section-hair-quiz-kit",
-  "tag": "section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Section heading",
-      "default": "Lorem Ipsum is simply dummy text"
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description",
-      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "Button text"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link"
-    },
-    {
-      "type": "text",
-      "id": "user_count",
-      "label": "User count",
-      "default": "15000+"
-    },
-    {
-      "type": "richtext",
-      "id": "count_desc",
-      "label": "Count description",
-      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
-    },
-    {
-      "type": "richtext",
-      "id": "user_review",
-      "label": "User review",
-      "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>"
-    },
-    {
-      "type": "text",
-      "id": "user_name",
-      "label": "User name",
-      "default": "Jhon Doe"
-    },
-    {
-      "type": "text",
-      "id": "user_location",
-      "label": "User location",
-      "default": "Bengaluru"
-    },
-    {
-      "type": "header",
-      "content": "Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Bottom",
-      "default": 36
-    }
-  ],
-  "presets": [
-    {
-      "name": "Hair Quiz Kit"
-    }
-  ]
-}
+  {
+    "name": "Hair Quiz Kit",
+    "class": "section-hair-quiz-kit",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section heading",
+        "default": "Lorem Ipsum is simply dummy text"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description",
+        "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }, {
+        "type": "text",
+        "id": "user_count",
+        "label": "User count",
+        "default": "15000+"
+      }, {
+        "type": "richtext",
+        "id": "count_desc",
+        "label": "Count description",
+        "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
+      }, {
+        "type": "richtext",
+        "id": "user_review",
+        "label": "User review",
+        "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>"
+      }, {
+        "type": "text",
+        "id": "user_name",
+        "label": "User name",
+        "default": "Jhon Doe"
+      }, {
+        "type": "text",
+        "id": "user_location",
+        "label": "User location",
+        "default": "Bengaluru"
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 60
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hair Quiz Kit"
+      }
+    ]
+  }
 {% endschema %}

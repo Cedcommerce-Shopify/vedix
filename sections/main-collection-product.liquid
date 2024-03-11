@@ -1,0 +1,176 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- paginate collection.products by section.settings.products_per_page -%}
+  <div id="shop-all" class="section-{{ section.id }}-padding">
+    <div class="container mx-auto px-4">
+      <div>
+        <h2 class="font-AnekLatin-Bold text-[24px]/[30px] text-black">
+          Products from your current routine
+        </h2>
+        <div class="mt-[25px]">
+          {%- if collection.products.size == 0 -%}
+            <div class="info w-full text-center">
+              <h2 class="mb-[15px] font-AnekLatin-Bold text-[48px]/[32px] text-woodsmoke">No products founds</h2>
+              <div class="mt-[30px]">
+                <a href="/collections/all" class="inline-flex w-[100%] items-center justify-center gap-x-2 border-2 border-woodsmoke bg-flame-pea px-4 py-[16px] font-AnekLatin-SemiBold text-[16px]/[16px] text-white">
+                  Shop All
+                </a>
+              </div>
+            </div>
+          {% else %}
+            <ul class="grid grid-cols-2 gap-[10px] lg:grid-cols-4" role="product-list">
+              {%- for card_product in collection.products -%}
+                <li class="border border-solid border-spring-wood">
+                  <div>
+                    <img
+                      srcset="
+                        {%- if card_product.featured_media.width >= 165 -%}
+                          {{ card_product.featured_media | image_url: width: 165 }} 165w,
+                        {%- endif -%}
+                        {%- if card_product.featured_media.width >= 360 -%}
+                          {{ card_product.featured_media | image_url: width: 360 }} 360w,
+                        {%- endif -%}
+                        {%- if card_product.featured_media.width >= 533 -%}
+                          {{ card_product.featured_media | image_url: width: 533 }} 533w,
+                        {%- endif -%}
+                        {%- if card_product.featured_media.width >= 720 -%}
+                          {{ card_product.featured_media | image_url: width: 720 }} 720w,
+                        {%- endif -%}
+                        {%- if card_product.featured_media.width >= 940 -%}
+                          {{ card_product.featured_media | image_url: width: 940 }} 940w,
+                        {%- endif -%}
+                        {%- if card_product.featured_media.width >= 1066 -%}
+                          {{ card_product.featured_media | image_url: width: 1066 }} 1066w,
+                        {%- endif -%}
+                        {{ card_product.featured_media | image_url }}
+                        {{ card_product.featured_media.width }}w
+                      "
+                      src="{{- card_product.featured_media | image_url: width: 533 -}}"
+                      sizes="
+                        (min-width: {{ settings.page_width }}px)
+                        {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) /
+                        4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)
+                      "
+                      alt=" {{- card_product.featured_media.alt | escape -}}"
+                      class="motion-reduce"
+                      width="{{ card_product.featured_media.width }}"
+                      height=" {{- card_product.featured_media.height -}}">
+                  </div>
+                  <div class="px-[20px] py-[18px]">
+                    <h3 class="font-AnekLatin-SemiBold text-[18px]/[24px] text-woodsmoke md:text-[32px]/[36px]">
+                      {{ card_product.title | escape }}
+                    </h3>
+                    {% if section.settings.show_rating %}
+                      <div class="mt-[10px] flex items-center gap-[10px]">
+                        <img src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/star.svg?v=1706157590" alt="">
+                        <span class="text-[12px/22px] text-woodsmoke opacity-40">(49)</span>
+                      </div>
+                    {% endif %}
+                    <div class="mt-2 flex items-center justify-between">
+                      {% if card_product.compare_at_price > card_product.price %}
+                        <p>
+                          <span class="pr-[7px] font-AnekLatin-SemiBold text-[20px]/[22px] text-woodsmoke md:text-[32px]/[36px]">
+                            {{- card_product.price | money -}}
+                          </span>
+                          <span class="font-AnekLatin-SemiBold text-[20px]/[22px] text-woodsmoke line-through opacity-40 md:text-[32px]/[36px]">
+                            {{- card_product.compare_at_price | money -}}
+                          </span>
+                        </p>
+                      {% else %}
+                        <p>
+                          <span class="pr-[7px] font-AnekLatin-SemiBold text-[20px]/[22px] text-woodsmoke md:text-[32px]/[36px]">
+                            {{- card_product.price | money -}}
+                          </span>
+                        </p>
+                      {% endif %}
+                      <p class="font-AnekLatin-SemiBold text-[13px]/[22px] text-blue-marguerite md:text-[16px]/[22px]">
+                        10% OFF
+                      </p>
+                    </div>
+
+                    <div class="mt-[40px] flex w-[100%] items-center justify-center">
+                      {%- if card_product.available == false -%}
+                        <a href="/products/shirts" class="border-1 w-[100%] border border-solid border-woodsmoke bg-flame-pea py-[16px] text-center font-AnekLatin-SemiBold text-[16px] capitalize text-white opacity-100">Sold Out
+                        </a>
+                      {% else %}
+                        <a href="{{ card_product.url }}" class="border-1 w-[100%] border border-solid border-woodsmoke bg-flame-pea py-[16px] text-center font-AnekLatin-SemiBold text-[16px] capitalize text-white opacity-100">Add To Cart
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+            {%- if paginate.pages > 1 -%}
+              {% render 'pagination'
+                , paginate: paginate
+                , anchor: '' %}
+            {%- endif -%}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endpaginate -%}
+{% schema %}
+  {
+    "name": "t:sections.main-collection-product-grid.name",
+    "class": "section",
+    "settings": [
+      {
+        "type": "range",
+        "id": "products_per_page",
+        "min": 8,
+        "max": 24,
+        "step": 4,
+        "default": 16,
+        "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_rating",
+        "default": false,
+        "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+        "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ]
+  }
+{% endschema %}

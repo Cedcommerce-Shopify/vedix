@@ -1,0 +1,382 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding" style="background-color: {{- section.settings.bg_color -}};">
+  <div class="container mx-auto px-4">
+    <h2 class="mb-6 max-w-[705px] text-left font-AnekLatin-Bold text-[28px]/[32px] text-woodsmoke md:text-[42px]/[50px]">
+      {{ section.settings.heading }}
+    </h2>
+    <div class="mb-8 flex items-center justify-between gap-5 md:mb-11 md:justify-start">
+      <div class="flex flex-col gap-2 md:gap-3">
+        <p class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke md:text-[20px]/[22px]">4.9 out of 5</p>
+        <p class="text-[12px]/[22px] text-woodsmoke text-opacity-50 md:text-[18px]/[22px]">Based on 49 reviews</p>
+      </div>
+      <ul class="flex gap-1">
+        <li>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              viewBox="0 0 16.667 16.66">
+              <path
+                id="Path_13649"
+                data-name="Path 13649"
+                d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                transform="translate(-107.664 -1794.73)"
+                fill="#f2c94c" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              viewBox="0 0 16.667 16.66">
+              <path
+                id="Path_13649"
+                data-name="Path 13649"
+                d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                transform="translate(-107.664 -1794.73)"
+                fill="#f2c94c" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              viewBox="0 0 16.667 16.66">
+              <path
+                id="Path_13649"
+                data-name="Path 13649"
+                d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                transform="translate(-107.664 -1794.73)"
+                fill="#f2c94c" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              viewBox="0 0 16.667 16.66">
+              <path
+                id="Path_13649"
+                data-name="Path 13649"
+                d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                transform="translate(-107.664 -1794.73)"
+                fill="#f2c94c" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              viewBox="0 0 16.667 16.66">
+              <path
+                id="Path_13649"
+                data-name="Path 13649"
+                d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                transform="translate(-107.664 -1794.73)"
+                fill="#f2c94c" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ul class="-mr-4 mb-12 grid auto-cols-[20rem] grid-flow-col gap-4 overflow-x-auto md:-mr-0 md:grid-cols-3" role="grid">
+      {%- for block in section.blocks -%}
+        <li class="h-full bg-serenade p-5" role="gridcell">
+          <div class="flex justify-between pb-3">
+            <div class="flex items-center gap-1 font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
+              4.5
+              <ul class="flex items-center gap-1">
+                <li>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="13.31"
+                      height="12.67"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="13.31"
+                      height="12.67"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="13.31"
+                      height="12.67"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="13.31"
+                      height="12.67"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="13.31"
+                      height="12.67"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <p class="text-[12px]/[22px] text-sandal md:text-woodsmoke">30 Jun 2022</p>
+          </div>
+          <div class="mb-4 block">
+            <span class="block overflow-hidden rounded-[5px] md:rounded-[14px]">
+              {% if block.settings.client_image != blank %}
+                <img
+                  src="{{ block.settings.client_image |  img_url: 'master' }}')"
+                  loading="lazy"
+                  width="{{ block.settings.client_image.width }}"
+                  height="{{ block.settings.client_image.height }}"
+                  alt="{{ block.settings.client_image.alt }}">
+              {%- else %}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+              {% endif %}
+            </span>
+          </div>
+          <div class="flex flex-col gap-1 text-left">
+            <h2 class="font-AnekLatin-SemiBold text-[16px]/[22px] capitalize text-woodsmoke">
+              {{ block.settings.title }}
+            </h2>
+            <div class="text-[14px]/[22px] text-nandor md:text-woodsmoke">{{ block.settings.client_feedback }}</div>
+          </div>
+          <div class="mt-7 flex items-baseline justify-between text-left">
+            <div class="flex flex-col">
+              <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] capitalize text-dark-ebony md:text-woodsmoke">
+                {{ block.settings.client_name }}
+              </h3>
+              <p class="text-[12px]/[22px] text-cape-palliser md:text-woodsmoke">{{ block.settings.client_address }}</p>
+            </div>
+            {% if block.settings.client_status != blank %}
+              <div class="flex items-center gap-1 text-apple md:text-woodsmoke">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13.732"
+                  height="10.178"
+                  class="hidden md:block"
+                  viewBox="0 0 13.732 10.178">
+                  <path
+                    id="Path_1125"
+                    data-name="Path 1125"
+                    d="M20,591.721l3.694,3.694,7.387-7.915"
+                    transform="translate(-18.674 -586.175)"
+                    fill="none"
+                    stroke="#131818"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.875" />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13.732"
+                  height="10.178"
+                  class="block md:hidden"
+                  viewBox="0 0 13.732 10.178">
+                  <path
+                    id="Path_1125"
+                    data-name="Path 1125"
+                    d="M20,591.721l3.694,3.694,7.387-7.915"
+                    transform="translate(-18.674 -586.175)"
+                    fill="none"
+                    stroke="#38A245"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.875" />
+                </svg>
+                <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px]">
+                  {{ block.settings.client_status }}
+                </h3>
+              </div>
+            {% endif %}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+    {% if section.settings.button_text != blank %}
+      <div class="text-center">
+        <a
+          href="{{ section.settings.button_link }}"
+          class="btn bg-transparent text-woodsmoke"
+          role="button">
+          <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Product testimonial",
+    "class": "section-product-testimonial",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "BG Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Lorem Ipsum is simply dummy text"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Block",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "client_image",
+            "label": "Image"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "Title",
+            "default": "Excellent"
+          },
+          {
+            "type": "richtext",
+            "id": "client_feedback",
+            "label": "Paragraph",
+            "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "client_name",
+            "label": "Client Name",
+            "default": "Client name"
+          }, {
+            "type": "inline_richtext",
+            "id": "client_address",
+            "label": "Client Address",
+            "default": "Clinet location"
+          }, {
+            "type": "inline_richtext",
+            "id": "client_status",
+            "label": "Client Status",
+            "default": "Verified"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product testimonial"
+      }
+    ]
+  }
+{% endschema %}

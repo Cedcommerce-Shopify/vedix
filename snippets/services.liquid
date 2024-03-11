@@ -1,0 +1,22 @@
+<div class="bg-padua px-6">
+  <div class="container mx-auto">
+    <ul class="scrollbar py-3 flex items-center justify-start gap-x-4 overflow-x-auto md:gap-x-24" role="list">
+      {% for service in shop.metaobjects.services.values %}
+        <li class="flex-[0_0_auto] snap-start" role="listitem">
+          <div class="flex items-center justify-center gap-2">
+            <span class="flex h-[32px] w-[32px] items-center justify-center">
+              <img
+                src="{{ service.icon | img_url: '30px' }}"
+                class="h-full w-auto"
+                loading="lazy"
+                width="30"
+                height="30"
+                alt="{{ service.title }}">
+            </span>
+            <p class="font-AnekLatin-Medium text-[15px]/[20px] text-mine-shaft">{{ service.title }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

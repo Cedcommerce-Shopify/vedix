@@ -1,24 +1,25 @@
-<div class="bg-quarter-spanish-white md:bg-white py-8">
-  <div class="container mx-auto px-4">
-    <ul class="grid grid-cols-3 gap-2 text-center">
-      {% for block in section.blocks %}
-        <li class="flex flex-col items-center gap-y-3">
-          {% if block.settings.trust_icon != blank %}
-            <div class="flex min-h-[30px] items-center justify-end">
-              <img
-                src="{{ block.settings.trust_icon | img_url: 'master' }}"
-                loading="lazy"
-                width="{{ block.settings.trust_icon.width }}"
-                height="{{ block.settings.trust_icon.height }}"
-                alt="{{ block.settings.trust_icon.alt }}"
-              >
-            </div>
-          {% endif %}
-          <h3 class="font-AnekLatin-Medium text-[14px]/[16px] text-woodsmoke opacity-60">
-            {{ block.settings.title }}
-          </h3>
-        </li>
-      {% endfor %}
-    </ul>
+{% if section.blocks.size > 0 %}
+  <div class="bg-quarter-spanish-white md:bg-white py-8">
+    <div class="container mx-auto px-4">
+      <ul class="grid grid-cols-3 gap-2 text-center">
+        {% for block in section.blocks %}
+          <li class="flex flex-col items-center gap-y-3">
+            {% if block.settings.trust_icon != blank %}
+              <div class="flex min-h-[30px] items-center justify-end">
+                <img
+                  src="{{ block.settings.trust_icon | img_url: 'master' }}"
+                  loading="lazy"
+                  width="{{ block.settings.trust_icon.width }}"
+                  height="{{ block.settings.trust_icon.height }}"
+                  alt="{{ block.settings.trust_icon.alt }}">
+              </div>
+            {% endif %}
+            <h3 class="font-AnekLatin-Medium text-[14px]/[16px] text-woodsmoke opacity-60">
+              {{ block.settings.title }}
+            </h3>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
-</div>
+{% endif %}

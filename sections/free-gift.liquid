@@ -16,13 +16,13 @@
   class="section-{{ section.id }}-padding"
   style="background-color:{{ section.settings.section_bg }};"
 >
-  <div class="contiainer m-auto max-w-[1088px] lg:px-[20px]">
+  <div class="container mx-auto px-4">
     {% if section.settings.section_heading != blank %}
-      <h2 class="mb-[50px] text-center font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:px-[20px] lg:text-[42px]/[58px]">
+      <h2 class="mb-[50px] font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:px-[20px] md:text-center lg:text-[42px]/[58px]">
         {{ section.settings.section_heading }}
       </h2>
     {% endif %}
-    <div class="card-parent">
+    <div class="card-parent -mx-4 md:mx-auto">
       {%- assign bg_image = section.settings.bg_image -%}
       <div
         id="bg-image"
@@ -30,7 +30,7 @@
         style="background-image: url('{{-bg_image | img_url:'master'-}}');"
       >
         <div class="m-auto max-w-[328px] shadow-[0px_0px_15px_#0000001A]">
-          <h2 class="text-center font-AnekLatin-Bold text-[16px]/[22px] uppercase text-woodsmoke bg-padua p-4">
+          <h2 class="bg-padua p-4 text-center font-AnekLatin-Bold text-[16px]/[22px] uppercase text-woodsmoke">
             {{ section.settings.heading }}
           </h2>
 
@@ -52,7 +52,7 @@
                 {{- section.settings.price -}}
               </a>
             </div>
-            <div class="pl-[25px] pt-[10px]">
+            <div class="px-4 py-3 pb-6">
               <h3 class="py-[5px] font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke">
                 {{ section.settings.title }}
               </h3>
@@ -64,14 +64,14 @@
                 {{ section.settings.text }}
               </div>
               {% if section.settings.button_text != blank %}
-                <div class="my-[16px] flex items-center gap-[5px]">
+                <div class="my-[16px] flex items-center gap-1">
                   <a
                     href="{{ section.settings.button_link }}"
                     class="font-AnekLatin-SemiBold text-[12px]/[18px] text-sirocco md:text-[14px]/[18px]"
                   >
                     {{ section.settings.button_text }}
                   </a>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none">
                     <path d="M6 9L12 15L18 9" stroke="#767E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                   </svg>
                 </div>
@@ -226,7 +226,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Top",
-      "default": 36
+      "default": 60
     },
     {
       "type": "range",
@@ -236,7 +236,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Bottom",
-      "default": 36
+      "default": 60
     }
   ],
   "presets": [
