@@ -16,28 +16,30 @@
     <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-center md:text-[42px]/[58px]">
       {{ section.settings.title }}
     </h2>
-    <ul class="mx-auto my-12 flex max-w-[730px] items-center justify-center gap-3 overflow-auto">
-      {% if section.settings.category_all != blank %}
-        <li class="flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
-          {{ section.settings.category_all }}
-        </li>
-      {% endif %}
-      {% if section.settings.category_a != blank %}
-        <li class="flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
-          {{ section.settings.category_a }}
-        </li>
-      {% endif %}
-      {% if section.settings.category_b != blank %}
-        <li class="flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
-          {{ section.settings.category_b }}
-        </li>
-      {% endif %}
-      {% if section.settings.category_c != blank %}
-        <li class="flex min-w-[100px] items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
-          {{ section.settings.category_c }}
-        </li>
-      {% endif %}
-    </ul>
+    {% if section.settings.category_all != blank or section.settings.category_a != blank or section.settings.category_b != blank or section.settings.category_c != blank %}
+      <ul class="mx-auto my-12 flex max-w-[730px] items-center justify-start gap-3 overflow-x-auto md:justify-center">
+        {% if section.settings.category_all != blank %}
+          <li class="flex min-w-fit items-center justify-center rounded-full border border-solid border-silver-chalice bg-woodsmoke px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-white">
+            {{ section.settings.category_all }}
+          </li>
+        {% endif %}
+        {% if section.settings.category_a != blank %}
+          <li class="flex min-w-fit items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
+            {{ section.settings.category_a }}
+          </li>
+        {% endif %}
+        {% if section.settings.category_b != blank %}
+          <li class="flex min-w-fit items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
+            {{ section.settings.category_b }}
+          </li>
+        {% endif %}
+        {% if section.settings.category_c != blank %}
+          <li class="flex min-w-fit items-center justify-center rounded-full border border-solid border-silver-chalice px-4 py-3 font-AnekLatin-Bold text-[13px]/[16px] text-woodsmoke">
+            {{ section.settings.category_c }}
+          </li>
+        {% endif %}
+      </ul>
+    {% endif %}
     <ul class="mx-auto mt-12 flex max-w-[730px] flex-col gap-3">
       {% for block in section.blocks %}
         <li class="rounded border border-solid border-mercury bg-merino px-4 py-6">
@@ -50,8 +52,7 @@
                   width="{{ block.settings.icon.width }}"
                   height="{{ block.settings.icon.height }}"
                   alt="{{ block.settings.icon.alt }}"
-                  loading="lazy"
-                >
+                  loading="lazy">
               </span>
             {% endif %}
           </h1>
@@ -65,106 +66,98 @@
 </div>
 
 {% schema %}
-{
-  "name": "FAQ",
-  "class": "section-faq",
-  "tag": "section",
-  "settings": [
-    {
-      "type": "color",
-      "id": "section_bg",
-      "label": "Background color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "Frequently Asked Questions"
-    },
-    {
-      "type": "header",
-      "content": "Category"
-    },
-    {
-      "type": "text",
-      "id": "category_all",
-      "label": "Category title",
-      "default": "All"
-    },
-    {
-      "type": "text",
-      "id": "category_a",
-      "label": "Category title",
-      "default": "Category A"
-    },
-    {
-      "type": "text",
-      "id": "category_b",
-      "label": "Category title",
-      "default": "Category B"
-    },
-    {
-      "type": "text",
-      "id": "category_c",
-      "label": "Category title",
-      "default": "Category C"
-    },
-    {
-      "type": "header",
-      "content": "Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Bottom",
-      "default": 36
-    }
-  ],
-  "blocks": [
-    {
-      "type": "column",
-      "name": "Block",
-      "limit": 16,
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "FAQ title",
-          "default": "FAQ title"
-        },
-        {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon"
-        },
-        {
-          "type": "richtext",
-          "id": "faq_text",
-          "label": "FAQ text",
-          "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "FAQ"
-    }
-  ]
-}
+  {
+    "name": "FAQ",
+    "class": "section-faq",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Frequently Asked Questions"
+      },
+      {
+        "type": "header",
+        "content": "Category"
+      },
+      {
+        "type": "text",
+        "id": "category_all",
+        "label": "Category title",
+        "default": "All"
+      }, {
+        "type": "text",
+        "id": "category_a",
+        "label": "Category title",
+        "default": "Category A"
+      }, {
+        "type": "text",
+        "id": "category_b",
+        "label": "Category title",
+        "default": "Category B"
+      }, {
+        "type": "text",
+        "id": "category_c",
+        "label": "Category title",
+        "default": "Category C"
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Block",
+        "limit": 16,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "FAQ title",
+            "default": "FAQ title"
+          }, {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }, {
+            "type": "richtext",
+            "id": "faq_text",
+            "label": "FAQ text",
+            "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "FAQ"
+      }
+    ]
+  }
 {% endschema %}

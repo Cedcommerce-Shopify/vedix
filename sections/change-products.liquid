@@ -1,0 +1,98 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding" style="background-color: {{ section.settings.section_bg }}">
+  <div class="container mx-auto px-4">
+    <div class="flex gap-4 items-baseline">
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="8.81"
+          height="15.12"
+          viewBox="0 0 8.81 15.12">
+          <path
+            id="Path_14723"
+            data-name="Path 14723"
+            d="M26,162l-7,6.5,7,6.5"
+            transform="translate(-18.25 -160.94)"
+            fill="none"
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5" />
+        </svg>
+      </span>
+      <div class="flex flex-col">
+        <h2 class="mb-2 flex items-center gap-4 font-AnekLatin-Bold text-[24px]/[30px] text-black">{{- section.settings.heading }}</h2>
+        <p class="text-[16px]/[22px] text-black">{{ section.settings.sub_heading }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% render 'start-follow-up' %}
+
+{% schema %}
+  {
+    "name": "Change products",
+    "class": "section-confirm-current-product",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Background color",
+        "default": "#F7EEDF"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Change Products"
+      },
+      {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub heading",
+        "default": "Make changes to your routine by filling a short form"
+      },
+      {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 60
+      }
+    ],
+    "presets": [
+      {
+        "name": "Change products"
+      }
+    ]
+  }
+{% endschema %}

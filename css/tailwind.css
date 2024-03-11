@@ -118,7 +118,7 @@
     @apply inline-flex items-center justify-center gap-2 border border-solid border-woodsmoke bg-flame-pea px-4 py-3 font-AnekDevanagari-SemiBold text-[16px]/[16px] leading-normal text-white md:min-w-[329px];
   }
 }
-/* Custom border radius edge */
+
 @layer utilities {
   @variants responsive {
     /* Hide scrollbar for Chrome, Safari, and Opera */
@@ -132,6 +132,8 @@
       scrollbar-width: none; /* Firefox */
     }
   }
+
+  /* Custom check list */
   #v_icon_check ul li {
     position: relative;
     padding-left: 24px;
@@ -142,5 +144,29 @@
     position: absolute;
     left: 0;
     top: 0;
+  }
+
+  /* Custom Scrollbar design */
+  /* width */
+  .scrollbar::-webkit-scrollbar {
+      width: 2px;
+      height: 4px;
+  }
+  
+  /* Track */
+  .scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 5px;
+  }
+  
+  /* Handle */
+  .scrollbar::-webkit-scrollbar-thumb {
+      background: rgb(228, 228, 228);
+      border-radius: 35px;
+  }
+  
+  /* Handle on hover */
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #bfbfbf;
   }
 }

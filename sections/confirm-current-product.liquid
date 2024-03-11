@@ -1,0 +1,245 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding" style="background-color: {{ section.settings.section_bg }}">
+  <div class="container mx-auto px-4">
+    <h2 class="mb-6 flex items-center gap-4 font-AnekLatin-Bold text-[24px]/[30px] text-black">
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="8.81"
+          height="15.12"
+          viewBox="0 0 8.81 15.12"
+        >
+          <path
+            id="Path_14723"
+            data-name="Path 14723"
+            d="M26,162l-7,6.5,7,6.5"
+            transform="translate(-18.25 -160.94)"
+            fill="none"
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5" />
+        </svg>
+      </span>
+      {{- section.settings.heading }}
+    </h2>
+    <div class="flex flex-col">
+      <h3 class="font-AnekLatin-Bold text-[16px]/[22px] text-black">{{ section.settings.sub_heading }}</h3>
+      <p class="text-[12px]/[22px] text-black">{{ section.settings.product_count }}</p>
+    </div>
+    <ul class="grid auto-cols-[20rem] grid-flow-col gap-x-4 overflow-x-auto pt-9 md:grid-cols-3">
+      {% for block in section.blocks %}
+        <li class="relative mb-3 border border-solid border-mine-shaft">
+          {% if block.settings.product_type != blank %}
+            <div class="absolute -top-[26px] left-[14px] mx-auto inline-flex w-11/12 min-w-[140px] max-w-fit items-center justify-center border border-solid border-woodsmoke bg-cape-palliser px-4 py-3 text-center font-AnekLatin-Bold text-[16px]/[26px] uppercase text-white">
+              {{ block.settings.product_type }}
+            </div>
+          {% endif %}
+          <div class="flex items-stretch justify-between">
+            <div class="block w-2/5 border-r border-solid border-mine-shaft p-4 pt-10">
+              {% if block.settings.product_img != blank %}
+                <img
+                  src="{{ block.settings.product_img |  img_url: 'master'}}"
+                  width="{{ block.settings.product_img.width }}"
+                  height="{{ block.settings.product_img.height }}"
+                  loading="lazy"
+                >
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+              {% endif %}
+            </div>
+            <div class="flex w-3/5 flex-col gap-4 p-4 pt-10">
+              <h3 class="font-AnekLatin-Bold text-[16px]/[20px] text-mine-shaft">{{ block.settings.title }}</h3>
+              <div class="font-AnekLatin-SemiBold text-[14px]/[20px] text-mine-shaft">
+                {{ block.settings.product_info }}
+              </div>
+              <ul class="flex w-full flex-row gap-x-8">
+                <li class="flex items-center gap-x-[6px] text-[12px]/[20px] text-mine-shaft">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8.104" height="12.677" viewBox="0 0 8.104 12.677">
+                    <path id="Path_7847" data-name="Path 7847" d="M317.405,220.521l3.362-6.661a.287.287,0,0,1,.514,0l3.366,6.661a4,4,0,0,1-.743,4.637l-.047.047a4,4,0,0,1-5.663,0l-.047-.047A4,4,0,0,1,317.405,220.521Zm3.621-5.889-3.1,6.149c0,.007-.007.013-.011.02a1.866,1.866,0,0,0,1.756,2.67,3.7,3.7,0,0,0,2.49-1.084l.047-.047c.049-.049.1-.1.144-.153a3.593,3.593,0,0,0,.47-4Z" transform="translate(-316.974 -213.7)" fill="#333"/>
+                  </svg>
+                  30ml
+                </li>
+                <li class="flex items-center gap-x-[6px] text-[12px]/[20px] text-mine-shaft">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13.43" height="12.302" viewBox="0 0 13.43 12.302">
+                    <g id="Group_5668" data-name="Group 5668" transform="translate(-1.852 -2.141)">
+                      <path id="Path_7848" data-name="Path 7848" d="M8.047,2.141a6.153,6.153,0,1,0,5.645,8.552.519.519,0,1,0-.956-.4,5.11,5.11,0,1,1,.257-3.228l-.463-.406a.516.516,0,1,0-.679.778l1.536,1.346a.517.517,0,0,0,.786-.126L15.21,6.9a.517.517,0,0,0-.889-.527l-.3.518A6.171,6.171,0,0,0,8.633,2.172q-.295-.03-.586-.031ZM7.58,5.1a.516.516,0,0,0-.519.515V9.446a.517.517,0,0,0,.324.481l2.223.9a.517.517,0,0,0,.384-.96L8.095,9.1V5.619A.516.516,0,0,0,7.58,5.1Z" fill="#333"/>
+                    </g>
+                  </svg>
+                  30 days
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <ul id="carouselDots" class="flex gap-[5px] mt-4 justify-center items-center">
+      <li class="w-3 h-[2px] bg-cape-palliser rounded-full"></li>
+      <li class="w-1 h-[2px] bg-grain-brown rounded-full"></li>
+      <li class="w-1 h-[2px] bg-grain-brown rounded-full"></li>
+    </ul>
+    <div class="mt-8 flex items-center justify-between border-t border-solid border-black border-opacity-20 py-6">
+      <p class="font-AnekLatin-Medium text-[16px]/[22px] text-black">{{ section.settings.date_label }}</p>
+      <span class="font-AnekLatin-Bold text-[16px]/[22px] text-black">
+        {{- section.settings.date_picker | date: format: '%a, %b %d, %y' -}}
+      </span>
+    </div>
+  </div>
+  <div class="mt-24 flex flex-col items-center justify-center gap-3 p-4 bg-alabaster">
+    <p class="font-AnekLatin-Medium text-[14px]/[22px] text-burnt-sienna">{{ section.settings.footer_text }}</p>
+    <a
+      href="{{ section.settings.button_url }}"
+      class="btn w-full min-w-fit"
+      role="button"
+    >
+      <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Confirm current product",
+  "class": "section-confirm-current-product",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#FFFBF8"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Lorem Ipsum is simply dummy text"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub heading",
+      "default": "You current routine"
+    },
+    {
+      "type": "text",
+      "id": "product_count",
+      "label": "Product count",
+      "default": "3 products"
+    },
+    {
+      "type": "header",
+      "content": "Date"
+    },
+    {
+      "type": "text",
+      "id": "date_label",
+      "label": "Date label",
+      "default": "Date of Shipment:"
+    },
+    {
+      "type": "text",
+      "id": "date_picker",
+      "label": "Choose date",
+      "default": "12-24-2024",
+      "info": "e.g. mm-dd-yyyy"
+    },
+    {
+      "type": "header",
+      "content": "Footer text"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer text",
+      "default": "20% Off Tatva Discount auto-applied"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Block",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_type",
+          "label": "Product type",
+          "default": "Lorem ipsum"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_img",
+          "label": "Product image"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Product title",
+          "default": "<p>Lorem Ipsum is simply dummy text</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "product_info",
+          "label": "Product info",
+          "default": "<p>Cras commodo eget enim at consectetur. Nunc a tincidunt orci.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Confirm current product"
+    }
+  ]
+}
+{% endschema %}

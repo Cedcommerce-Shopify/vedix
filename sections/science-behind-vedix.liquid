@@ -1,0 +1,317 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="bg-merino section-{{ section.id }}-padding" style="background-color: {{ section.settings.section_bg }}">
+  <div class="container mx-auto px-4" bis_skin_checked="1">
+    <div class="relative grid grid-cols-1 gap-4 md:grid-cols-2" bis_skin_checked="1">
+      <div class="text-center md:text-left" bis_skin_checked="1">
+        <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-[42px]/[50px]">
+          {{ section.settings.heading }}
+        </h2>
+        <div
+          id="v_icon_check"
+          class="mb-8 flex flex-col flex-wrap justify-center gap-2 text-left text-[16px]/[20px] text-woodsmoke"
+          bis_skin_checked="1">
+          {{ section.settings.paragraph }}
+        </div>
+        {% if section.settings.button_text != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="btn hidden md:inline-flex"
+            role="button">
+            <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11.796"
+              height="10.315"
+              viewBox="0 0 11.796 10.315">
+              <g
+                id="Group_8849"
+                data-name="Group 8849"
+                transform="translate(-215.754 -537.843)">
+                <path
+                  id="Icon_ionic-ios-arrow-forward"
+                  data-name="Icon ionic-ios-arrow-forward"
+                  d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                  transform="translate(204.508 531.646)"
+                  fill="#fff"></path>
+                <path
+                  id="Icon_ionic-ios-arrow-forward-2"
+                  data-name="Icon ionic-ios-arrow-forward"
+                  d="M15.366,11.352l-3.9-3.9a.734.734,0,0,1,0-1.041.743.743,0,0,1,1.044,0l4.422,4.419a.736.736,0,0,1,.021,1.016L12.51,16.3a.737.737,0,0,1-1.044-1.041Z"
+                  transform="translate(210.406 531.646)"
+                  fill="#fff"></path>
+              </g>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+      <div class="flex flex-auto items-start justify-center" bis_skin_checked="1">
+        <div class="flex flex-col" bis_skin_checked="1">
+          <ul class="mb-8 flex gap-5">
+            {%- for block in section.blocks -%}
+              <li class="relative {% if forloop.index == 2 %}before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:h-full before:w-full before:rounded-full before:border-2 before:border-solid before:border-red-600 before:content-[''] after:absolute after:left-1/2 after:top-full after:h-[32px] after:w-[2px] after:bg-red-600 after:content-['']{% endif %}">
+                <span class="block h-[48px] w-[48px] overflow-hidden rounded-full border border-solid border-black border-opacity-10">
+                  {%- assign icon_image = block.settings.icon_image -%}
+
+                  {% if icon_image != blank %}
+                    {{
+                      icon_image | image_url: width: icon_image.width | image_tag: class: 'mobile-img', loading: 'lazy'
+                    }}
+                  {% endif %}
+                </span>
+              </li>
+            {% endfor %}
+          </ul>
+          <div class="mb-6" bis_skin_checked="1">
+            {%- for block in section.blocks -%}
+              <div class="border border-solid border-black bg-romance {% if forloop.index != 1 %} hidden {% endif %}">
+                <div class="flex gap-2 border-b border-solid border-black p-2" bis_skin_checked="1">
+                  <div class="flex max-w-[calc(100%_-_30%_-_16px)] flex-[0_0_100%] flex-col" bis_skin_checked="1">
+                    <h3 class="font-AnekLatin-SemiBold text-[24px]/[32px] text-mine-shaft">
+                      {{ block.settings.title }}
+                    </h3>
+                    <div class="flex items-center gap-1" bis_skin_checked="1">
+                      <p class="font-AnekLatin-SemiBold text-[10px]/[32px] text-mine-shaft">
+                        {{ block.settings.sub_title }}
+                      </p>
+                      <ul class="flex gap-[1px]">
+                        <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                        <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                        <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                        <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                        <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                      </ul>
+                      <span class="font-AnekLatin-SemiBold text-[12px]/[32px] text-burnt-sienna">
+                        {{- block.settings.percentage }}
+                      </span>
+                      <p></p>
+                    </div>
+                  </div>
+                  <div class="relative inline-block w-full max-w-[30%] flex-[0_0_100%] overflow-hidden before:inline-block before:h-0 before:w-0 before:pb-[70%] before:content-['']" bis_skin_checked="1">
+                    {%- assign image_mob = block.settings.image_mob -%}
+                    <div class="mobile-image absolute bottom-0 left-0 right-0 top-0 block h-full w-full">
+                      {% if image_mob != blank %}
+                        {{
+                          image_mob | image_url: width: image_mob.width | image_tag: class: 'mobile-img ', loading: 'lazy'
+                        }}
+                      {% else %}
+                        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="p-2" bis_skin_checked="1">
+                  <p class="text-[16px]/[22px] text-woodsmoke">
+                    {{ block.settings.short_info }}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+            {% if section.settings.bottom_paragraph != blank %}
+              <div class="mt-4">
+                <p class="text-[16px]/[22px] text-woodsmoke">
+                  {{ section.settings.bottom_paragraph }}
+                </p>
+              </div>
+            {% endif %}
+          </div>
+        {% comment %}
+          <ul class="mb-8 flex gap-5 md:hidden">
+          {%- for block in section.blocks -%}
+          <li class="relative {% if forloop.index == 2 %}before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:h-full before:w-full before:rounded-full before:border-2 before:border-solid before:border-red-600 before:content-[''] after:absolute after:left-1/2 after:top-full after:h-[32px] after:w-[2px] after:bg-red-600 after:content-['']{% endif %}">
+          <span class="block h-[48px] w-[48px] overflow-hidden rounded-full border border-solid border-black border-opacity-10">
+          {%- assign icon_image = block.settings.icon_image -%}
+
+          {% if icon_image != blank %}
+          {{
+          icon_image | image_url: width: icon_image.width | image_tag: class: 'mobile-img md:hidden', loading: 'lazy'
+          }}
+          {% endif %}
+          </span>
+          </li>
+          {% endfor %}
+          </ul>
+          <div class="mb-6 md:hidden" bis_skin_checked="1">
+          {%- for block in section.blocks -%}
+          <div class="border border-solid border-black bg-romance">
+          <div class="flex gap-2 border-b border-solid border-black p-2" bis_skin_checked="1">
+          <div class="flex max-w-[calc(100%_-_30%_-_16px)] flex-[0_0_100%] flex-col" bis_skin_checked="1">
+          <h3 class="font-AnekLatin-SemiBold text-[24px]/[32px] text-mine-shaft">
+          {{ block.settings.title }}
+          </h3>
+          <div class="flex items-center gap-1" bis_skin_checked="1">
+          <p class="font-AnekLatin-SemiBold text-[10px]/[32px] text-mine-shaft">
+          {{ block.settings.sub_title }}
+          </p>
+          <ul class="flex gap-[1px]">
+          <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+          <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+          <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+          <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+          <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+          </ul>
+          <span class="font-AnekLatin-SemiBold text-[12px]/[32px] text-burnt-sienna">
+          {{- block.settings.percentage }}
+          </span>
+          <p></p>
+          </div>
+          </div>
+          <div class="relative inline-block w-full max-w-[30%] flex-[0_0_100%] overflow-hidden before:inline-block before:h-0 before:w-0 before:pb-[100%] before:content-['']" bis_skin_checked="1">
+          {%- assign image_mob = block.settings.image_mob -%}
+          <div class="mobile-image w-full md:hidden block absolute top-0 bottom-0 left-0 right-0 h-full">
+          {% if image_mob != blank %}
+          {{
+          image_mob | image_url: width: image_mob.width | image_tag: class: 'mobile-img ', loading: 'lazy'
+          }}
+          {% else %}
+          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+          {% endif %}
+          </div>
+          </div>
+          </div>
+          <div class="p-2" bis_skin_checked="1">
+          <p class="text-[16px]/[22px] text-woodsmoke">
+          {{ block.settings.short_info }}
+          </p>
+          </div>
+          </div>
+          {% endfor %}
+          {% if section.settings.bottom_paragraph != blank %}
+          <div class="mt-4">
+          <p class="text-[16px]/[22px] text-woodsmoke">
+          {{ section.settings.bottom_paragraph }}
+          </p>
+          </div>
+          {% endif %}
+          </div>
+        {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Science Behind Vedix",
+    "class": "shopify-section",
+    "max_blocks": 3,
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Science Behind Vedix"
+      },
+      {
+        "type": "richtext",
+        "id": "paragraph",
+        "label": "Paragraph",
+        "default": "<p>The science behind Vedix is backed by Parkruti - a fundamental Ayurvedic concept of balance and harmony. Prakruti is shaped by the governing forces of all life, or the Doshas. The main Doshas are Vata, Pitta, and Kapha.</p>"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "bottom_paragraph",
+        "label": "Bottom Paragraph",
+        "default": "At Vedix every product is customised for you after a thorough examination of your body and its Doshas with the help of our detailed Ayurvedic questionnaire. So, you can be sure of the fact that you are getting just what your hair/skin needs!",
+        "info": "Note: This content will show only on small devices"
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Know Your Hair"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Content",
+        "type": "content",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon_image",
+            "label": "Icon"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mob",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Vata"
+          },
+          {
+            "type": "text",
+            "id": "sub_title",
+            "label": "Sub Title",
+            "default": "Dosha Imbalance"
+          }, {
+            "type": "text",
+            "id": "percentage",
+            "label": "Percentage",
+            "default": "30%"
+          }, {
+            "type": "textarea",
+            "id": "short_info",
+            "label": "Short Info",
+            "default": "Imbalance of Vata Dosha can lead to dry scalp, frizzy hair, dandruff, split-ends, hair thinning and more."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Science Behind Vedix"
+      }
+    ]
+  }
+{% endschema %}

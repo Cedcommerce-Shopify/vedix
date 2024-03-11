@@ -21,14 +21,14 @@
         {{ section.settings.text }}
       </p>
       <div class="m-auto max-w-[590px]">
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-2 md:gap-10">
           {%- for block in section.blocks -%}
             <div class="flex flex-col">
-              <div class="flex items-center justify-center gap-x-[10px]">
+              <div class="flex items-center justify-center gap-3 md:gap-4">
                 <div class="text-[35px]/[30px] text-woodsmoke md:font-AnekLatin-Bold">
                   {{ block.settings.avg_rating }}
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col items-start">
                   {% assign star_count = block.settings.star %}
                   <div class="flex items-center gap-[5px]">
                     {% for i in (1..star_count) %}
@@ -95,7 +95,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Top",
-      "default": 36
+      "default": 60
     },
     {
       "type": "range",
@@ -105,7 +105,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Bottom",
-      "default": 36
+      "default": 60
     }
   ],
   "blocks": [

@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main": {
+      "type": "summary"
+    },
+    "routine-log": {
+      "type": "routine-log"
+    },
+    "accordion-routine": {
+      "type": "accordion-routine"
+    },
+    "need-help": {
+      "type": "need-help"
+    }
+  },
+  "order": ["main", "routine-log", "accordion-routine", "need-help"]
+}

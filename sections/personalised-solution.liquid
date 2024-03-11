@@ -20,7 +20,7 @@
       {{ section.settings.heading }}
     </h2>
     <div class="text-[16px]/[22px] text-woodsmoke">{{ section.settings.sub_heading }}</div>
-    <ul class="mt-5 grid grid-cols-1 gap-x-3 md:gap-x-4 gap-y-3 md:mt-8 md:grid-cols-3">
+    <ul class="-mr-4 mt-5 grid auto-cols-[16rem] grid-flow-col gap-x-3 gap-y-3 overflow-x-auto md:-mr-0 md:mt-8 md:grid-cols-3 md:gap-x-4">
       {% for block in section.blocks %}
         <li class="flex items-center gap-[10px]">
           <div class="border border-solid border-quarter-spanish-white bg-white shadow-[0px_0px_15px_rgba(13,18,18,0.1)]">
@@ -47,7 +47,7 @@
               </div>
             </div>
             <div class="flex gap-3 bg-double-pearl-lusta px-[10px] py-4">
-              <div class="h-[83px] w-[83px] max-w-[83px] flex-[0_0_100%] rounded-full overflow-hidden">
+              <div class="h-[83px] w-[83px] max-w-[83px] flex-[0_0_100%] overflow-hidden rounded-full">
                 {% if block.settings.user_image != blank %}
                   <img
                     src="{{ block.settings.user_image |  img_url: 'master' }}"
@@ -166,7 +166,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Top",
-      "default": 36
+      "default": 60
     },
     {
       "type": "range",
@@ -176,7 +176,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Bottom",
-      "default": 36
+      "default": 60
     }
   ],
   "blocks": [

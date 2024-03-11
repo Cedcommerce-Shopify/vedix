@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "order-details"
+    },
+    "help-and-support": {
+      "type": "help-and-support"
+    }
+  },
+  "order": ["main", "help-and-support"]
+}

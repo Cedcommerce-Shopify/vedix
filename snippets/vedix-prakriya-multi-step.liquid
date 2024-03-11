@@ -1,0 +1,78 @@
+{% comment %} Multi-step wrapper {% endcomment %}
+<div id="multiStep" class="bg-[#F9E1DE] w-full h-6 relative">
+  <div class="absolute left-0 flex bg-burnt-sienna w-16 text-[12px]/[24px] text-white px-4">1/7</div>
+</div>
+
+{% comment %} Step 1 wrapper {% endcomment %}
+<div id="step1" class="bg-white px-4 py-8 flex flex-col gap-6">
+  <div class="relative inline-block h-full w-full before:inline-block before:h-0 before:w-0 before:pb-[80%] before:content-['']">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/accordion-img.png?v=1706614720"
+      loading="lazy"
+      class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center"
+      alt="user_image">
+  </div>
+  <div>
+    <h2 class="font-AnekLatin-Bold text-[18px]/[24px] text-black">87% of Vedix customers with similar hair textures as yours say that Vedix shampoo, oil and serum suit their hair. Do you agree ?</h2>
+  </div>
+  <div class="flex flex-col gap-4">
+    <a href="#" class="btn w-full">
+      <span class="mb-[-2px] mt-[2px]">Yes, I Agree</span>
+    </a>
+    <a href="#" class="btn w-full bg-white text-black">
+      <span class="mb-[-2px] mt-[2px]">No, I Disagree</span>
+    </a>
+  </div>
+</div>
+
+{% comment %} Step 2 wrapper {% endcomment %}
+<div id="step2" class="bg-white px-4 py-8 flex flex-col gap-6">
+  <div class="relative inline-block h-full w-full before:inline-block before:h-0 before:w-0 before:pb-[80%] before:content-['']">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/Rectangle_199858_2x_f66317bb-7f64-48b7-9af1-28e57bc80a6b.jpg?v=1708684949"
+      loading="lazy"
+      class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center"
+      alt="user_image">
+  </div>
+  <div>
+    <h2 class="font-AnekLatin-Bold text-[18px]/[24px] text-black">How is your experience with Vedix Ahuta Root Stimulating Hair Oil for Men with Banyan + Symplocos + Daruharidra ?</h2>
+  </div>
+  <div class="flex flex-col gap-4">
+    <a href="#" class="btn w-full bg-white text-black">
+      <span class="mb-[-2px] mt-[2px]">Great ! I Want To Continue</span>
+    </a>
+    <a href="#" class="btn w-full bg-white text-black">
+      <span class="mb-[-2px] mt-[2px]">It Is Making My Hair Too Greasy</span>
+    </a>
+    <a href="#" class="btn w-full bg-white text-black">
+      <span class="mb-[-2px] mt-[2px]">It Is Not Oiling My Hair Enough</span>
+    </a>
+  </div>
+</div>
+
+{% comment %} Address any issues wrapper {% endcomment %}
+<div id="issues" class="bg-white px-4 py-8 flex flex-col gap-6">
+  <div>
+    <h2 class="font-AnekLatin-Bold text-[18px]/[24px] text-black">Would you like to address any issues ?</h2>
+  </div>
+  <div class="flex flex-col gap-4">
+    <form action="">
+      <div class="flex">
+        <textarea
+          name=""
+          id=""
+          class="border border-solid border-silver p-4 rounded-[8px] w-full"
+          cols="30"
+          rows="5"
+          placeholder="Please enter any other questions, comments, and issues you may have about your daily care hair routine."></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="bg-alabaster w-full shadow-[0px_-2px_4px_#00000026] p-4 fixed bottom-0 left-0 right-0 z-50">
+    <a href="#" class="btn w-full bg-cod-gray text-white">
+      <span class="mb-[-2px] mt-[2px]">Complete</span>
+    </a>
+  </div>
+</div>
+
+{% render 'popup-exit-followup' %}

@@ -13,15 +13,17 @@
 
 <div
   class="bg-quarter-spanish-white section-{{ section.id }}-padding"
+  style="background-color: {{ section.settings.section_bg }};"
 >
   <div class="container mx-auto px-4">
-    <h2 class="mb-6 text-center font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-[42px]/[58px]">
+    <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:text-center md:text-[42px]/[58px]">
       {{ section.settings.heading }}
     </h2>
     <div class="mx-auto flex max-w-[602px] flex-col">
       <div class="flex max-h-[190px] overflow-hidden">
+        <span class="max-w-[45%] flex-[0_0_100%]"></span>
         {% if section.settings.product_image_1 %}
-          <span class="block w-2/4">
+          <span class="block max-w-[25%] flex-[0_0_100%]">
             <img
               src="{{ section.settings.product_image_1 | img_url:'master' }}"
               width="{{ section.settings.product_image_1.width }}"
@@ -32,7 +34,7 @@
           </span>
         {% endif %}
         {% if section.settings.product_image_2 %}
-          <span class="block w-3/4">
+          <span class="block max-w-[30%] flex-[0_0_100%]">
             <img
               src="{{ section.settings.product_image_2 | img_url:'master' }}"
               width="{{ section.settings.product_image_2.width }}"
@@ -43,8 +45,8 @@
           </span>
         {% endif %}
       </div>
-      <div class="mx-auto my-6 flex text-center md:order-1">
-        {% if section.settings.button_text != blank %}
+      {% if section.settings.button_text != blank %}
+        <div class="mx-auto my-6 flex text-center md:order-1">
           <a
             href="{{ section.settings.button_link }}"
             class="btn min-w-[180px]"
@@ -52,21 +54,21 @@
           >
             <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
           </a>
-        {% endif %}
-      </div>
-      <div class="mt-10 flex items-center border border-solid border-mercury bg-merino">
+        </div>
+      {% endif %}
+      <div class="flex items-center border border-solid border-mercury bg-merino">
         {% if section.settings.col_text_1 != blank %}
-          <div class="max-w-[45%] flex-[0_0_100%] bg-merino px-[10px] py-4 font-AnekLatin-Medium">
+          <div class="max-w-[45%] flex-[0_0_100%] bg-merino px-[10px] py-4 font-AnekLatin-Medium text-woodsmoke">
             {{ section.settings.col_text_1 }}
           </div>
         {% endif %}
         {% if section.settings.col_text_2 != blank %}
-          <div class="max-w-[25%] flex-[0_0_100%] bg-merino px-[10px] py-4 font-AnekLatin-Medium">
+          <div class="max-w-[25%] flex-[0_0_100%] bg-merino px-[10px] py-4 font-AnekLatin-Medium text-woodsmoke">
             {{ section.settings.col_text_2 }}
           </div>
         {% endif %}
         {% if section.settings.col_text_3 != blank %}
-          <div class="max-w-[30%] flex-[0_0_100%] bg-surf px-[10px] py-4 font-AnekLatin-Medium">
+          <div class="max-w-[30%] flex-[0_0_100%] bg-surf px-[10px] py-4 font-AnekLatin-Medium text-woodsmoke">
             {{ section.settings.col_text_3 }}
           </div>
         {% endif %}
@@ -117,6 +119,12 @@
   "class": "section-ayurvedic-profile",
   "tag": "section",
   "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#F7EEDF"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -178,7 +186,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Top",
-      "default": 36
+      "default": 60
     },
     {
       "type": "range",
@@ -188,7 +196,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Bottom",
-      "default": 36
+      "default": 60
     }
   ],
   "blocks": [

@@ -1,0 +1,267 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="section-{{ section.id }}-padding section-{{ section.id }}" style="background-color:{{ section.settings.section_bg }};">
+  <div class="container mx-auto px-4">
+    <div class="mb-4 flex items-center justify-between">
+      <h3 class="w-[70%] font-AnekLatin-Bold text-[16px]/[24px] text-black md:text-[24px]/[32px]">
+        {{ section.settings.heading }}
+      </h3>
+      <div class="w-[30%] text-right">
+        <a
+          href=""
+          aria-label="change-your-routine"
+          class="inline-flex items-center justify-center rounded-[4px] bg-de-york px-2 py-1 font-AnekLatin-SemiBold text-[12px]/[14px] text-black">
+          {{- section.settings.button_text }}
+        </a>
+      </div>
+    </div>
+    <div class="rounded-[8px] border border-solid border-[#7070701A] bg-white">
+      <div class="flex items-center gap-x-[10px] p-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14.172"
+          height="17.584"
+          viewBox="0 0 14.172 17.584">
+          <g
+            id="Group_10180"
+            data-name="Group 10180"
+            transform="translate(-180.417 -884.709)">
+            <path
+              id="Path_13923"
+              data-name="Path 13923"
+              d="M55.047,730.711l2.833,2.833-2.833,2.834"
+              transform="translate(136 155)"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.417" />
+            <path
+              id="Path_13924"
+              data-name="Path 13924"
+              d="M45.125,737.789v-1.417a2.834,2.834,0,0,1,2.833-2.833h9.917"
+              transform="translate(136 155)"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.417" />
+            <path
+              id="Path_13925"
+              data-name="Path 13925"
+              d="M47.958,746.292l-2.833-2.834,2.833-2.833"
+              transform="translate(136 155)"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.417" />
+            <path
+              id="Path_13926"
+              data-name="Path 13926"
+              d="M57.875,739.207v1.417a2.834,2.834,0,0,1-2.833,2.833H45.125"
+              transform="translate(136 155)"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.417" />
+          </g>
+        </svg>
+        <h4 class="font-AnekLatin-SemiBold text-[14px]/[16px] text-black md:text-[20px]/[28px]">
+          {{ section.settings.title }}
+        </h4>
+      </div>
+      <div class="flex items-center justify-between gap-[20px] px-4 py-6">
+        <div class="flex flex-col">
+          {%- assign image_1 = section.settings.image_1 -%}
+          {% if image_1 != blank %}
+            <div class="mx-auto text-center">
+              {{
+                image_1 | image_url: width: image_1.width | image_tag: class: 'transform opacity-30 transition-transform duration-300 ease-in-out hover:scale-110', loading: 'lazy'
+              }}
+            </div>
+          {% else %}
+            {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg h-full w-full' }}
+          {% endif %}
+          <p class="mt-[10px] text-center text-[12px]/[16px] text-black text-opacity-30">
+            {{ section.settings.image_1_text }}
+          </p>
+        </div>
+        <div class="mt-[-80px] flex max-w-[30%] flex-[0_0_100%] items-center">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/Group_10678_2x_e4f3dfbb-83ae-4d3b-b0da-3d02e3ee35e0.png?v=1706852943"
+            loading="lazy"
+            alt="switch">
+        </div>
+        <div class="flex flex-col">
+          {%- assign image_2 = section.settings.image_2 -%}
+          {% if image_2 != blank %}
+            <div class="mx-auto text-center">
+              {{
+                image_2 | image_url: width: image_2.width | image_tag: class: 'transform transition-transform duration-300 ease-in-out hover:scale-110', loading: 'lazy'
+              }}
+            </div>
+          {% else %}
+            {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg h-full w-full' }}
+          {% endif %}
+          <p class="mt-[10px] text-center text-[12px]/[16px] text-black">
+            {{ section.settings.image_2_text }}
+          </p>
+        </div>
+      </div>
+      <div class="p-4 text-center text-[14px]/[18px] text-black">
+        {{ section.settings.center_text }}
+      </div>
+      <div class="p-4">
+        <div class="flex flex-col gap-2 pb-[8px] font-AnekLatin-SemiBold text-[14px]/[18px] text-black text-opacity-80">
+          {{ section.settings.body_text }}
+        </div>
+        <a
+          href="{{ section.settings.cta_button_link }}"
+          aria-label="order-conformation"
+          class="py-[8px] font-AnekLatin-SemiBold text-[14px]/[18px] text-black text-opacity-80 underline">
+          {{- section.settings.cta_button_text -}}
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-[10px] border-t border-solid border-opacity-10 py-4 text-center">
+        <a href="" class="font-AnekLatin-SemiBold text-[12px]/[16px] text-black">View more details
+        </a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="9.312"
+          height="5.65"
+          viewBox="0 0 9.312 5.65">
+          <path
+            id="Path_13937"
+            data-name="Path 13937"
+            d="M222,1070.08l3.6,3.84,3.6-3.84"
+            transform="translate(-220.94 -1069.02)"
+            fill="none"
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Routine log",
+    "class": "shopify-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Background color",
+        "default": "#FFFBF8"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "1 Change made to your routine"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "FOR FREE"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }, {
+        "type": "header",
+        "content": "Routine Card Content"
+      }, {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Your shampoo is being switched for free"
+      }, {
+        "type": "image_picker",
+        "id": "image_1",
+        "label": "Image 1"
+      }, {
+        "type": "textarea",
+        "id": "image_1_text",
+        "label": "Image 1 Text",
+        "default": "Lorem ipsum dolor sit amet consectetur. In eget nunc sapien velit. "
+      }, {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "Image 2"
+      }, {
+        "type": "textarea",
+        "id": "image_2_text",
+        "label": "Image 2 Text",
+        "default": "Lorem ipsum dolor sit amet consectetur. In eget nunc sapien velit. "
+      }, {
+        "type": "richtext",
+        "id": "center_text",
+        "label": "Center Text",
+        "default": "<p>This new formulation will do a better job in nourishing your dry hair. <strong>The product change is free and will be shipped to you in 24 hours.</strong></p>"
+      }, {
+        "type": "richtext",
+        "id": "body_text",
+        "label": "Body Text",
+        "default": "<p>Why did we make this change?</p><p>Lorem ipsum dolor sit amet consectetur. In eget nunc sapien velit. Elementum pulvinar aliquam sagittis vestibulum dolor elit ac sollicitudin est. Vestibulum dictum egestas pharetra elementum tincidunt morbi in duis mauris. Posuere sociis odio adipiscing lorem consequat cras penatibus.</p>"
+      }, {
+        "type": "header",
+        "content": "CTA"
+      }, {
+        "type": "text",
+        "id": "cta_button_text",
+        "label": "Button Text",
+        "default": "See Order Confirmation"
+      }, {
+        "type": "url",
+        "id": "cta_button_link",
+        "label": "Button Link"
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "Routine log"
+      }
+    ]
+  }
+{% endschema %}

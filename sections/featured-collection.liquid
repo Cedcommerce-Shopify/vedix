@@ -14,34 +14,89 @@
 <div class="bg-soapstone section-{{ section.id }}-padding" style="background-color: {{ section.settings.section_bg }}">
   <div class="container mx-auto px-4">
     {% if section.settings.heading != blank %}
-      <h2 class="mb-5 font-AnekLatin-Bold text-[32px]/[32px] text-woodsmoke">{{ section.settings.heading }}</h2>
+      <h2 class="mb-7 font-AnekLatin-Bold text-[32px]/[32px] text-woodsmoke md:mb-5 md:text-[28px]/[32px]">
+        {{ section.settings.heading }}
+      </h2>
     {% endif %}
-    <ul class="grid grid-cols-3 gap-4">
+    <ul class="-mr-4 grid auto-cols-[20rem] grid-flow-col gap-2 overflow-x-auto md:mr-0 md:auto-cols-auto md:grid-flow-row md:grid-cols-3 md:gap-4">
       {% assign collection_data = section.settings.collections %}
       {% assign product_data = collection_data.products %}
       {% for product in product_data %}
-        <li class="border border-solid border-spring-wood">
+        <li class="col-span-1 border border-solid border-spring-wood">
           <a href="{{ product.url }}" class="block">
             <span class="relative inline-block h-full w-full before:inline-block before:h-0 before:w-0 before:pb-[65%] before:content-['']">
               <img
                 src="{{product.featured_image |  img_url: 'medium'}}"
                 alt="Product"
-                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center"
-              >
+                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center">
             </span>
             <div class="flex w-full flex-col gap-[10px] bg-white p-4">
-              <h3 class="truncate font-AnekLatin-Bold text-[24px]/[24px] capitalize text-woodsmoke mb-3">
+              <h3 class="mb-3 truncate font-AnekLatin-Bold text-[24px]/[22px] capitalize text-woodsmoke">
                 {{ product.title }}
               </h3>
-              <div id="rating" class="flex gap-2 mb-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" fill="#F2C94C" />
-                </svg>
+              <div id="rating" class="mb-3 mt-2 flex gap-2">
+                <div class="flex items-center gap-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16.667"
+                    height="16.66"
+                    viewBox="0 0 16.667 16.66">
+                    <path
+                      id="Path_13649"
+                      data-name="Path 13649"
+                      d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                      transform="translate(-107.664 -1794.73)"
+                      fill="#f2c94c" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16.667"
+                    height="16.66"
+                    viewBox="0 0 16.667 16.66">
+                    <path
+                      id="Path_13649"
+                      data-name="Path 13649"
+                      d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                      transform="translate(-107.664 -1794.73)"
+                      fill="#f2c94c" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16.667"
+                    height="16.66"
+                    viewBox="0 0 16.667 16.66">
+                    <path
+                      id="Path_13649"
+                      data-name="Path 13649"
+                      d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                      transform="translate(-107.664 -1794.73)"
+                      fill="#f2c94c" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16.667"
+                    height="16.66"
+                    viewBox="0 0 16.667 16.66">
+                    <path
+                      id="Path_13649"
+                      data-name="Path 13649"
+                      d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                      transform="translate(-107.664 -1794.73)"
+                      fill="#f2c94c" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16.667"
+                    height="16.66"
+                    viewBox="0 0 16.667 16.66">
+                    <path
+                      id="Path_13649"
+                      data-name="Path 13649"
+                      d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                      transform="translate(-107.664 -1794.73)"
+                      fill="#f2c94c" />
+                  </svg>
+                </div>
                 <span class="text-[14px]/[22px] text-woodsmoke text-opacity-40">(49)</span>
               </div>
               <div class="mb-4 flex gap-3">
@@ -63,68 +118,64 @@
   </div>
 </div>
 {% schema %}
-{
-  "name": "Featured collection",
-  "class": "section-featured-collection",
-  "tag": "section",
-  "settings": [
-    {
-      "type": "color",
-      "id": "section_bg",
-      "label": "Background color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Lorem Ipsum is simply dummy text"
-    },
-    {
-      "type": "collection",
-      "id": "collections",
-      "label": "Collections"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "Customize"
-    },
-    {
-      "type": "header",
-      "content": "Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Bottom",
-      "default": 36
-    }
-  ],
-  "presets": [
-    {
-      "name": "Featured collection"
-    }
-  ]
-}
+  {
+    "name": "Featured collection",
+    "class": "section-featured-collection",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Lorem Ipsum is simply dummy text"
+      },
+      {
+        "type": "collection",
+        "id": "collections",
+        "label": "Collections"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Customize"
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 60
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured collection"
+      }
+    ]
+  }
 {% endschema %}
