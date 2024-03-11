@@ -12,15 +12,15 @@
   }
 {%- endstyle -%}
 
-<div
-  class="section-{{ section.id }}-padding"
-  style="background-color: {{- section.settings.bg_color -}};"
->
+<div class="section-{{ section.id }}-padding" style="background-color: {{- section.settings.bg_color -}};">
   <div class="container mx-auto px-4 text-center">
     <h2 class="mb-6 max-w-[705px] text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-white md:font-AnekLatin-Bold md:text-[42px]/[50px]">
       {{ section.settings.heading }}
     </h2>
-    <div class="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3" role="grid">
+    <div
+      class="-mr-4 mb-12 grid auto-cols-[20rem] grid-flow-col gap-4 overflow-x-auto md:-mr-0 md:grid-cols-3"
+      role="grid"
+    >
       {%- for block in section.blocks -%}
         <div class="h-full bg-almond p-5" role="gridcell">
           <div class="flex justify-between pb-3">

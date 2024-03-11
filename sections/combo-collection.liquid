@@ -15,13 +15,12 @@
 <div
   class="section-{{ section.id }}-padding"
   style="background-color: {{ section.settings.section_bg }}"
-  id="exclusive-descount"
->
+  id="exclusive-descount">
   <div class="container mx-auto px-4">
-    <h2 class="mb-6 font-AnekLatin-SemiBold text-woodsmoke text-[28px]/[32px]">
+    <h2 class="mb-7 font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:mb-5">
       {{ section.settings.heading }}
     </h2>
-    <ul class="grid grid-cols-2 gap-5 md:grid-cols-5">
+    <ul class="grid {% if section.settings.colleciton_grid_view %} grid-cols-2 {% else %} grid-flow-col auto-cols-[11rem] overflow-x-auto -mr-4 md:mr-0 {% endif %} gap-2 md:auto-cols-auto md:grid-flow-row md:grid-cols-5 md:gap-5">
       {%- assign featured_collection_products = featured_collection.products -%}
       {% assign product_count = featured_collection_products | size %}
       {% if product_count > 0 %}
@@ -43,126 +42,194 @@
                 alt="{{ card_product.featured_media.alt | escape }}"
                 class="motion-reduce h-[100%] w-[100%]"
                 {% unless lazy_load == false %}
-                  loading="lazy"
+                loading="lazy"
                 {% endunless %}
                 width="{{ card_product.featured_media.width }}"
-                height="{{ card_product.featured_media.height }}"
-              >
+                height="{{ card_product.featured_media.height }}">
             </div>
-            <div class="flex flex-col gap-[10px] p-4">
-              {% if section.settings.show_product_label != false %}
-                <div class="flex items-center justify-center bg-white-lilac px-[5px] py-[7px] font-AnekLatin-Medium text-[12px]/[16px] text-blue-marguerite">
-                  Shea + Aloe + Coco Butter
-                </div>
-              {% endif %}
+            <div class="flex flex-col">
               {% if section.settings.show_collection_tag != false %}
-                <span class="text-[14px]/[18px] text-woodsmoke text-opacity-60">{{ card_product.tags }}</span>
+                {% if card_product.tags != blank %}
+                  <span class="mx-1 mt-1 flex items-center justify-center bg-white-lilac px-3 py-2 text-center font-AnekLatin-SemiBold text-[12px]/[16px] text-blue-marguerite">
+                    {{- card_product.tags -}}
+                  </span>
+                {% endif %}
               {% endif %}
-              <h3 class="font-AnekLatin-SemiBold text-[18px]/[24px] text-woodsmoke">{{ card_product.title }}</h3>
-              <div class="mt-2 flex items-center gap-[10px]">
-                <img src="https://cdn.shopify.com/s/files/1/0831/6928/0289/files/Group_8791.png?v=1701683297" alt="">
-                <span class="text-[14px]/[22px] text-woodsmoke text-opacity-40">(49)</span>
+              <div class="flex flex-col gap-[10px] p-[14px]">
+                <h3 class="font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke md:text-[18px]/[24px]">
+                  {{ card_product.title | truncate: 24 }}
+                </h3>
+                <div id="rating" class="mb-3 mt-2 flex gap-2">
+                  <div class="flex items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16.667"
+                      height="16.66"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16.667"
+                      height="16.66"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16.667"
+                      height="16.66"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16.667"
+                      height="16.66"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16.667"
+                      height="16.66"
+                      viewBox="0 0 16.667 16.66">
+                      <path
+                        id="Path_13649"
+                        data-name="Path 13649"
+                        d="M110.852,1811.39l1.937-6.33-5.125-3.67H114l2-6.66,2,6.66h6.333l-5.125,3.67,1.938,6.33L116,1807.48Z"
+                        transform="translate(-107.664 -1794.73)"
+                        fill="#f2c94c" />
+                    </svg>
+                  </div>
+                  <span class="text-[14px]/[22px] text-woodsmoke text-opacity-40">(49)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="flex gap-1">
+                    <p class="truncate font-AnekLatin-SemiBold text-[20px]/[22px] text-woodsmoke">
+                      {{ card_product.price | money | remove: '.00' }}
+                    </p>
+                    <p class="truncate font-AnekLatin-SemiBold text-[16px]/[22px] text-woodsmoke text-opacity-50 line-through">
+                      {{ card_product.compare_at_price | money | remove: '.00' }}
+                    </p>
+                  </div>
+                  <span class="font-AnekLatin-SemiBold text-[12px]/[22px] text-blue-marguerite md:text-[13px]/[22px]">22% OFF</span>
+                </div>
+                <a
+                  href="{{ card_product.url }}"
+                  class="btn w-full min-w-fit"
+                  role="button">
+                  <span class="mb-[-2px] mt-[2px]">ADD TO CART</span>
+                </a>
               </div>
-              <div class="flex items-baseline gap-3">
-                <p class="truncate font-AnekLatin-Bold text-[20px]/[22px] text-woodsmoke">
-                  {{ card_product.price | money }}
-                </p>
-                <p class="truncate font-AnekLatin-Medium text-[20px]/[22px] text-woodsmoke text-opacity-50 line-through">
-                  {{ card_product.compare_at_price | money }}
-                </p>
-                <span class="font-AnekDevanagari-SemiBold text-[13px]/[22px] text-blue-marguerite">22% OFF</span>
-              </div>
-              <a
-                href="{{ card_product.url }}"
-                class="btn w-full min-w-fit"
-                role="button"
-              >
-                <span class="mb-[-2px] mt-[2px]">ADD TO CART</span>
-              </a>
             </div>
           </li>
         {% endfor %}
       {% endif %}
     </ul>
+    <ul id="carouselDots" class="flex gap-[5px] mt-8 justify-center items-center">
+      <li class="w-[7px] h-[7px] bg-cape-palliser rounded-full"></li>
+      <li class="w-[7px] h-[7px] bg-almond rounded-full"></li>
+      <li class="w-[7px] h-[7px] bg-almond rounded-full"></li>
+    </ul>
   </div>
 </div>
 {% schema %}
-{
-  "name": "Combo collection",
-  "class": "section-generic-product",
-  "tag": "section",
-  "settings": [
-    {
-      "type": "color",
-      "id": "section_bg",
-      "label": "Background color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Lorem Ipsum is simply dummy text"
-    },
-    {
-      "type": "header",
-      "content": "Featured Collection Info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_collection_tag",
-      "label": "Show Collection Tag",
-      "default": false
-    },
-    {
-      "type": "collection",
-      "id": "featured_collection",
-      "label": "Featured Collection"
-    },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "min": 2,
-      "max": 25,
-      "step": 1,
-      "default": 2,
-      "label": "t:sections.featured-collection.settings.products_to_show.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_product_label",
-      "label": "Show Product Label",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Bottom",
-      "default": 36
-    }
-  ],
-  "presets": [
-    {
-      "name": "Combo collection"
-    }
-  ]
-}
+  {
+    "name": "Combo collection",
+    "class": "section-generic-product",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Lorem Ipsum is simply dummy text"
+      },
+      {
+        "type": "header",
+        "content": "Featured Collection Info"
+      },
+      {
+        "type": "checkbox",
+        "id": "colleciton_grid_view",
+        "label": "Colleciton grid view",
+        "default": false
+      }, {
+        "type": "checkbox",
+        "id": "show_collection_tag",
+        "label": "Show Collection Tag",
+        "default": false
+      }, {
+        "type": "collection",
+        "id": "featured_collection",
+        "label": "Featured Collection"
+      }, {
+        "type": "range",
+        "id": "products_to_show",
+        "min": 2,
+        "max": 25,
+        "step": 1,
+        "default": 2,
+        "label": "t:sections.featured-collection.settings.products_to_show.label"
+      }, {
+        "type": "checkbox",
+        "id": "show_product_label",
+        "label": "Show Product Label",
+        "default": false
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 60
+      }
+    ],
+    "presets": [
+      {
+        "name": "Combo collection"
+      }
+    ]
+  }
 {% endschema %}

@@ -1,5 +1,8 @@
 {%- style -%}
   .section-{{ section.id }}-padding {
+    margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+  }
+  .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
@@ -9,13 +12,17 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+
 {%- endstyle -%}
 
 <div class="bg-merino section-{{ section.id }}-padding" style="background-color:{{ section.settings.section_bg }};">
   <div class="container mx-auto px-4">
-    <h2 class="mb-6 font-AnekLatin-Bold text-[28px]/[32px] text-woodsmoke md:mb-4 md:font-AnekLatin-SemiBold md:text-[42px]/[58px]">
-      {{ section.settings.title }}
-    </h2>
+    {% if section.settings.title != blank %}
+      <h2 class="mb-6 font-AnekLatin-Bold text-[28px]/[32px] text-woodsmoke md:mb-4 md:font-AnekLatin-SemiBold md:text-[42px]/[58px]">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
     <div class="text-[16px]/[22px] text-woodsmoke">{{ section.settings.description }}</div>
     <div id="Projects" class="py-6">
       <div class="flex items-center justify-between gap-4 py-3 mb-3">
@@ -25,17 +32,13 @@
           </h3>
         {% endif %}
         {% if section.settings.button_text != blank %}
-          <a
-            class="flex items-center gap-4 font-AnekLatin-SemiBold text-[14px]/[22px] text-flame-pea md:text-[20px]/[22px]"
-            href="{{ section.settings.button_link }}"
-          >
+          <a class="flex items-center gap-4 font-AnekLatin-SemiBold text-[14px]/[22px] text-flame-pea md:text-[20px]/[22px]" href="{{ section.settings.button_link }}">
             {{- section.settings.button_text }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="12.227"
               height="11.62"
-              viewBox="0 0 12.227 11.62"
-            >
+              viewBox="0 0 12.227 11.62">
               <path
                 id="Path_9837"
                 data-name="Path 9837"
@@ -48,10 +51,10 @@
           </a>
         {% endif %}
       </div>
-      <div class="no-scrollbar::-webkit-scrollbar no-scrollbar grid grid-cols-2 gap-4 overflow-x-auto md:grid-cols-4">
+      <div class="no-scrollbar::-webkit-scrollbar no-scrollbar grid auto-cols-[16rem] grid-flow-col gap-4 overflow-x-auto md:grid-cols-4">
         {% for block in section.blocks %}
           {% assign collection_data = block.settings.collections %}
-          <div class="relative">
+          <div class="relative col-span-1">
             <a href="{{ collection_data.url }}" class="block">
               {% if block.settings.collection_img != blank %}
                 {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg h-full w-full' }}
@@ -60,8 +63,7 @@
                   <img
                     src="{{collection_data.featured_image |  img_url: 'medium'}}"
                     alt="Product"
-                    class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center"
-                  >
+                    class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center">
                 </div>
               {% endif %}
               <div class="bg-white px-4 py-3 text-center font-AnekLatin-SemiBold text-[12px]/[22px] capitalize text-woodsmoke md:text-[18px]/[18px]">
@@ -75,88 +77,92 @@
   </div>
 </div>
 {% schema %}
-{
-  "name": "Discover Our Product",
-  "class": "section-discover-product",
-  "tag": "section",
-  "settings": [
-    {
-      "type": "color",
-      "id": "section_bg",
-      "label": "Background color",
-      "default": "#FAF7F1"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "Lorem Ipsum is simply dummy text"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "description",
-      "label": "Discription",
-      "default": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-    },
-    {
-      "type": "text",
-      "id": "collection_name",
-      "label": "Collection name"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "Button text"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link"
-    },
-    {
-      "type": "header",
-      "content": "Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Bottom",
-      "default": 36
-    }
-  ],
-  "blocks": [
-    {
-      "type": "Column",
-      "name": "Block",
-      "limit": 8,
-      "settings": [
-        {
-          "type": "collection",
-          "id": "collections",
-          "label": "Collections"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Discover Our Product"
-    }
-  ]
-}
+  {
+    "name": "Discover Our Product",
+    "class": "section-discover-product",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Background color",
+        "default": "#FAF7F1"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Lorem Ipsum is simply dummy text"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "description",
+        "label": "Discription",
+        "default": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+      },
+      {
+        "type": "text",
+        "id": "collection_name",
+        "label": "Collection name"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Button text"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "margin_top",
+        "min": -40,
+        "max": 40,
+        "step": 4,
+        "unit": "px",
+        "label": "Margin Top",
+        "default": -20
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "type": "Column",
+        "name": "Block",
+        "limit": 8,
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collections",
+            "label": "Collections"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Discover Our Product"
+      }
+    ]
+  }
 {% endschema %}

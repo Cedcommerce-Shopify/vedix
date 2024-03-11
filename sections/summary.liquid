@@ -1,0 +1,208 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div
+  class="section-{{ section.id }}-padding"
+>
+  <div class="container mx-auto px-4">
+    <div class="mb-4 flex items-center gap-x-[10px]">
+      <span class="max-w-[25px] flex-[0_0_100%]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          viewBox="0 0 25 25"
+        >
+          <g
+            id="Group_10169"
+            data-name="Group 10169"
+            transform="translate(-175 -429)">
+            <circle
+              id="Ellipse_22"
+              data-name="Ellipse 22"
+              cx="12.5"
+              cy="12.5"
+              r="12.5"
+              transform="translate(175 429)"
+              fill="#47944f" />
+            <path
+              id="Path_13906"
+              data-name="Path 13906"
+              d="M38.333,179.336,30,187.678l-2.5-2.5"
+              transform="translate(155 258)"
+              fill="none"
+              stroke="#fff"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.667" />
+          </g>
+        </svg>
+      </span>
+      <h2 class="font-AnekLatin-Bold text-[18px]/[24px] text-black md:text-[24px]/[32px]">
+        {{ section.settings.heading }}
+      </h2>
+    </div>
+    <div
+      class="rounded-[8px] border border-solid border-[#0000001A] px-3 py-5"
+      style="background-color:{{ section.settings.section_bg }};"
+    >
+      {%- assign logo = section.settings.logo -%}
+      <div class="mx-auto h-[50px] w-[50px] overflow-hidden rounded-full">
+        {% if logo != blank %}
+          {{ logo | image_url: width: logo.width | image_tag: class: 'w-full', loading: 'lazy' }}
+        {% else %}
+          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg h-full w-full' }}
+        {% endif %}
+      </div>
+      <div class="mx-auto mb-[20px] max-w-[140px]">
+        <h3 class="mt-2 border-b border-solid border-[#0000001A] border-opacity-50 pb-[10px] text-center font-AnekLatin-Medium text-[14px]/[24px] uppercase text-black">
+          {{ section.settings.title }}
+        </h3>
+      </div>
+      <p class="font-AnekLatin-Medium text-[14px]/[20px] text-black">
+        {{ section.settings.intro }}
+      </p>
+      <div class="border-1 mt-[8px] rounded-[4px] border border-[#0000001A] bg-white p-[12px]">
+        {%- for block in section.blocks -%}
+          <div class="mb-[16px] font-AnekLatin-Medium text-[14px]/[24px] text-black">{{ block.settings.title }}</div>
+        {%- endfor -%}
+        <div class="flex flex-col items-center justify-center text-center">
+          <a href="" class="font-AnekLatin-Medium text-[12px]/[24px] text-cod-gray text-opacity-50">
+            {{- section.settings.cta_text }}
+          </a>
+          <svg
+            fill="none"
+            stroke="currentColor"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+      </div>
+      <p class="mt-[18px] font-AnekLatin-Medium text-[12px]/[24px] text-cod-gray text-opacity-50">
+        {{ section.settings.note }}
+      </p>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Summary",
+  "class": "shopify-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#F7EEDF"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Thank you for completing your Vedix Prakriya Followup"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "SUMMARY"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Your customized hair care routine seems to be working well, but things could be better."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Show me these changes & tips"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Bottom note",
+      "default": "Your next follow-up will be in 2 weeks."
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Text List",
+      "type": "text_list",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Description",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora possimus dignissimos id quod laborum praesentium? Totam assumenda minus ab, a praesentium quaerat eius velit deserunt quam dignissimos magni natus nostrum.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Summary",
+      "blocks": [
+        {
+          "type": "text_list"
+        },
+        {
+          "type": "text_list"
+        },
+        {
+          "type": "text_list"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

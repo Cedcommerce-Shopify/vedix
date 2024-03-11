@@ -16,11 +16,11 @@
   style="background-color:{{ section.settings.section_bg }};"
 >
   <div class="container mx-auto px-4">
-    <h2 class="mb-4 font-AnekLatin-Bold text-[28px]/[32px] text-woodsmoke md:font-AnekLatin-SemiBold md:text-[42px]/[58px]">
+    <h2 class="mb-2 font-AnekLatin-Bold text-[28px]/[32px] text-woodsmoke md:mb-5 md:font-AnekLatin-SemiBold md:text-[42px]/[58px]">
       {{ section.settings.heading }}
     </h2>
-    <div class="text-[16px]/[22px] text-woodsmoke">{{ section.settings.sub_heading }}</div>
-    <ul class="mt-5 grid grid-cols-2 gap-x-2 gap-y-3 md:mt-9 md:grid-cols-4">
+    <div class="mb-6 text-[16px]/[22px] text-woodsmoke md:mb-9">{{ section.settings.sub_heading }}</div>
+    <ul class="-mr-4 mt-5 grid auto-cols-[10rem] grid-flow-col gap-x-2 gap-y-3 overflow-x-auto md:mt-9 md:auto-cols-[16rem] md:grid-cols-4 md:gap-4">
       {% for block in section.blocks %}
         <li class="flex">
           <div class="w-full bg-white">
@@ -93,7 +93,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Top",
-      "default": 36
+      "default": 60
     },
     {
       "type": "range",
@@ -103,7 +103,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding Bottom",
-      "default": 36
+      "default": 60
     }
   ],
   "blocks": [

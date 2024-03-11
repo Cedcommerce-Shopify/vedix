@@ -1,0 +1,302 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding" style="background-color: {{ section.settings.section_bg }}">
+  <div class="container mx-auto px-4">
+    <div class="mb-8 flex gap-4">
+      <div class="relative inline-block h-[60px] w-full max-w-[60px] flex-[0_0_100%] overflow-hidden rounded-full before:inline-block before:h-0 before:w-0 before:pb-[100%] before:content-['']">
+        {% if section.settings.user_image != blank %}
+          <img
+            src="{{ section.settings.user_image |  img_url: 'master' }}"
+            width="{{ section.settings.user_image.width }}"
+            height="{{ section.settings.user_image.height }}"
+            loading="lazy"
+            alt="{{ section.settings.user_image.alt }}"
+            class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center">
+        {% else %}
+          {{
+            'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-center'
+          }}
+        {% endif %}
+      </div>
+      <div class="flex max-w-[calc(100%_-_76px)] flex-[0_0_100%] flex-col">
+        <h2 class="font-AnekLatin-Bold text-[20px]/[26px] text-woodsmoke md:text-[42px]/[58px]">
+          {{ section.settings.heading }}
+        </h2>
+        <div class="font-AnekLatin-Medium text-[14px]/[16px] text-burnt-sienna text-opacity-80">
+          {{ section.settings.description }}
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col">
+      <div class="flex items-baseline justify-between gap-4">
+        <h3 class="mb-5 font-AnekLatin-Medium text-[24px]/[32px] text-woodsmoke">
+          {{ section.settings.section_heading }}
+        </h3>
+        <span class="flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="8.013"
+            height="13.227"
+            viewBox="0 0 8.013 13.227">
+            <path
+              id="Vector"
+              d="M1,11.4,6.6,6.2,1,1"
+              transform="translate(0.413 0.413)"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2" />
+          </svg>
+        </span>
+      </div>
+      <ul class="mb-8 ml-9 flex gap-5">
+        <li class="relative">
+          <span class="block h-[48px] w-[48px] overflow-hidden rounded-full border border-solid border-black border-opacity-10"><img src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/Group_9904_2x_374bb90e-27bd-4b29-a6a4-88c5426e6920.png?v=1706783563" alt=""></span>
+        </li>
+        <li class="relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:h-full before:w-full before:rounded-full before:border-2 before:border-solid before:border-red-600 before:content-[''] after:absolute after:left-1/2 after:top-full after:h-[32px] after:w-[2px] after:bg-red-600 after:content-['']">
+          <span class="block h-[48px] w-[48px] overflow-hidden rounded-full border border-solid border-black border-opacity-10"><img src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/Group_9988_2x_029fe49a-915c-4bd3-a4fc-224d3114f339.png?v=1706783563" alt=""></span>
+        </li>
+        <li class="relative">
+          <span class="block h-[48px] w-[48px] overflow-hidden rounded-full border border-solid border-black border-opacity-10"><img src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/Group_9989_2x_ac500727-5288-48ec-b497-035965942b5c.png?v=1706783563" alt=""></span>
+        </li>
+      </ul>
+      <div class="mb-6 border border-solid border-black bg-romance">
+        <div class="flex items-center gap-2 border-b border-solid border-black p-2">
+          <div class="flex max-w-[calc(100%_-_30%_-_16px)] flex-[0_0_100%] flex-col">
+            <h3 class="font-AnekLatin-SemiBold text-[24px]/[32px] text-mine-shaft">Pitta</h3>
+            <div class="flex items-center gap-1">
+              <p class="font-AnekLatin-SemiBold text-[10px]/[32px] text-mine-shaft">
+                Dosha Imbalance
+                <ul class="flex gap-[1px]">
+                  <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                  <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                  <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                  <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                  <li class="h-[12px] w-[10px] bg-burnt-sienna"></li>
+                </ul>
+                <span class="font-AnekLatin-SemiBold text-[12px]/[32px] text-burnt-sienna">50%</span>
+              </p>
+            </div>
+          </div>
+          <div class="p-4">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0058/8827/8595/files/pitta_Icon_2x_61e80f7c-e0b8-4ea8-b1ed-685f0bf6d4b6.png?v=1706783563"
+              loading="lazy"
+              alt="product_image"
+              class="h-full w-full">
+          </div>
+        </div>
+        <div class="p-2">
+          <p class="text-[16px]/[22px] text-woodsmoke">
+            Imbalance of Pitta Dosha can lead to premature greying, scalp irritation, hair loss, hair thinning and more.
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-5 border border-solid border-dove-gray bg-white p-3">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12.195"
+              height="13.488"
+              viewBox="0 0 12.195 13.488">
+              <g id="package" transform="translate(-1.399 -1.182)">
+                <path
+                  id="Path_93"
+                  data-name="Path 93"
+                  d="M10.313,6.277,4.688,3.033"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="0.938" />
+                <path
+                  id="Path_94"
+                  data-name="Path 94"
+                  d="M13.125,10.4v-5A1.25,1.25,0,0,0,12.5,4.318l-4.375-2.5a1.25,1.25,0,0,0-1.25,0L2.5,4.318A1.25,1.25,0,0,0,1.875,5.4v5A1.25,1.25,0,0,0,2.5,11.48l4.375,2.5a1.25,1.25,0,0,0,1.25,0l4.375-2.5a1.25,1.25,0,0,0,.625-1.081Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="0.938" />
+                <path
+                  id="Path_95"
+                  data-name="Path 95"
+                  d="M2.039,4.752,7.5,7.908l5.456-3.156"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="0.938" />
+                <path
+                  id="Path_96"
+                  data-name="Path 96"
+                  d="M7.5,14.2V7.9"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="0.938" />
+              </g>
+            </svg>
+          </span>
+          <h4 class="flex items-center gap-2 font-AnekLatin-SemiBold text-[12px]/[18px] text-black">
+            My Orders
+            <span class="inline-flex">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="5"
+                height="10"
+                viewBox="0 0 8.013 13.227">
+                <path
+                  id="Vector"
+                  d="M1,11.4,6.6,6.2,1,1"
+                  transform="translate(0.413 0.413)"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2" />
+              </svg>
+            </span>
+          </h4>
+        </div>
+        <p class="text-[12px]/[18px] text-black text-opacity-50">1 order on the way</p>
+      </div>
+
+      <div class="mt-8 flex flex-col gap-4 border border-solid border-dove-gray bg-white p-4">
+        <div class="flex items-baseline justify-between">
+          <h4 class="font-AnekLatin-Bold text-[16px]/[26px] text-black">{{ section.settings.renew_heading }}</h4>
+          <span class="inline-flex items-center rounded-[8px] bg-quarter-spanish-white px-4 py-1 font-AnekLatin-SemiBold text-[10px]/[14px] uppercase text-cape-palliser">
+            {{- section.settings.renew_tag -}}
+          </span>
+        </div>
+        <div class="text-[14px]/[18px] text-black">{{ section.settings.renew_description }}</div>
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-[14px]/[26px] text-burnt-sienna">Edit Routine</a>
+          {% if section.settings.button_text != blank %}
+            <a
+              href="{{ section.settings.button_link }}"
+              class="btn min-w-fit"
+              role="button">
+              <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% render 'bottom-fixed-menu' %}
+{% render 'popup-ayurvedic-profile' %}
+{% render 'popup-membership' %}
+{% render 'popup-onboarding' %}
+{% render 'popup-routine-instruction' %}
+{% render 'popup-track-your-progress' %}
+{% schema %}
+  {
+    "name": "Membership Status",
+    "class": "section-unique-insights",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Background color",
+        "default": "#FAF7F1"
+      },
+      {
+        "type": "image_picker",
+        "id": "user_image",
+        "label": "User image"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Lorem Ipsum is simply dummy text"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "description",
+        "label": "Description",
+        "default": "labore et dolore magna aliquyam erat, sed diam voluptua."
+      }, {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section heading",
+        "default": "Lorem Ipsum is simply dummy text"
+      }, {
+        "type": "header",
+        "content": "Renew"
+      }, {
+        "type": "text",
+        "id": "renew_heading",
+        "label": "Heading",
+        "default": "Lorem Ipsum is simply dummy text"
+      }, {
+        "type": "text",
+        "id": "renew_tag",
+        "label": "Tag",
+        "default": "Important"
+      }, {
+        "type": "inline_richtext",
+        "id": "renew_description",
+        "label": "Description",
+        "default": "Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+      }, {
+        "type": "header",
+        "content": "Buttons"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Button text"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "Membership Status"
+      }
+    ]
+  }
+{% endschema %}

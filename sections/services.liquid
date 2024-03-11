@@ -1,10 +1,10 @@
 <div
-  class="{% if section.settings.section_border == true %}border-y border-solid border-mine-shaft{% endif %} px-6 py-3"
+  class="{% if section.settings.section_border == true %}border-y border-solid border-mine-shaft{% endif %}"
   style="background-color: {{ section.settings.section_bg }};"
 >
   <div class="container mx-auto">
     <ul
-      class="flex-no-wrap no-scrollbar::-webkit-scrollbar no-scrollbar flex touch-auto items-center justify-start gap-x-4 overflow-x-auto md:gap-x-24 lg:justify-center"
+      class="flex-no-wrap scrollbar flex touch-auto items-center justify-start gap-x-4 overflow-x-auto py-3 md:gap-x-[70px]"
       role="list"
     >
       {%- for block in section.blocks -%}

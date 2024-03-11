@@ -1,0 +1,104 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="section-{{ section.id }}-padding" style="background-color:{{ section.settings.bg_color }};">
+  <div class="container mx-auto px-4 text-center">
+    <p class="mb-[16px] text-[14px]/[18px] text-thunder">
+      {{ section.settings.text }}
+    </p>
+    <a
+      href="{{ section.settings.help_link }} "
+      aria-label="help-button"
+      class="text-[14px]/18px] inline-flex font-AnekLatin-Bold text-thunder underline"
+    >
+      {{ section.settings.help_text }}
+    </a>
+    <div class="mt-4">
+      <a href="{{ section.settings.button_link }} " class="btn min-w-[196px] bg-transparent text-black">
+        <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
+      </a>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Need help",
+  "class": "shopify-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color",
+      "default": "#FAF7F1"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Need more help with the routine, have an allergy and want to change products ?"
+    },
+    {
+      "type": "text",
+      "id": "help_text",
+      "label": "Help Text",
+      "default": "Need more help ?"
+    },
+    {
+      "type": "url",
+      "id": "help_link",
+      "label": "Help Link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Go To Dashboard"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Need help"
+    }
+  ]
+}
+{% endschema %}

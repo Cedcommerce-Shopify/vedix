@@ -7,6 +7,21 @@ module.exports = {
 
   theme: {
     extend: {
+      container: {
+        // you can configure the container to be centered
+        center: true,
+
+        // or have default horizontal padding
+        padding: "1rem",
+
+        // Customized breakpoints for all screens
+        screens: {
+          sm: "640px",
+          md: "768px",
+          lg: "980px",
+          xl: "1090px",
+        },
+      },
       colors: {
         givry: "#F8E4C3",
         "ecru-white": "#F9F7F0",
@@ -64,6 +79,22 @@ module.exports = {
         tan: "#D6B793",
         "cod-gray": "#1E1E1E",
         zanah: "#C9E7CA",
+        "orange-white": "#FEFBF0",
+        romance: "#FFFDFA",
+        thunder: "#231F20",
+        gamboge: "#E8A013",
+        harp: "#E8F3EE",
+        genoa: "#178755",
+        cinderella: "#FBD0CC",
+        flamingo: "#EF4648",
+        "regent-gray": "#8897A2",
+        sandal: "#B29577",
+        nandor: "#4F5757",
+        "dark-ebony": "#4D2608",
+        apple: "#38A245",
+        "mandys-pink": "#F6C5BE",
+        silver: "#B9B9B9",
+        alabaster: "#F8F8F8",
       },
       fontFamily: {
         "AnekLatin-Regular": ["AnekLatin-Regular", "sans-serif"],

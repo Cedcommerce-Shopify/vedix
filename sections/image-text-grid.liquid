@@ -17,18 +17,14 @@
     <h2 class="mb-6 text-left font-AnekLatin-SemiBold text-[28px]/[32px] text-woodsmoke md:font-AnekLatin-Bold md:text-[42px]/[58px]">
       {{ section.settings.heading }}
     </h2>
-    <div class="mb-8 grid grid-cols-1 gap-x-8 gap-y-4 md:mb-12 md:grid-cols-3" role="grid" data-slider>
+    <ul class="-mr-4 mb-8 grid auto-cols-[21rem] grid-flow-col gap-x-5 gap-y-4 overflow-x-auto md:mb-12 md:mr-0 md:grid-cols-3 md:gap-x-8" role="grid">
       {%- for block in section.blocks -%}
-        <div class="border border-solid border-woodsmoke">
+        <li class="border border-solid border-woodsmoke">
           {%- assign image = block.settings.image -%}
           <div class="block border-b border-solid border-woodsmoke bg-bridal-heath">
             {% if image != blank %}
               {{
-                image
-                | image_url: width: image.width
-                | image_tag:
-                  class: 'bg-ecru-white h-40 h-full w-full object-cover object-center border-b-1 ',
-                  loading: 'lazy'
+                image | image_url: width: image.width | image_tag: class: 'bg-ecru-white h-40 h-full w-full object-cover object-center border-b-1', loading: 'lazy'
               }}
             {% else %}
               {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
@@ -41,30 +37,28 @@
             <h4 class="mb-4 font-AnekLatin-Medium text-[14px]/[22px] text-woodsmoke md:font-AnekLatin-SemiBold md:text-[16px]/[22px]">
               {{ block.settings.subheading }}
             </h4>
-            <div
-              id="v_icon_check"
-              class="mb-8 flex flex-col flex-wrap justify-center gap-2 text-left text-[16px]/[20px] text-woodsmoke"
-            >
+            <div id="v_icon_check" class="mb-4 flex flex-col flex-wrap justify-center gap-2 text-left text-[16px]/[20px] text-woodsmoke">
               {{ block.settings.paragraph }}
             </div>
+            <a href="#" class="font-AnekLatin-SemiBold text-[12px]/[18px] text-burnt-sienna">
+              {{- block.settings.read_more -}}
+            </a>
           </div>
-        </div>
+        </li>
       {%- endfor -%}
-    </div>
+    </ul>
     {% if section.settings.button_text != blank %}
       <div class="text-center">
         <a
           href="{{ section.settings.button_link }}"
           class="btn"
-          role="button"
-        >
+          role="button">
           <span class="mb-[-2px] mt-[2px]">{{ section.settings.button_text }}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="11.796"
             height="10.315"
-            viewBox="0 0 11.796 10.315"
-          >
+            viewBox="0 0 11.796 10.315">
             <g
               id="Group_8849"
               data-name="Group 8849"
@@ -89,94 +83,96 @@
   </div>
 </div>
 {% schema %}
-{
-  "name": "Image text grid",
-  "max_blocks": 4,
-  "tag": "section",
-  "settings": [
-    {
-      "type": "color",
-      "id": "section_bg",
-      "label": "Background color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Lorem Ipsum is simply dummy text"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "Button text"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link"
-    },
-    {
-      "type": "header",
-      "content": "Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding Bottom",
-      "default": 36
-    }
-  ],
-  "blocks": [
-    {
-      "type": "column",
-      "name": "Block",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Product Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Product Title",
-          "default": "Lorem Ipsum is simply dummy text"
-        },
-        {
-          "type": "text",
-          "id": "subheading",
-          "label": "Product Sub-heading",
-          "default": "Vivamus semper pharetra quam"
-        },
-        {
-          "type": "richtext",
-          "id": "paragraph",
-          "label": "Paragraph",
-          "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Image text grid"
-    }
-  ]
-}
+  {
+    "name": "Image text grid",
+    "max_blocks": 4,
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Lorem Ipsum is simply dummy text"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }, {
+        "type": "header",
+        "content": "Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Product Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Product Title",
+            "default": "Lorem Ipsum is simply dummy text"
+          },
+          {
+            "type": "text",
+            "id": "subheading",
+            "label": "Product Sub-heading",
+            "default": "Vivamus semper pharetra quam"
+          },
+          {
+            "type": "richtext",
+            "id": "paragraph",
+            "label": "Paragraph",
+            "default": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>"
+          }, {
+            "type": "text",
+            "id": "read_more",
+            "label": "Button text",
+            "default": "Read More"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image text grid"
+      }
+    ]
+  }
 {% endschema %}
